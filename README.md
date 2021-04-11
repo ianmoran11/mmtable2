@@ -10,7 +10,7 @@ The goal of mmtable2 is to provide a ggplot2-like interface for untidy tables. I
 Installation
 ------------
 
-This probably to buggy for installation, but feel free to clone!
+This package is probably too buggy for a smooth installation experience, but feel free to clone and tinker!
 
 Example
 -------
