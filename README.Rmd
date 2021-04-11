@@ -33,11 +33,13 @@ This probably to buggy for installation, but feel free to clone!
 # Load all packages
 # rm(list = ls())
 # devtools::build()
+setwd("~/main/projects/mmtable2/")
 library(tibble)
+library("gtsummary")
 library(gt)
 library(tidyverse)
-# library(mmtable2)
-devtools::load_all()
+library(mmtable2)
+# devtools::load_all()
 # library(mmtable2)
 # list.files("R",full.names = T) %>% map(source)
 ```
@@ -49,6 +51,11 @@ knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34
 ```
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
+# source("./methods/divide_mmtable.R")
+# source("./methods/multiply_mmtable_.R")
+# source("./methods/plus_mmtable_.R")
+# source("./methods/print_mmtable.R")
+
 source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
 source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
 source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
@@ -56,7 +63,12 @@ source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/pri
 ```
 
 
-```{r cars, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+student_df
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 table1 <-
   student_df %>%
   mmtable(table_data = value)  +
@@ -65,6 +77,15 @@ table1 <-
   header_left(class) +
   header_left_top(subject)
 
+try(table1 %>% gtsave("table1.png"))
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("table1.png")
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 table1.1 <-
   student_df_1 %>%
   mmtable(table_data = value)  +
@@ -73,6 +94,14 @@ table1.1 <-
   header_left(class) +
   header_left_top(subject)
 
+try(table1.1 %>% gtsave("table1_1.png"))
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("table1_1.png")
+```
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 table2 <-
   student_df_2 %>%
   mmtable(table_data = value)  +
@@ -81,10 +110,51 @@ table2 <-
   header_left(class) +
   header_left_top(subject)
 
-
-table1             +  table_title("Single Table")    %>% print_knitr
-table1 / table1.1  +  table_title("Table Quotient")  %>% print_knitr
-table1 * table1.1  +  table_title("Table Product")   %>% print_knitr
-table1 + table2    +  table_title("Table Sum")       %>% print_knitr
+try(table2 %>% gtsave("table2.png"))
 ```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("table2.png")
+```
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+single_table <- table1 +  table_title("Single Table")  
+try(single_table  %>% gtsave("single_table.png"))
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("single_table.png")
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
+try(quotient_table  %>% gtsave("quotient_table.png"))
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("quotient_table.png")
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+product_table <- table1 * table1.1  +  table_title("Table Product") 
+try(product_table  %>% gtsave("product_table.png"))
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("product_table.png")
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+sum_table <- table1 + table2    +  table_title("Table Sum")     
+try(sum_table  %>% gtsave("sum_table.png"))
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("sum_table.png")
+```
+
+
 
