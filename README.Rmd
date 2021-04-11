@@ -170,7 +170,7 @@ library(mmtable2)
 
 
 
-```{r cars, message=FALSE, warning=FALSE}
+```{r cars, message=FALSE, warning=FALSE, paged.print=FALSE}
 table1 <-
   student_df %>%
   mmtable(table_data = value)  +
