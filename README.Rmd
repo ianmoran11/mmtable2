@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -29,147 +31,28 @@ This probably to buggy for installation, but feel free to clone!
 
 ```{r example1, message=FALSE, warning=FALSE, include=FALSE}
 # Load all packages
+# rm(list = ls())
+# devtools::build()
 library(tibble)
 library(gt)
 library(tidyverse)
-library(mmtable2)
-# devtools::load_all()
+# library(mmtable2)
+devtools::load_all()
 # library(mmtable2)
 # list.files("R",full.names = T) %>% map(source)
-```
-
-```{r example2, message=FALSE, warning=FALSE, include=FALSE}
-# Source method /
-
-`/.mmtable` <- function(mmtable1,mmtable2){
-
-  # mmtable1 <- table1
-  # mmtable2 <- table1
-
-#  Get table 1 attributes
-    # Give table_id_header
-  attr(mmtable1,"_original_data") <- attr(mmtable1,"_original_data") %>% mutate(table_id_row = "Table 1")
-    # Get header info
-  header_info_1 <- attr(mmtable1,"_header_info")
-  # Update header info
-  header_info_1$row_header_df <- header_info_1$row_header_df %>% bind_rows(tibble(row_header_vars = "table_id_row", direction = "left_top"), .)
-  attr(mmtable1,"_header_info") <- header_info_1
-
-
-# Get table 2 attibutes
-  attr(mmtable2,"_original_data") <- attr(mmtable2,"_original_data") %>% mutate(table_id_row = "Table 2")
-  # Get header info
-  header_info_2 <- attr(mmtable2,"_header_info")
-  # Update header info
-  header_info_2$row_header_df <- header_info_2$row_header_df %>% bind_rows(tibble(row_header_vars = "table_id_row", direction = "left_top"), .)
-  attr(mmtable2,"_header_info") <- header_info_2
-
-  mmtable1 * mmtable2
-
-}
-
-```
-
-```{r example3, message=FALSE, warning=FALSE, include=FALSE}
-# Source method +
-
-`+.mmtable` <- function(mmtable1,mmtable2){
-
-  # browser()
-
-  # mmtable1 <- table1
-  # mmtable2 <- table1
-
-  if(is.null(mmtable2)){return(mmtable1)}
-
-
-  if("mmtable_header" %in% class(mmtable2)){
-    return(mmtable1 * mmtable2)
-  }
-
-
-  if("mmtable_table_item" %in% class(mmtable2)){
-    # return(mmtable1 * mmtable2)
-
-    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
-
-    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
-
-    class(return_table) <- append("mmtable",class(return_table))
-
-    return(return_table)
-
-      }
-
-  #  Get table 1 attributes
-  # Give table_id_header
-  attr(mmtable1,"_original_data") <- attr(mmtable1,"_original_data") %>% mutate(table_id_col = "Table 1")
-  # Get header info
-  header_info_1 <- attr(mmtable1,"_header_info")
-  # Update header info
-  header_info_1$col_header_df <- header_info_1$col_header_df %>% bind_rows(tibble(col_header_vars = "table_id_col", direction = "top_left"), .)
-  attr(mmtable1,"_header_info") <- header_info_1
-
-
-  # Get table 2 attibutes
-  attr(mmtable2,"_original_data") <- attr(mmtable2,"_original_data") %>% mutate(table_id_col = "Table 2")
-  # Get header info
-  header_info_2 <- attr(mmtable2,"_header_info")
-  # Update header info
-  header_info_2$col_header_df <- header_info_2$col_header_df %>% bind_rows(tibble(col_header_vars = "table_id_col", direction = "top_left"), .)
-  attr(mmtable2,"_header_info") <- header_info_2
-
-  attributes(mmtable1)
-  attributes(mmtable2)
-
-  mmtable1 * mmtable2
-
-
-}
-
-```
-
-```{r example4, message=FALSE, warning=FALSE, include=FALSE}
-
-# source method *
-
-`*.mmtable` <-function(mmtable1,mmtable2){
-
-  # browser()
-
-  if(is.null(mmtable2)){return(mmtable1)}
-
-  headers_1 <- attributes(mmtable1) %>% .[["_header_info"]]
-  headers_2 <- attributes(mmtable2) %>% .[["_header_info"]]
-
-  original_data_1 <- attributes(mmtable1) %>% .[["_original_data"]]
-  original_data_2 <- attributes(mmtable2) %>% .[["_original_data"]]
-
-  original_data <- bind_rows(original_data_2,original_data_1)
-
-  col_header_df_1 <- headers_1$col_header_df %>% map_dfr(as.character)
-  row_header_df_1 <- headers_1$row_header_df %>% map_dfr(as.character)
-  data_vars_1 <-     headers_1$data_vars
-
-  col_header_df_2 <- headers_2$col_header_df %>% map_dfr(as.character)
-  row_header_df_2 <- headers_2$row_header_df %>% map_dfr(as.character)
-  data_vars_2 <-     headers_2$data_vars
-
-  col_header_df_temp <-  bind_rows(col_header_df_2,col_header_df_1) %>% filter(complete.cases(.)) %>% unique()
-  row_header_df_temp <-  bind_rows(row_header_df_2,row_header_df_1) %>% filter(complete.cases(.)) %>% unique()
-
-  table_constructor(
-    df = original_data,
-    col_header_df = col_header_df_temp,
-    row_header_df = row_header_df_temp,data_vars = data_vars_1)
-
-}
 ```
 
 Here's a GIF demonstrating how to use mmtable2:
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
 knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif")
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
+source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
+source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
+source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/print_mmtable.R")
 ```
 
 
@@ -198,9 +81,10 @@ table2 <-
   header_left(class) +
   header_left_top(subject)
 
-table1             +  table_title("Single Table")
-table1 / table1.1  +  table_title("Table Quotient")
-table1 * table1.1  +  table_title("Table Product")
-table1 + table2    +  table_title("Table Sum")
+
+table1             +  table_title("Single Table")    %>% print_knitr
+table1 / table1.1  +  table_title("Table Quotient")  %>% print_knitr
+table1 * table1.1  +  table_title("Table Product")   %>% print_knitr
+table1 + table2    +  table_title("Table Sum")       %>% print_knitr
 ```
 
