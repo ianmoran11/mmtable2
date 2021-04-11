@@ -13,6 +13,8 @@ header_top <- function(variable){
     )
 
   class(gtable) <- append("mmtable",class(gtable))
+  class(gtable) <- append("mmtable_header",class(gtable))
+
 
   gtable
 
@@ -32,6 +34,7 @@ header_top_left <- function(variable){
     )
 
   class(gtable) <- append("mmtable",class(gtable))
+  class(gtable) <- append("mmtable_header",class(gtable))
 
   gtable
 
@@ -51,6 +54,7 @@ header_left <- function(variable){
       col_header_df = tibble(col_header_vars = c(NA), direction = c(NA))
     )
   class(gtable) <- append("mmtable",class(gtable))
+  class(gtable) <- append("mmtable_header",class(gtable))
 
   gtable
 
@@ -70,6 +74,7 @@ header_left_top <- function(variable){
       col_header_df = tibble(col_header_vars = c(NA), direction = c(NA))
     )
   class(gtable) <- append("mmtable",class(gtable))
+  class(gtable) <- append("mmtable_header",class(gtable))
 
   gtable
 

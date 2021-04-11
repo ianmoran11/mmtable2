@@ -83,6 +83,13 @@ student_df_3 <- tribble(
 
 # source("R/plus_mmtable.R")
 
+list.files("R",full.names = T) %>% map(source)
+
+table1 %>%
+  tab_header(
+    title = "Large Landmasses of the World",
+    subtitle = "The top ten largest are presented"
+  )
 
 table1 <-  student_df %>%
   mmtable(table_data = value)  +
@@ -108,7 +115,9 @@ table3 <-  student_df_3 %>%
 table1
 table2
 table1 + table1
-table1 + table3
+table1 * table3
+
+table1 / table3
 
 
 

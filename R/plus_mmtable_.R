@@ -1,7 +1,30 @@
-`*.mmtable` <- function(){
+`+.mmtable` <- function(mmtable1,mmtable2){
+
+  # browser()
 
   # mmtable1 <- table1
   # mmtable2 <- table1
+
+  if(is.null(mmtable2)){return(mmtable1)}
+
+
+  if("mmtable_header" %in% class(mmtable2)){
+    return(mmtable1 * mmtable2)
+  }
+
+
+  if("mmtable_table_item" %in% class(mmtable2)){
+    # return(mmtable1 * mmtable2)
+
+    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
+
+    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
+
+    class(return_table) <- append("mmtable",class(return_table))
+
+    return(return_table)
+
+      }
 
   #  Get table 1 attributes
   # Give table_id_header
@@ -24,7 +47,7 @@
   attributes(mmtable1)
   attributes(mmtable2)
 
-  mmtable1 + mmtable2
+  mmtable1 * mmtable2
 
 
 }
