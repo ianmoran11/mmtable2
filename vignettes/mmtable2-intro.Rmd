@@ -82,7 +82,7 @@ student_df_1 <- tribble(
   "Performance","Music","Paul",1,"Grade 2",
   "Performance","Drama","Paul",5,"Grade 2")
 
-student_df_3 <- tribble(
+student_df_2 <- tribble(
   ~subject, ~class, ~student, ~value, ~grade,
   "Humanities","Classics","Matilda",5, "Grade 3",
   "Humanities","History","Matilda",6,  "Grade 3",
@@ -100,6 +100,9 @@ student_df_3 <- tribble(
   "Humanities","History","Paul",8,     "Grade 4",
   "Performance","Music","Paul",1,      "Grade 4",
   "Performance","Drama","Paul",5,      "Grade 4")
+
+usethis::use_data(student_df_1,overwrite = T)
+usethis::use_data(student_df_2,overwrite = T)
 
 source("R/plus_mmtable.R")
 
