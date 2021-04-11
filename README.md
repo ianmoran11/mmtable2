@@ -12,7 +12,7 @@ tables. It does this by introducing algabraic untidy tables.
 
 ## Installation
 
-This probably to buggy for installation, but feel free to clone\!
+This package is probably too buggy for installation, but feel free to clone\!
 
 ## Example
 
