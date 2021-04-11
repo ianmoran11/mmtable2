@@ -58,8 +58,6 @@ try(table1 %>% gtsave("table1.png"))
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
-<img src="table1.png" width="800px" />
-
 ``` r
 table1.1 <-
   student_df_1 %>%
@@ -74,9 +72,7 @@ try(table1.1 %>% gtsave("table1_1.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
-
-<img src="table1_1.png" width="800px" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ``` r
 table2 <-
@@ -92,9 +88,7 @@ try(table2 %>% gtsave("table2.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
-
-<img src="table2.png" width="800px" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
 ``` r
 single_table <- table1 +  table_title("Single Table")  
@@ -103,9 +97,7 @@ try(single_table  %>% gtsave("single_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
-
-<img src="single_table.png" width="800px" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 ``` r
 quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
@@ -114,9 +106,7 @@ try(quotient_table  %>% gtsave("quotient_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
-
-<img src="quotient_table.png" width="800px" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
 ``` r
 product_table <- table1 * table1.1  +  table_title("Table Product") 
@@ -125,9 +115,7 @@ try(product_table  %>% gtsave("product_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-15-1.png" width="100%" />
-
-<img src="product_table.png" width="800px" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
 
 ``` r
 sum_table <- table1 + table2    +  table_title("Table Sum")     
@@ -136,6 +124,4 @@ try(sum_table  %>% gtsave("sum_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-17-1.png" width="100%" />
-
-<img src="sum_table.png" width="800px" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />

@@ -25,7 +25,7 @@ It does this by introducing algabraic untidy tables.
 
 ## Installation
 
-This probably to buggy for installation, but feel free to clone!
+This package is probably too buggy for a smooth installation experience, but feel free to clone and tinker!
 
 ## Example
 
@@ -80,10 +80,6 @@ table1 <-
 try(table1 %>% gtsave("table1.png"))
 ```
 
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("table1.png")
-```
-
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 table1.1 <-
@@ -95,10 +91,6 @@ table1.1 <-
   header_left_top(subject)
 
 try(table1.1 %>% gtsave("table1_1.png"))
-```
-
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("table1_1.png")
 ```
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
@@ -113,47 +105,24 @@ table2 <-
 try(table2 %>% gtsave("table2.png"))
 ```
 
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("table2.png")
-```
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 single_table <- table1 +  table_title("Single Table")  
 try(single_table  %>% gtsave("single_table.png"))
 ```
-
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("single_table.png")
-```
-
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
 try(quotient_table  %>% gtsave("quotient_table.png"))
 ```
 
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("quotient_table.png")
-```
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 product_table <- table1 * table1.1  +  table_title("Table Product") 
 try(product_table  %>% gtsave("product_table.png"))
 ```
 
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("product_table.png")
-```
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 sum_table <- table1 + table2    +  table_title("Table Sum")     
 try(sum_table  %>% gtsave("sum_table.png"))
-```
-
-```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("sum_table.png")
 ```
 
 
