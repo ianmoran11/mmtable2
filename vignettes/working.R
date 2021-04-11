@@ -61,6 +61,3 @@ table1 + table2   + table_title("Table Sum")
 
 
 
-
-
-

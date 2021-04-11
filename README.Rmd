@@ -27,8 +27,6 @@ This probably to buggy for installation, but feel free to clone!
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example1, message=FALSE, warning=FALSE, include=FALSE}
 # Load all packages
 library(tibble)
@@ -168,6 +166,11 @@ library(mmtable2)
 }
 ```
 
+Here's a GIF demonstrating how to use mmtable2:
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif")
+```
 
 
 ```{r cars, message=FALSE, warning=FALSE, paged.print=FALSE}
