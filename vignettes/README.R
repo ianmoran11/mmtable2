@@ -33,11 +33,13 @@ knitr::opts_chunk$set(
 rm(list = ls())
 devtools::build()
 devtools::install()
+3
 
 library(tibble)
 library(gt)
 library(tidyverse)
-library(mmtable2)
+# library(mmtable2)
+devtools::load_all()
 
 #'
 #' Here's a GIF demonstrating how to use mmtable2:
@@ -52,6 +54,7 @@ source("./methods/multiply_mmtable_.R")
 source("./methods/plus_mmtable_.R")
 source("./methods/print_mmtable.R")
 
+source("./R/table_constructor.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
@@ -61,6 +64,15 @@ source("./methods/print_mmtable.R")
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
 student_df
+
+temp <-  student_df %>%
+  mmtable(table_data = value)  +
+  header_top(student) +
+  header_top_left(grade) +
+  header_left(class)
+
+
+temp  + header_left_top(subject)
 
 #'
 #'
