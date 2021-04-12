@@ -1,4 +1,4 @@
-`+.mmtable` <- function(mmtable1,mmtable2){
+`plus_mmtable` <- function(mmtable1,mmtable2){
 
   # browser()
 
@@ -16,7 +16,9 @@
   if("mmtable_table_item" %in% class(mmtable2)){
     # return(mmtable1 * mmtable2)
 
-    return_table <- invoke(mmtable2, append(list(mmtable1),attr(mmtable2,"table_args")))
+    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
+
+    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
 
     class(return_table) <- append("mmtable",class(return_table))
 
@@ -47,5 +49,12 @@
 
   mmtable1 * mmtable2
 
-
 }
+
+
+
+#' @export
+"+.mmtable" <- function(e1, e2) {
+  plus_mmtable(e1, e2)
+}
+

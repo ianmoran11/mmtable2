@@ -30,18 +30,10 @@ This package is probably too buggy for a smooth installation experience, but fee
 ## Example
 
 ```{r example1, message=FALSE, warning=FALSE, include=FALSE}
-# Load all packages
-# rm(list = ls())
-# devtools::build()
-setwd("~/main/projects/mmtable2/")
 library(tibble)
-library("gtsummary")
 library(gt)
 library(tidyverse)
 library(mmtable2)
-# devtools::load_all()
-# library(mmtable2)
-# list.files("R",full.names = T) %>% map(source)
 ```
 
 Here's a GIF demonstrating how to use mmtable2:

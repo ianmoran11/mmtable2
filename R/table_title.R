@@ -1,10 +1,10 @@
-table_title <- function(text){
+table_title <- function(...){
 
   # browser()
   # text <- "Hello"
-  table_title_fn <- function(mmtable1,text = text){ mmtable1 %>% tab_header(title = text)}
+  table_title_fn <- function(mmtable1,...){ mmtable1 %>% tab_header(...)}
 
-  attr(table_title_fn,"text") <- text
+  attr(table_title_fn,"table_args") <-list(...)
 
   class(table_title_fn) <- append("mmtable",class(table_title_fn))
   class(table_title_fn) <- append("mmtable_table_item",class(table_title_fn))

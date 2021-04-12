@@ -1,4 +1,4 @@
-`/.mmtable` <- function(mmtable1,mmtable2){
+`divide_mmtable` <- function(mmtable1,mmtable2){
 
   # mmtable1 <- table1
   # mmtable2 <- table1
@@ -25,6 +25,9 @@
 
 }
 
-
+#' @export
+"/.mmtable" <- function(e1, e2) {
+  divide_mmtable(e1, e2)
+}
 
 

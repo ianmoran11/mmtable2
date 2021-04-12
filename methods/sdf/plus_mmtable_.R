@@ -16,7 +16,9 @@
   if("mmtable_table_item" %in% class(mmtable2)){
     # return(mmtable1 * mmtable2)
 
-    return_table <- invoke(mmtable2, append(list(mmtable1),attr(mmtable2,"table_args")))
+    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
+
+    return_table <- mmtable2(mmtable1,attr(mmtable2,"text"))
 
     class(return_table) <- append("mmtable",class(return_table))
 

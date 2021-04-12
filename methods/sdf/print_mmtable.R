@@ -1,5 +1,4 @@
-
-`+.print` <-function(x){
+`print.mmtable` <-function(x){
 
   class(x) <- "gt_tbl"
 
