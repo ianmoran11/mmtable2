@@ -47,6 +47,11 @@ library(gt)
 library(tidyverse)
 library(mmtable2)
 
+ source("./methods/divide_mmtable.R")
+ source("./methods/multiply_mmtable_.R")
+ source("./methods/plus_mmtable_.R")
+ source("./methods/print_mmtable.R")
+
 
 # try(table1 %>% gtsave("table1.png"))
 ex_table <-
@@ -89,7 +94,7 @@ table1 <- plot_5
  splot_4 %>% attributes()
  splot_5 %>% attributes()
 
- plot_5 + splot_5
+ plot_5 / splot_5
 
 
 

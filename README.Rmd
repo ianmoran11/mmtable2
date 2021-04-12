@@ -60,7 +60,7 @@ student_df
 ```
 
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "400px"}
 table1 <-
   student_df %>%
   mmtable(table_data = value)  +
@@ -82,10 +82,6 @@ table1.1 <-
   header_left(class) +
   header_left_top(subject)
 
-try(table1.1 %>% gtsave("table1_1.png"))
-```
-
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 table2 <-
   student_df_2 %>%
   mmtable(table_data = value)  +
@@ -94,25 +90,24 @@ table2 <-
   header_left(class) +
   header_left_top(subject)
 
-try(table2 %>% gtsave("table2.png"))
 ```
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "400px"}
 single_table <- table1 +  table_title("Single Table")  
 try(single_table  %>% gtsave("single_table.png"))
 ```
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "400px"}
 quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
 try(quotient_table  %>% gtsave("quotient_table.png"))
 ```
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "400px"}
 product_table <- table1 * table1.1  +  table_title("Table Product") 
 try(product_table  %>% gtsave("product_table.png"))
 ```
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 sum_table <- table1 + table2    +  table_title("Table Sum")     
 try(sum_table  %>% gtsave("sum_table.png"))
 ```
