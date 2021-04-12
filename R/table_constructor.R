@@ -8,7 +8,7 @@ table_constructor <-
 
     # Headers by type
     col_header_vars <- col_header_df$col_header_vars
-    row_header_vars <-  row_header_df$row_header_vars
+    row_header_vars <- row_header_df$row_header_vars
 
     # Get diagonal headers
     down_right_vars <- col_header_df %>% filter(direction =="top_left") %>% pull(col_header_vars)
@@ -25,52 +25,29 @@ table_constructor <-
     df <- df %>% select(!!!syms(all_vars))
 
     # If there are row header vars, sort them
-    if(length(keep(row_header_vars,!is.na(row_header_vars))) >0){
-      df <- df %>% arrange(!!!syms(row_header_vars), !!!syms(col_header_vars))
-      df <- df %>% select(!!!syms(row_header_vars), !!!(col_header_vars), !!!data_vars)
-    }
+    df <- apply_if(
+      func = sort_and_select_columns,
+      predicate = length(keep(row_header_vars,!is.na(row_header_vars))) >0,
+      data = df,row_header_vars = row_header_vars,col_header_vars = col_header_vars,data_vars = data_vars
+    )
 
+    df <- apply_if(
+      func = spread_col_headers,
+      predicate = length(keep(col_header_vars,!is.na(col_header_vars))) >0,
+      data = df,row_header_vars = row_header_vars,col_header_vars = col_header_vars,data_vars = data_vars
+    )
 
-    if(length(keep(col_header_vars,!is.na(col_header_vars))) >0){
-
-     # create single top header column
-     df <- df %>% unite(col = header_temp, !!!(col_header_vars),sep = "\n")
-
-     # Get all unique header values
-     header_temp_vals <- df$header_temp %>% unique()
-
-     # Spread the headers
-     df <- df %>% group_by(header_temp,!!!syms(row_header_vars)) %>% nest() %>%  spread(header_temp, data)
-
-     # Unlist to get table values, and then unnest
-     df <- df %>% ungroup() %>% mutate_at(.vars = vars(header_temp_vals), .funs = list(~ map(.x,unlist))) %>% unnest()
-    }
-
-    # Sort column order
-    df <- df %>% arrange(!!!row_header_vars)
-
-    if(length(left_down_vars)> 0){
-      append(list(df),left_down_vars)  %>% reduce(diagonalize) -> df
-    }
-
-    # Re-orient table
-    df <- df %>% t()
-
-    # Convert table back to tibble
-    df <- df %>% as_tibble(rownames = "header_temp")
-
-    # Separate row header united var
-    if(length(keep(col_header_vars,!is.na(col_header_vars))) >0){
-    df <-   df %>% separate(header_temp, into = col_header_vars, sep = "\n")
-    }
 
     #  Diagnolise row headers
-    if(length(down_right_vars)> 0){
-    df <- append(list(df),down_right_vars)  %>% reduce(diagonalize)
-    }
 
-    # Reorient data frame
-   df <- df %>% t() %>% as_tibble()
+    if(length(left_down_vars)> 0){
+      df <- append(list(df),left_down_vars)  %>% reduce(diagonalize)
+    }
+    #  Diagnolise col headers
+    if(length(down_right_vars)> 0){
+    diagonalized_rows <- which(col_header_vars %in% down_right_vars) %>% paste0("V",.)
+    df <-   t(df) %>% as_tibble() %>% list(.) %>% append(.,diagonalized_rows) %>% reduce(diagonalize) %>% t() %>% as_tibble()
+    }
 
    # Remove column names
    df <- df %>% set_names(rep(" ",ncol(.)))

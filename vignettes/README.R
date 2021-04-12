@@ -77,6 +77,7 @@ temp  + header_left_top(subject)
 #'
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
+(
 table1 <-
   student_df %>%
   mmtable(table_data = value)  +
@@ -84,6 +85,7 @@ table1 <-
   header_top_left(grade) +
   header_left(class) +
   header_left_top(subject)
+)
 
 table1
 
@@ -92,6 +94,7 @@ table1
 #'
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
+(
 table1.1 <-
   student_df_1 %>%
   mmtable(table_data = value)  +
@@ -99,11 +102,12 @@ table1.1 <-
   header_top_left(grade) +
   header_left(class) +
   header_left_top(subject)
-
+)
 # try(table1.1 %>% gtsave("table1_1.png"))
 
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
+(
 table2 <-
   student_df_2 %>%
   mmtable(table_data = value)  +
@@ -111,26 +115,26 @@ table2 <-
   header_top_left(grade) +
   header_left(class) +
   header_left_top(subject)
-
+)
 # try(table2 %>% gtsave("table2.png"))
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-single_table <- table1 +  table_title(title ="Single Table")
+(single_table <- table1 +  table_title(title ="Single Table"))
 # try(single_table  %>% gtsave("single_table.png"))
 
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-quotient_table <- table1 / table1.1  +  table_title("Table Quotient") + table_source_note(source_note = "This is a note")
+(quotient_table <- table1 / table1.1  +  table_title("Table Quotient") + table_source_note(source_note = "This is a note"))
 # try(quotient_table  %>% gtsave("quotient_table.png"))
 
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-product_table <- table1 * table1.1  +  table_title("Table Product")
+(product_table <- table1 * table1.1  +  table_title("Table Product"))
 # try(product_table  %>% gtsave("product_table.png"))
 
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-sum_table <- table1 + table2    +  table_title("Table Sum")
+(sum_table <- table1 + table2    +  table_title("Table Sum"))
 # try(sum_table  %>% gtsave("sum_table.png"))
 
 #'
