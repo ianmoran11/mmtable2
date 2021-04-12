@@ -8,7 +8,7 @@
   table_meta_1 <- attr(mmtable1,"_table_meta")
   attr(mmtable1,"_original_data") <-
     attr(mmtable1,"_original_data") %>% mutate(table_id_row = table_meta_1$table_name[[1]])
-    # Get header info
+  # Get header info
   header_info_1 <- attr(mmtable1,"_header_info")
 
   # Update header info
@@ -16,7 +16,7 @@
   attr(mmtable1,"_header_info") <- header_info_1
 
 
-# Get table 2 attibutes
+  # Get table 2 attibutes
   table_meta_2 <- attr(mmtable2,"_table_meta")
   attr(mmtable2,"_original_data") <-
     attr(mmtable2,"_original_data") %>% mutate(table_id_row = table_meta_2$table_name[[1]])

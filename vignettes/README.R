@@ -76,6 +76,12 @@ header_object %>% attributes()
 (  plot_5 <- plot_4  + header_left_top(subject)                                   )
 table1 <- plot_5
 
+plot_5 %>% a
+
+header_format(mmtable = plot_5,header = grade, "bold" )
+
+plot_5 %>% (plot_5,)
+
 (  splot_1 <- student_df %>% mmtable(table_data = value, table_name = "Table S")   )
 (  splot_2 <- splot_1  + header_top(student)                                        )
 (  splot_3 <- splot_2  + header_top_left(grade)                                     )
