@@ -23,6 +23,7 @@
     return(return_table)
 
   }
+
   #  Get table 1 attributes
   # Give table_id_header
   table_meta_1 <- attr(mmtable1,"_table_meta")
@@ -51,3 +52,33 @@
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
