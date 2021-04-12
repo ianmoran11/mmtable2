@@ -22,7 +22,7 @@
 
     return(return_table)
 
-      }
+  }
 
   #  Get table 1 attributes
   # Give table_id_header

@@ -33,6 +33,7 @@ knitr::opts_chunk$set(
 rm(list = ls())
 devtools::build()
 devtools::install()
+
 library(tibble)
 library(gt)
 library(tidyverse)
@@ -107,7 +108,7 @@ single_table <- table1 +  table_title(title ="Single Table")
 
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
+quotient_table <- table1 / table1.1  +  table_title("Table Quotient") + table_source_note(source_note = "This is a note")
 # try(quotient_table  %>% gtsave("quotient_table.png"))
 
 #'
