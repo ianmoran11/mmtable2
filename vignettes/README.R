@@ -1,54 +1,15 @@
-#' ---
-#' output: github_document
-#' editor_options:
-#'   chunk_output_type: console
-#' ---
-#'
-#' <!-- README.md is generated from README.Rmd. Please edit that file -->
-#'
-## ---- include = FALSE----------------------------------------------------------------------------------------------
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-
-#'
-#' # mmtable2
-#'
-#' <!-- badges: start -->
-#' <!-- badges: end -->
-#'
-#' The goal of mmtable2 is to provide a ggplot2-like interface for untidy tables.
-#' It does this by introducing algabraic untidy tables.
-#'
-#' ## Installation
-#'
-#' This package is probably too buggy for a smooth installation experience, but feel free to clone and tinker!
-#'
-#' ## Example
-#'
-## ----example1, message=FALSE, warning=FALSE, include=FALSE---------------------------------------------------------
 rm(list = ls())
 devtools::build()
 devtools::install()
 3
-
+#----------------------------------------------------------------
 library(tibble)
 library(gt)
 library(tidyverse)
 # library(mmtable2)
 devtools::load_all()
 
-#'
-#' Here's a GIF demonstrating how to use mmtable2:
-#'
-## ----echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"------------------------------------------------
-# knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif")
 
-#'
-## ----message=FALSE, warning=FALSE, include=FALSE-------------------------------------------------------------------
 source("./methods/divide_mmtable.R")
 source("./methods/multiply_mmtable_.R")
 source("./methods/plus_mmtable_.R")
@@ -66,38 +27,79 @@ source("./R/table_constructor.R")
 student_df
 
 temp <-  student_df %>%
-  mmtable(table_data = value)  +
+  mmtable(table_data = value,table_name = "Test")  +
   header_top(student) +
   header_top_left(grade) +
   header_left(class)
 
+  attributes(temp)
+
 
 temp  + header_left_top(subject)
 
+
+
 #'
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-(
-table1 <-
-  student_df %>%
-  mmtable(table_data = value)  +
-  header_top(student) +
-  header_top_left(grade) +
-  header_left(class) +
-  header_left_top(subject)
-)
+library(tibble)
+library(gt)
+library(tidyverse)
+library(mmtable2)
 
-table1
 
 # try(table1 %>% gtsave("table1.png"))
+ex_table <-
+student_df_1 %>%
+  mmtable(table_data = value, table_name = "Table 1.1")
 
-#'
-#'
-## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
+ex_table %>% attributes()
+ex_table %>% class
+ex_table %>% str()
+
+header_object <- header_left(class)
+
+header_object %>% str()
+header_object %>% class
+header_object %>% attributes()
+
+
+(  plot_1 <- student_df %>% mmtable(table_data = value, table_name = "Table 1")   )
+(  plot_2 <- plot_1  + header_top(student)                                        )
+(  plot_3 <- plot_2  + header_top_left(grade)                                     )
+(  plot_4 <- plot_3  + header_left(class)                                         )
+(  plot_5 <- plot_4  + header_left_top(subject)                                   )
+table1 <- plot_5
+
+(  splot_1 <- student_df %>% mmtable(table_data = value, table_name = "Table S")   )
+(  splot_2 <- splot_1  + header_top(student)                                        )
+(  splot_3 <- splot_2  + header_top_left(grade)                                     )
+(  splot_4 <- splot_3  + header_left(class)                                         )
+(  splot_5 <- splot_4  + header_left_top(subject)                                   )
+
+ plot_1 %>% attributes()
+ plot_2 %>% attributes()
+ plot_3 %>% attributes()
+ plot_4 %>% attributes()
+ plot_5 %>% attributes()
+
+ splot_1 %>% attributes()
+ splot_2 %>% attributes()
+ splot_3 %>% attributes()
+ splot_4 %>% attributes()
+ splot_5 %>% attributes()
+
+ plot_5 + splot_5
+
+
+
+
+
+
 (
 table1.1 <-
   student_df_1 %>%
-  mmtable(table_data = value)  +
+  mmtable(table_data = value, table_name = "Table 1.1")  +
   header_top(student) +
   header_top_left(grade) +
   header_left(class) +
@@ -105,8 +107,10 @@ table1.1 <-
 )
 # try(table1.1 %>% gtsave("table1_1.png"))
 
-#'
-## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
+(sum_table <- table1 + table1.1 +  table_title("Table Sum"))
+
+table1 + table1.1
+
 (
 table2 <-
   student_df_2 %>%
@@ -134,7 +138,7 @@ table2 <-
 
 #'
 ## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
-(sum_table <- table1 + table2    +  table_title("Table Sum"))
+(sum_table <- table1 + table1.1 +  table_title("Table Sum"))
 # try(sum_table  %>% gtsave("sum_table.png"))
 
 #'

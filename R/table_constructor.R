@@ -1,5 +1,5 @@
 table_constructor <-
-  function(df,col_header_df, row_header_df,data_vars){
+  function(df,col_header_df, row_header_df,data_vars,table_name = NULL){
 
     # browser()
 
@@ -45,30 +45,34 @@ table_constructor <-
     }
     #  Diagnolise col headers
     if(length(down_right_vars)> 0){
-    diagonalized_rows <- which(col_header_vars %in% down_right_vars) %>% paste0("V",.)
-    df <-   t(df) %>% as_tibble() %>% list(.) %>% append(.,diagonalized_rows) %>% reduce(diagonalize) %>% t() %>% as_tibble()
+      diagonalized_rows <- which(col_header_vars %in% down_right_vars) %>% paste0("V",.)
+      df <-   t(df) %>% as_tibble() %>% list(.) %>% append(.,diagonalized_rows) %>% reduce(diagonalize) %>% t() %>% as_tibble()
     }
 
-   # Remove column names
-   df <- df %>% set_names(rep(" ",ncol(.)))
-   df <- df %>% set_names(names(.) %>% accumulate(paste0))
+    # Remove column names
+    df <- df %>% set_names(rep(" ",ncol(.)))
+    df <- df %>% set_names(names(.) %>% accumulate(paste0))
 
-   # Remove stubs
-   df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars)," ", .)))
+    # Remove stubs
+    df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars)," ", .)))
 
-   # Get numbers of columns in the final data frame
-   final_cols <- names(df) %>% length()
+    # Get numbers of columns in the final data frame
+    final_cols <- names(df) %>% length()
 
-   # Convert to gtable and set colors
-   gtable <- df %>% gt() %>% data_color(columns = c(1:final_cols),colors = "white")
+    # Convert to gtable and set colors
+    gtable <- df %>% gt() %>% data_color(columns = c(1:final_cols),colors = "white")
 
-   # Set attributes
-   attr(gtable, "_original_data") <- original_data
-   attr(gtable, "_header_info") <-
+    # Set attributes
+    attr(gtable, "_original_data") <- original_data
+    attr(gtable, "_header_info") <-
       list(col_header_df = col_header_df, row_header_df = row_header_df,data_vars= data_vars)
 
-   # Set class
-   class(gtable) <- append("mmtable",class(gtable))
+    attr(gtable, "_table_meta") <-
+      list(table_name = table_name)
+
+
+    # Set class
+    class(gtable) <- append("mmtable",class(gtable))
 
    gtable
     # mmtable <- c()
