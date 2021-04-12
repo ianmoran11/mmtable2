@@ -1,5 +1,5 @@
 table_constructor <-
-  function(df,col_header_df, row_header_df,data_vars,table_name = NULL){
+  function(df,col_header_df, row_header_df,data_vars,table_name = NULL, table_format){
 
     # browser()
 
@@ -67,8 +67,8 @@ table_constructor <-
     attr(gtable, "_header_info") <-
       list(col_header_df = col_header_df, row_header_df = row_header_df,data_vars= data_vars)
 
-    attr(gtable, "_table_meta") <-
-      list(table_name = table_name)
+    attr(gtable, "_table_meta") <-list(table_name = table_name)
+    attr(gtable, "_table_format") <-list(table_format = table_format)
 
 
     # Set class

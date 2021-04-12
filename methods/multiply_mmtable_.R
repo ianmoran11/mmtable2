@@ -14,6 +14,8 @@
   table_meta_1 <- attributes(mmtable1) %>% .[["_table_meta"]]
   table_meta_2 <- attributes(mmtable2) %>% .[["_table_meta"]]
 
+  table_format_1 <- attributes(mmtable1) %>% .[["_table_format"]]
+  table_format_2 <- attributes(mmtable2) %>% .[["_table_format"]]
 
   original_data <- bind_rows(original_data_2,original_data_1)
 
@@ -28,11 +30,12 @@
   col_header_df_temp <-  bind_rows(col_header_df_2,col_header_df_1) %>% filter(complete.cases(.)) %>% unique()
   row_header_df_temp <-  bind_rows(row_header_df_2,row_header_df_1) %>% filter(complete.cases(.)) %>% unique()
   table_name <-  table_meta_1$table_name
-
+  table_format  <- append(table_format_1[[1]], table_format_2[[1]])
 
   table_constructor(
     df = original_data,
     col_header_df = col_header_df_temp,
-    row_header_df = row_header_df_temp,data_vars = data_vars_1, table_name = table_name)
+    row_header_df = row_header_df_temp,data_vars = data_vars_1, table_name = table_name,
+    table_format = table_format)
 
 }

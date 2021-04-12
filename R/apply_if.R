@@ -5,5 +5,5 @@ apply_if <- function(predicate, func, data, ...){
 
   data <- func(data,...)
 }
-   data
+  data
 }

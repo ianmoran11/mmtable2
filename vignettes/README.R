@@ -21,18 +21,16 @@ source("./R/table_constructor.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/print_mmtable.R")
 
-#'
-#'
-## ---- message=FALSE, warning=FALSE, paged.print=FALSE--------------------------------------------------------------
 student_df
 
-temp <-  student_df %>%
+temp <-
+  student_df %>%
   mmtable(table_data = value,table_name = "Test")  +
   header_top(student) +
   header_top_left(grade) +
   header_left(class)
 
-  attributes(temp)
+attributes(temp)
 
 
 temp  + header_left_top(subject)
@@ -47,10 +45,10 @@ library(gt)
 library(tidyverse)
 library(mmtable2)
 
- source("./methods/divide_mmtable.R")
- source("./methods/multiply_mmtable_.R")
- source("./methods/plus_mmtable_.R")
- source("./methods/print_mmtable.R")
+source("./methods/divide_mmtable.R")
+source("./methods/multiply_mmtable_.R")
+source("./methods/plus_mmtable_.R")
+source("./methods/print_mmtable.R")
 
 
 # try(table1 %>% gtsave("table1.png"))
@@ -76,9 +74,15 @@ header_object %>% attributes()
 (  plot_5 <- plot_4  + header_left_top(subject)                                   )
 table1 <- plot_5
 
-plot_5 %>% a
+table1
 
-header_format(mmtable = plot_5,header = grade, "bold" )
+plot_5_f <-
+plot_5 +
+header_format(header = grade,
+              locations = cells_body(rows = 1, columns = 5),
+              style = list(cell_text(align = "left", weight = "bold",color = "darkgrey")))
+
+plot_5_f %>% attributes()
 
 plot_5 %>% (plot_5,)
 
