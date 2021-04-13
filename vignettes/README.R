@@ -15,7 +15,6 @@ source("./methods/multiply_mmtable_.R")
 source("./methods/plus_mmtable_.R")
 source("./methods/print_mmtable.R")
 
-source("./R/table_constructor.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
 # source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")

@@ -8,7 +8,11 @@ mmtable <- function(data,table_data, table_name = NULL){
 
   data <- data %>% mutate(.value = !!sym(temp_value_var) %>% as.character())
 
-  table_format <- list(list())
+  initial_format_list <-  list(list(header = list(), format_list = list()))
+  initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
+  names(initial_format_list) <- initial_format_list_name
+
+  table_format <- initial_format_list
 
 
   col_header_df <- tibble::tibble(col_header_vars = c(NA),direction = c(NA))

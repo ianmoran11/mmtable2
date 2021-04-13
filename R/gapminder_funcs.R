@@ -18,7 +18,6 @@ model_lexp <- function(data,country_input){
     mutate(country = country_input) %>%   filter(!statistic %in% c("P Value","Statistic","Aic","Bic","Df","Df Residual","Loglik","Nobs","Sigma","Deviance"))  %>%
     filter(term != "(Intercept)")
 
-
   model_table
 
 }

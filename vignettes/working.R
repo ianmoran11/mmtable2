@@ -1,63 +1,41 @@
-# Load all packages
 rm(list = ls())
+devtools::build()
+devtools::install()
+3
+#----------------------------------------------------------------
 library(tibble)
 library(gt)
 library(tidyverse)
-devtools::load_all()
 # library(mmtable2)
-options(warn=-1)
+devtools::load_all()
 
-list.files("methods/",full.names = T) %>% map(source)
+
+source("./methods/divide_mmtable.R")
+source("./methods/multiply_mmtable_.R")
+source("./methods/plus_mmtable_.R")
+source("./methods/print_mmtable.R")
 
 student_df
 
-table1 <-
+stable <-
   student_df %>%
-  mmtable(table_data = value)  +
+  mmtable(table_data = value,table_name = "Test")  +
   header_top(student) +
   header_top_left(grade) +
-  header_left(class) +
-  header_left_top(subject)
+  header_left(class)
 
-table1.1 <-
-  student_df_1 %>%
-  mmtable(table_data = value)  +
-  header_top(student) +
-  header_top_left(grade) +
-  header_left(class) +
-  header_left_top(subject)
+stable %>% attributes() %>% str
 
-table2 <-
-  student_df_2 %>%
-  mmtable(table_data = value)  +
-  header_top(student) +
-  header_top_left(grade) +
-  header_left(class) +
-  header_left_top(subject)
-
-# table1 <-
-student_df %>%
-  mmtable(table_data = value)  +
-    header_top(student) +
-    header_top_left(grade) +
-    header_left(class) +
-    header_left_top(subject)
-
-table1            + table_title("Single Table")
-table1 / table1.1 + table_title("Table Quotient")
-table1 * table1.1 + table_title("Table Product")
-table1 + table2   + table_title("Table Sum")
+stable +
+  header_format(student, style = list(cell_text(weight = "bold"))) +
+  header_format(student, style = list(cell_text(align =  "right")))
 
 
 
+initial_format_list <-  list(list(header = list(), format_list = list()))
+initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
+names(initial_format_list) <- initial_format_list_name
 
-
-
-
-
-
-
-
-
+table_format <- initial_format_list
 
 

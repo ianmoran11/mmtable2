@@ -1,11 +1,34 @@
 `+.mmtable` <- function(mmtable1,mmtable2){
 
-  # browser()
+  browser()
+
+
+  class(mmtable2)
 
   # mmtable1 <- table1
   # mmtable2 <- table1
 
+  if("table_format_list" %in% class(mmtable2)){
+
+    str(mmtable2)
+    attributes(mmtable1) %>% .["_table_format"] %>% str
+
+    mmtable1_formats  <- attributes(mmtable1) %>% .[["_table_format"]]
+
+    mmtable2_formats_length <- length(mmtable1_formats[[1]])
+
+    updated_format_list <-  mmtable1_formats[[1]] %>% append(mmtable2)
+
+    attr(mmtable1,"_table_format") <- list("_table_format" = updated_format_list)
+
+    attr(mmtable1,"_table_format") %>%  str()
+    return(mmtable1)
+
+
+    }
+
   if(is.null(mmtable2)){return(mmtable1)}
+  if(is.null(mmtable1)){return(mmtable2)}
 
 
   if("mmtable_header" %in% class(mmtable2)){
