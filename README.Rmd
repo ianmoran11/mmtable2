@@ -33,7 +33,9 @@ This package is probably too buggy for a smooth installation experience, but fee
 library(tibble)
 library(gt)
 library(tidyverse)
+library(gapminder)
 library(mmtable2)
+
 ```
 
 Here's a GIF demonstrating how to use mmtable2:
@@ -111,6 +113,57 @@ try(product_table  %>% gtsave("product_table.png"))
 sum_table <- table1 + table2    +  table_title("Table Sum")     
 try(sum_table  %>% gtsave("sum_table.png"))
 ```
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+gapminder_eur <-
+  gapminder::gapminder %>%
+  filter(continent == "Europe") %>%
+  mutate(continent = continent %>% as.character())  %>%
+  mutate(country = country %>% as.character())
+
+model_df_list <- map(unique(gapminder_eur$country),possibly(model_lexp,NA), data =gapminder_eur )
+
+model_df <- map(list("Australia"),model_lexp, data = gapminder) %>% .[[1]]
+table_list <-  model_df_list[1:10] %>% map(table_model_wide)
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+demo_table <- 
+model_df %>%
+  mmtable(table_data = value,table_name = "Australia") +
+  header_top(statistic) +
+  header_top_left(term) +
+  header_top_left(statistic_level)
+
+try(demo_table  %>% gtsave("demo_table.png"))
+```
+
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+one_table <-  table_list[[1]]
+try(one_table  %>% gtsave("one_table.png"))
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+two_tables <- table_list[[1]] / table_list[[2]]
+try(two_tables  %>% gtsave("two_tables.png"))
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+many_tables <- table_list %>% reduce(`/`)
+try(many_tables  %>% gtsave("many_tables.png"))
+```
+
+
+
+
+
+
+
 
 
 

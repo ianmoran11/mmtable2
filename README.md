@@ -111,3 +111,58 @@ try(sum_table  %>% gtsave("sum_table.png"))
 ```
 
 <img src="man/figures/README-unnamed-chunk-10-1.png" width="600px" />
+
+``` r
+gapminder_eur <-
+  gapminder::gapminder %>%
+  filter(continent == "Europe") %>%
+  mutate(continent = continent %>% as.character())  %>%
+  mutate(country = country %>% as.character())
+
+model_df_list <- map(unique(gapminder_eur$country),possibly(model_lexp,NA), data =gapminder_eur )
+
+model_df <- map(list("Australia"),model_lexp, data = gapminder) %>% .[[1]]
+table_list <-  model_df_list[1:10] %>% map(table_model_wide)
+```
+
+``` r
+demo_table <- 
+model_df %>%
+  mmtable(table_data = value,table_name = "Australia") +
+  header_top(statistic) +
+  header_top_left(term) +
+  header_top_left(statistic_level)
+
+try(demo_table  %>% gtsave("demo_table.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="600px" />
+
+``` r
+one_table <-  table_list[[1]]
+try(one_table  %>% gtsave("one_table.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="600px" />
+
+``` r
+two_tables <- table_list[[1]] / table_list[[2]]
+try(two_tables  %>% gtsave("two_tables.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="600px" />
+
+``` r
+many_tables <- table_list %>% reduce(`/`)
+try(many_tables  %>% gtsave("many_tables.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-15-1.png" width="600px" />
