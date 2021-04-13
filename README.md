@@ -15,9 +15,11 @@ This package is probably too buggy for a smooth installation experience, but fee
 Example
 -------
 
-Here's a GIF demonstrating how to use mmtable2:
+Here's a couple of GIFs demonstrating how to use mmtable2:
 
 <img src="https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif" width="800px" />
+
+<img src="https://unpivotr.s3.amazonaws.com/Peek+2021-04-13+12-33.gif" width="800px" />
 
 ``` r
 student_df
@@ -56,7 +58,7 @@ try(table1 %>% gtsave("table1.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="400px" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="400px" />
 
 ``` r
 table1.1 <-
@@ -83,7 +85,7 @@ try(single_table  %>% gtsave("single_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="400px" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="400px" />
 
 ``` r
 quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
@@ -92,7 +94,7 @@ try(quotient_table  %>% gtsave("quotient_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="400px" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="400px" />
 
 ``` r
 product_table <- table1 * table1.1  +  table_title("Table Product") 
@@ -101,7 +103,7 @@ try(product_table  %>% gtsave("product_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="400px" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="400px" />
 
 ``` r
 sum_table <- table1 + table2    +  table_title("Table Sum")     
@@ -110,7 +112,7 @@ try(sum_table  %>% gtsave("sum_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="600px" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="600px" />
 
 ``` r
 gapminder_eur <-
@@ -138,7 +140,7 @@ try(demo_table  %>% gtsave("demo_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="600px" />
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="600px" />
 
 ``` r
 one_table <-  table_list[[1]]
@@ -147,7 +149,7 @@ try(one_table  %>% gtsave("one_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="600px" />
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="600px" />
 
 ``` r
 two_tables <- table_list[[1]] / table_list[[2]]
@@ -156,7 +158,7 @@ try(two_tables  %>% gtsave("two_tables.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-14-1.png" width="600px" />
+<img src="man/figures/README-unnamed-chunk-15-1.png" width="600px" />
 
 ``` r
 many_tables <- table_list %>% reduce(`/`)
@@ -165,4 +167,4 @@ try(many_tables  %>% gtsave("many_tables.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-15-1.png" width="600px" />
+<img src="man/figures/README-unnamed-chunk-16-1.png" width="600px" />

@@ -38,10 +38,14 @@ library(mmtable2)
 
 ```
 
-Here's a GIF demonstrating how to use mmtable2:
+Here's a couple of GIFs demonstrating how to use mmtable2:
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
 knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif")
+```
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
+knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-13+12-33.gif")
 ```
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
