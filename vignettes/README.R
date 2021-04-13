@@ -80,9 +80,12 @@ plot_5_f <-
 plot_5 +
 header_format(header = grade,
               locations = cells_body(rows = 1, columns = 5),
-              style = list(cell_text(align = "left", weight = "bold",color = "darkgrey")))
+              style = list(cell_text(align = "left", weight = "bold",color = "darkgrey"))) +
+  header_left(class)
 
 plot_5_f %>% attributes()
+plot_5_f %>% class()
+
 
 plot_5 %>% (plot_5,)
 

@@ -6,7 +6,7 @@ mmtable <- function(data,table_data, table_name = NULL){
 
   temp_value_var <- as.character(substitute(table_data))
 
-  data <- data %>% mutate(.value = !!sym(temp_value_var))
+  data <- data %>% mutate(.value = !!sym(temp_value_var) %>% as.character())
 
   table_format <- list(list())
 

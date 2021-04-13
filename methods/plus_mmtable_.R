@@ -51,30 +51,70 @@
 
   table_format_1 <- attr(mmtable1,"_table_format")
   header_info_1 <- attr(mmtable1,"_header_info")
+
+  if(!"table_id_col" %in% names(attr(mmtable1,"_original_data"))){
   attr(mmtable1,"_original_data") <- attr(mmtable1,"_original_data") %>% mutate(table_id_col = table_meta_1$table_name[[1]])
+  }
 
 
   # Update header info
-  header_info_1$col_header_df <- header_info_1$col_header_df %>% bind_rows(tibble(col_header_vars = "table_id_col", direction = "top_left"), .)
+  header_info_1$col_header_df <- header_info_1$col_header_df %>% bind_rows(tibble(col_header_vars = "table_id_col", direction = "top_left"), .) %>% unique
   attr(mmtable1,"_header_info") <- header_info_1
 
 
   # Get table 2 attibutes
   table_meta_2 <- attr(mmtable2,"_table_meta")
   table_format_2 <- attr(mmtable2,"_table_format")
-  attr(mmtable2,"_original_data") <- attr(mmtable1,"_original_data") %>% mutate(table_id_col = table_meta_2$table_name[[1]])
+
+  if(!"table_id_col" %in% names(attr(mmtable2,"_original_data"))){
+  attr(mmtable2,"_original_data") <- attr(mmtable2,"_original_data") %>% mutate(table_id_col = table_meta_2$table_name[[1]])
+  }
+
   header_info_2 <- attr(mmtable2,"_header_info")
-  # Get header info
-  # Update header info
   header_info_2$col_header_df <- header_info_2$col_header_df %>% bind_rows(tibble(col_header_vars = "table_id_col", direction = "top_left"), .)
   attr(mmtable2,"_header_info") <- header_info_2
 
+
+  # mmtable1 %>% attributes()
+  # mmtable2 %>% attributes()
 
 
   mmtable1 * mmtable2
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
