@@ -30,11 +30,21 @@ table <-
   stable +
   header_format(student, style = list(cell_text(weight = "bold"))) +
   header_format(student, style = list(cell_text(align =  "right"))) +
-  header_format(subject, style = list(cell_text(weight = "bold")))
+  header_format(subject, style = list(cell_text(weight = "bold"))) +
+  cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) +
+  table_format(locations = cells_body(rows = 1), style = list(cell_text( = "right")))
 
-cells_table <- stable + cells_format(cell_predicate = subject == "Humanities", style = list(cell_text(weight = "bold")))
+
+table_format_table  <- student_df %>% mmtable(table_data = value,table_name = "Test")+ table_format(locations = cells_body(columns = 1), style = list(cell_text(align = "right")))
+
+apply_formats(table_format_table)
 
 apply_formats(table)
+
+
+cells_table <- stable + cells_format(cell_predicate = subject == "Humanities", style = list(cell_text(weight = "bold")))
+cells_table <- stable + cells_format(cell_predicate = T, style = list(cell_text(align = "right")))
+
 apply_formats(cells_table)
 
 

@@ -11,7 +11,6 @@
   if("table_format_list" %in% class(mmtable2)){
 
     str(mmtable2)
-    attributes(mmtable1) %>% .["_table_format"] %>% str
 
     mmtable1_formats  <- attributes(mmtable1) %>% .[["_table_format"]]
 

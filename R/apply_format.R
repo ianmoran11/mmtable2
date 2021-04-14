@@ -5,9 +5,22 @@ apply_format <- function(mmtable, format_list){
  if(format_list$func == "cells_format"){
  locations_list <- get_locations(mmtable = mmtable,func = format_list$func, cell_predicate = format_list$cell_predicate)
  }
+
  if(format_list$func == "header_format"){
  locations_list <- get_locations(mmtable = mmtable,header = format_list$header, func = format_list$func)
  }
+
+ if(format_list$func == "table_format"){
+
+ locations_list = format_list$locations
+
+ invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
+
+ return_table <- invoke(tab_style,.x =  invoke_list)
+ return(return_table)
+
+ }
+
 
  append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
 
