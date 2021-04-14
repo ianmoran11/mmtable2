@@ -35,8 +35,8 @@
   header_info_2$row_header_df <- header_info_2$row_header_df %>% bind_rows(tibble(row_header_vars = "table_id_row", direction = "left_top"), .)
   attr(mmtable2,"_header_info") <- header_info_2
 
-  mmtable1 %>% attributes()
-  mmtable2 %>% attributes()
+  # mmtable1 %>% attributes()
+  # mmtable2 %>% attributes()
 
   mmtable1 * mmtable2
 

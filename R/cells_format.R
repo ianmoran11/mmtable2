@@ -12,7 +12,7 @@ cells_format <- function(cell_predicate, ...){
 
   names(format_list) <- format_list_name
 
-  format_list %>% str()
+  # format_list %>% str()
 
   format_list
 

@@ -194,7 +194,7 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1:12), columns = (1:10)),
     style = list(cell_text(size = px(12),  font = google_font("EB Garamond"))))
 #> List of 1
-#>  $ format_YNZIL:List of 3
+#>  $ format_VYFUD:List of 3
 #>   ..$ cell_predicate:List of 1
 #>   .. ..$ : language ~T
 #>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -209,7 +209,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_YNZIL:List of 3
+#>  $ format_VYFUD:List of 3
 #>   ..$ cell_predicate:List of 1
 #>   .. ..$ : language ~T
 #>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -227,7 +227,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 3
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -241,7 +241,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_NLMJG:List of 3
+#>  $ format_VHBFA:List of 3
 #>   ..$ header     : chr "year"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -253,7 +253,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_NLMJG:List of 3
+#>  $ format_VHBFA:List of 3
 #>   ..$ header     : chr "year"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -268,7 +268,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 4
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -281,7 +281,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -292,7 +292,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_HXNBR:List of 3
+#>  $ format_QMPDK:List of 3
 #>   ..$ header     : chr "var"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -304,7 +304,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_HXNBR:List of 3
+#>  $ format_QMPDK:List of 3
 #>   ..$ header     : chr "var"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -319,7 +319,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 5
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -332,7 +332,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -342,7 +342,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -353,7 +353,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_KQCIH:List of 3
+#>  $ format_DQSEW:List of 3
 #>   ..$ header     : chr "country"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -365,7 +365,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_KQCIH:List of 3
+#>  $ format_DQSEW:List of 3
 #>   ..$ header     : chr "country"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -380,7 +380,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 6
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -393,7 +393,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -403,7 +403,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -413,7 +413,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -424,7 +424,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_QHVGC:List of 3
+#>  $ format_DWIAV:List of 3
 #>   ..$ header     : chr "continent"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -436,7 +436,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_QHVGC:List of 3
+#>  $ format_DWIAV:List of 3
 #>   ..$ header     : chr "continent"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -451,7 +451,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 7
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -464,7 +464,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -474,7 +474,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -484,7 +484,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -494,7 +494,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_QHVGC:List of 3
+#>   ..$ format_DWIAV:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -505,7 +505,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_ODZNJ:List of 3
+#>  $ format_DELGT:List of 3
 #>   ..$ header     : chr "continent"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -520,7 +520,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_ODZNJ:List of 3
+#>  $ format_DELGT:List of 3
 #>   ..$ header     : chr "continent"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -538,7 +538,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 8
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -551,7 +551,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -561,7 +561,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -571,7 +571,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -581,7 +581,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_QHVGC:List of 3
+#>   ..$ format_DWIAV:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -591,7 +591,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_ODZNJ:List of 3
+#>   ..$ format_DELGT:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -605,7 +605,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_GDSNV:List of 3
+#>  $ format_LBZHX:List of 3
 #>   ..$ header     : chr "year"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -617,7 +617,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_GDSNV:List of 3
+#>  $ format_LBZHX:List of 3
 #>   ..$ header     : chr "year"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -632,7 +632,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 9
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -645,7 +645,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -655,7 +655,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -665,7 +665,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -675,7 +675,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_QHVGC:List of 3
+#>   ..$ format_DWIAV:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -685,7 +685,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_ODZNJ:List of 3
+#>   ..$ format_DELGT:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -698,7 +698,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_GDSNV:List of 3
+#>   ..$ format_LBZHX:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -709,7 +709,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_SBTWF:List of 3
+#>  $ format_RKBMH:List of 3
 #>   ..$ header     : chr "year"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -724,7 +724,7 @@ gapminder_mm %>%
 #>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #>  - attr(*, "class")= chr [1:2] "table_format_list" "list"
 #> List of 1
-#>  $ format_SBTWF:List of 3
+#>  $ format_RKBMH:List of 3
 #>   ..$ header     : chr "year"
 #>   ..$ func       : chr "header_format"
 #>   ..$ format_list:List of 1
@@ -742,7 +742,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 10
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -755,7 +755,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -765,7 +765,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -775,7 +775,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -785,7 +785,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_QHVGC:List of 3
+#>   ..$ format_DWIAV:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -795,7 +795,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_ODZNJ:List of 3
+#>   ..$ format_DELGT:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -808,7 +808,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_GDSNV:List of 3
+#>   ..$ format_LBZHX:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -818,7 +818,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_SBTWF:List of 3
+#>   ..$ format_RKBMH:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -832,7 +832,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_EFVKW:List of 3
+#>  $ format_DAQXP:List of 3
 #>   ..$ locations  :List of 2
 #>   .. ..$ columns: language ~TRUE
 #>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
@@ -855,7 +855,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 11
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -868,7 +868,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -878,7 +878,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -888,7 +888,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -898,7 +898,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_QHVGC:List of 3
+#>   ..$ format_DWIAV:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -908,7 +908,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_ODZNJ:List of 3
+#>   ..$ format_DELGT:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -921,7 +921,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_GDSNV:List of 3
+#>   ..$ format_LBZHX:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -931,7 +931,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_SBTWF:List of 3
+#>   ..$ format_RKBMH:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -944,7 +944,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_EFVKW:List of 3
+#>   ..$ format_DAQXP:List of 3
 #>   .. ..$ locations  :List of 2
 #>   .. .. ..$ columns: language ~TRUE
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
@@ -963,7 +963,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
 #> List of 1
-#>  $ format_TLQYB:List of 3
+#>  $ format_HTBYF:List of 3
 #>   ..$ locations  :List of 2
 #>   .. ..$ columns: language ~(1:10)
 #>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -987,7 +987,7 @@ gapminder_mm %>%
 #>  $ _table_format:List of 12
 #>   ..$ header      : list()
 #>   ..$ format_list : list()
-#>   ..$ format_YNZIL:List of 3
+#>   ..$ format_VYFUD:List of 3
 #>   .. ..$ cell_predicate:List of 1
 #>   .. .. ..$ : language ~T
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
@@ -1000,7 +1000,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_NLMJG:List of 3
+#>   ..$ format_VHBFA:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1010,7 +1010,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ align: chr "right"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_HXNBR:List of 3
+#>   ..$ format_QMPDK:List of 3
 #>   .. ..$ header     : chr "var"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1020,7 +1020,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_KQCIH:List of 3
+#>   ..$ format_DQSEW:List of 3
 #>   .. ..$ header     : chr "country"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1030,7 +1030,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_QHVGC:List of 3
+#>   ..$ format_DWIAV:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1040,7 +1040,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_ODZNJ:List of 3
+#>   ..$ format_DELGT:List of 3
 #>   .. ..$ header     : chr "continent"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1053,7 +1053,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_GDSNV:List of 3
+#>   ..$ format_LBZHX:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1063,7 +1063,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ weight: chr "bolder"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_SBTWF:List of 3
+#>   ..$ format_RKBMH:List of 3
 #>   .. ..$ header     : chr "year"
 #>   .. ..$ func       : chr "header_format"
 #>   .. ..$ format_list:List of 1
@@ -1076,7 +1076,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_EFVKW:List of 3
+#>   ..$ format_DAQXP:List of 3
 #>   .. ..$ locations  :List of 2
 #>   .. .. ..$ columns: language ~TRUE
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
@@ -1094,7 +1094,7 @@ gapminder_mm %>%
 #>   .. .. .. .. .. ..$ color: chr "grey"
 #>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
 #>   .. .. .. .. ..- attr(*, "class")= chr "cell_styles"
-#>   ..$ format_TLQYB:List of 3
+#>   ..$ format_HTBYF:List of 3
 #>   .. ..$ locations  :List of 2
 #>   .. .. ..$ columns: language ~(1:10)
 #>   .. .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 

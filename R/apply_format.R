@@ -1,6 +1,6 @@
 apply_format <- function(mmtable, format_list){
 
- # browser()
+ browser()
 
  if(format_list$func == "cells_format"){
  locations_list <- get_locations(mmtable = mmtable,func = format_list$func, cell_predicate = format_list$cell_predicate)

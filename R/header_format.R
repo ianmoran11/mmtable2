@@ -14,7 +14,7 @@ header_format <- function(header, ...){
 
   names(format_list) <- format_list_name
 
-  format_list %>% str()
+  # format_list %>% str()
 
   format_list
 
