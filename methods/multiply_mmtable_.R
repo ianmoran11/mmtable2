@@ -30,7 +30,21 @@
   col_header_df_temp <-  bind_rows(col_header_df_2,col_header_df_1) %>% filter(complete.cases(.)) %>% unique()
   row_header_df_temp <-  bind_rows(row_header_df_2,row_header_df_1) %>% filter(complete.cases(.)) %>% unique()
   table_name <-  table_meta_1$table_name
-  table_format  <- append(table_format_1[[1]], table_format_2[[1]])
+
+
+  if(!is.null(table_format_2)){
+
+    table_format  <- append(table_format_1[[1]], table_format_2[[1]])
+
+  }else{
+
+    initial_format_list <-  list(list(header = list(), format_list = list()))
+    initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
+    names(initial_format_list) <- initial_format_list_name
+
+    table_format  <- append(table_format_1[[1]], initial_format_list)
+  }
+
 
   table_constructor(
     df = original_data,

@@ -22,7 +22,16 @@ stable <-
   mmtable(table_data = value,table_name = "Test")  +
   header_top(student) +
   header_top_left(grade) +
-  header_left(class)
+  header_left(class) +
+  header_left_top(subject)
+
+attributes(initial_format_lis)
+
+
+stable +  header_left(class)
+
+
+stable +   header_left_top(subject)
 
 stable %>% attributes() %>% str
 

@@ -1,6 +1,6 @@
 get_locations <- function(mmtable,header){
 
- # browser()
+ browser()
 
   header_dfs <-
   mmtable %>% attributes() %>% .[["_header_info"]] %>% .[c("col_header_df","row_header_df")] %>%
