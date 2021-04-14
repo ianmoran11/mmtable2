@@ -1,6 +1,6 @@
 apply_formats <- function(mmtable){
 
- browser()
+ # browser()
 
   table_format_list <- mmtable %>% attr("_table_format")
 
