@@ -3,6 +3,7 @@ devtools::build()
 devtools::install()
 3
 #----------------------------------------------------------------
+
 library(tibble)
 library(gt)
 library(tidyverse)
@@ -25,26 +26,16 @@ stable <-
   header_left(class) +
   header_left_top(subject)
 
-attributes(initial_format_lis)
-
-
-stable +  header_left(class)
-
-
-stable +  header_left_top(subject)
-
-stable %>% attributes() %>% str
-
 table <-
-stable +
+  stable +
   header_format(student, style = list(cell_text(weight = "bold"))) +
-  header_format(student, style = list(cell_text(align =  "right")))
+  header_format(student, style = list(cell_text(align =  "right"))) +
+  header_format(subject, style = list(cell_text(weight = "bold")))
 
-
-table <-  stable + header_format(subject, style = list(cell_text(weight = "bold")))
-
+cells_table <- stable + cells_format(cell_predicate = subject == "Humanities", style = list(cell_text(weight = "bold")))
 
 apply_formats(table)
+apply_formats(cells_table)
 
 
 

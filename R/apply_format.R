@@ -1,13 +1,15 @@
 apply_format <- function(mmtable, format_list){
+
  # browser()
 
-  mmtable %>%
-    tab_style(locations = cells_body(row = 1:2, columns = 2), style = list(cell_text(weight = "bold")))
+ if(format_list$func == "cells_format"){
+ locations_list <- get_locations(mmtable = mmtable,func = format_list$func, cell_predicate = format_list$cell_predicate)
+ }
+ if(format_list$func == "header_format"){
+ locations_list <- get_locations(mmtable = mmtable,header = format_list$header, func = format_list$func)
+ }
 
-
-  locations_list <- get_locations(mmtable,format_list$header)
-
-  append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
+ append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
 
 
 }

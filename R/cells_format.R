@@ -1,16 +1,21 @@
-cells_format <- function(mmtable, cell_predicate, ... ){
+cells_format <- function(cell_predicate, ...){
 
- # browser()
+  # browser()
+
+  format_list <-
+    list(list(cell_predicate = enquos(cell_predicate),func = "cells_format", format_list = list(formats = ...)))
+
+  class(format_list) <- append("table_format_list",class(format_list))
+
+  format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
 
 
-  head(gtcars, 8) %>%
-    dplyr::select(model:trim, mpg_city = mpg_c, mpg_hwy = mpg_h) %>%
-    gt(rowname_col = "model") %>%
-    tab_style(
-      style = list(cell_text(color = "red"),cell_fill(color = "black")),
-      locations = cells_body(
-        columns = vars(trim),
-        rows = trim == "Base Convertible"
-      )
-    )
+  names(format_list) <- format_list_name
+
+  format_list %>% str()
+
+  format_list
+
+
+
 }

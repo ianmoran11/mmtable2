@@ -5,7 +5,7 @@ header_format <- function(header, ...){
   header_chr <- as.character(substitute(header))
 
   format_list <-
-  list(list(header = header_chr, format_list = list(formats = ...)))
+    list(list(header = header_chr,func = "header_format", format_list = list(formats = ...)))
 
   class(format_list) <- append("table_format_list",class(format_list))
 
