@@ -5,7 +5,6 @@ renv::snapshot()
 3
 #----------------------------------------------------------------
 install.packages("renv")
-
 renv::restore()
 library(tibble)
 library(gt)
@@ -15,7 +14,7 @@ devtools::load_all()
 
 usethis::use_testthat()
 
-
+devtools::test()
 
 source("./methods/divide_mmtable.R")
 source("./methods/multiply_mmtable_.R")
