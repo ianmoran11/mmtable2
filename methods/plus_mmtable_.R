@@ -10,7 +10,7 @@
 
   if("table_format_list" %in% class(mmtable2)){
 
-    str(mmtable2)
+    # str(mmtable2)
 
     mmtable1_formats  <- attributes(mmtable1) %>% .[["_table_format"]]
 
@@ -20,7 +20,7 @@
 
     attr(mmtable1,"_table_format") <- list("_table_format" = updated_format_list)
 
-    attr(mmtable1,"_table_format") %>%  str()
+    # attr(mmtable1,"_table_format") %>%  str()
     return(mmtable1)
 
 
