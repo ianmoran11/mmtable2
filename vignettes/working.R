@@ -47,6 +47,8 @@ countries <-
 gapminder %>% filter(year == max(year)) %>% arrange(-lifeExp) %>% group_by(continent) %>% top_n(2) %>%
   arrange(continent) %>% pull(country) %>% as.character()
 
+usethis::use_data(gapminder_mm)
+
 gapminder_mm <-
 gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% countries) %>%
   filter(year > 1990) %>%
@@ -76,12 +78,6 @@ gapminder_mm %>%
   header_format(continent, style = list(cell_borders(sides = "top",color = "grey"))) +
   header_format(year, style = list(cell_text(weight = "bolder"))) +
   header_format(year, style = list(cell_borders(sides = "bottom",color = "grey"))) +
-  NULL
-
-apply_formats(table)
-
-table_2 <-
-table +
   table_format(
     locations = cells_body(rows = c(1,3,5,7,9,11)),
     style = list(cell_borders(sides = "top",color = "grey"))) +
