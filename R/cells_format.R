@@ -1,6 +1,6 @@
 cells_format <- function(mmtable, cell_predicate, ... ){
 
- browser()
+ # browser()
 
 
   head(gtcars, 8) %>%

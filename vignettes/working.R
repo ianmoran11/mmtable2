@@ -31,7 +31,7 @@ attributes(initial_format_lis)
 stable +  header_left(class)
 
 
-stable +   header_left_top(subject)
+stable +  header_left_top(subject)
 
 stable %>% attributes() %>% str
 
@@ -39,6 +39,10 @@ table <-
 stable +
   header_format(student, style = list(cell_text(weight = "bold"))) +
   header_format(student, style = list(cell_text(align =  "right")))
+
+
+table <-  stable + header_format(subject, style = list(cell_text(weight = "bold")))
+
 
 apply_formats(table)
 
