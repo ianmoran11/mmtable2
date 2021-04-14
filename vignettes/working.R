@@ -3,6 +3,9 @@ devtools::build()
 devtools::install(".")
 3
 #----------------------------------------------------------------
+install.packages("renv")
+
+renv::init()
 
 library(tibble)
 library(gt)
