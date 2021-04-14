@@ -54,7 +54,7 @@ table_constructor <-
     df <- df %>% set_names(names(.) %>% accumulate(paste0))
 
     # Remove stubs
-    df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars)," ", .)))
+    df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars),"", .)))
 
     # Get numbers of columns in the final data frame
     final_cols <- names(df) %>% length()

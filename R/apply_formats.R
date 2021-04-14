@@ -1,6 +1,6 @@
 apply_formats <- function(mmtable){
 
- browser()
+ # browser()
 
   table_format_list <- mmtable %>% attr("_table_format")
 
@@ -8,6 +8,7 @@ apply_formats <- function(mmtable){
 
   # apply_format(mmtable, non_empty_format_lists[[1]])
 
-  non_empty_format_lists %>% map(apply_format,mmtable = mmtable)
+  mmtable_return <- append(list(mmtable), non_empty_format_lists) %>% reduce(apply_format)
 
+  mmtable_return
 }

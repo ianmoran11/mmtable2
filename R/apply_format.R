@@ -4,9 +4,13 @@ apply_format <- function(mmtable, format_list){
   mmtable %>%
     tab_style(locations = cells_body(row = 1:2, columns = 2), style = list(cell_text(weight = "bold")))
 
-  invoke_list <- list(data=mmtable,locations = cells_body(row = 2:4, columns = 2:4)) %>% append(.,  format_list$format_list)
 
-  invoke(tab_style,.x =  invoke_list)
+  locations_list <- get_locations(mmtable,format_list$header)
+
+  append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
+
+
+}
 
 
 
@@ -33,9 +37,3 @@ apply_format <- function(mmtable, format_list){
   #
 
 
-
-
-
-
-
-}
