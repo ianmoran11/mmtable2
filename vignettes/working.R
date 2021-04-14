@@ -26,9 +26,12 @@ stable <-
 
 stable %>% attributes() %>% str
 
+table <-
 stable +
   header_format(student, style = list(cell_text(weight = "bold"))) +
   header_format(student, style = list(cell_text(align =  "right")))
+
+apply_formats(table)
 
 
 

@@ -1,6 +1,6 @@
 `+.mmtable` <- function(mmtable1,mmtable2){
 
-  browser()
+  # browser()
 
 
   class(mmtable2)
@@ -15,7 +15,7 @@
 
     mmtable1_formats  <- attributes(mmtable1) %>% .[["_table_format"]]
 
-    mmtable2_formats_length <- length(mmtable1_formats[[1]])
+    # mmtable2_formats_length <- length(mmtable1_formats[[1]])
 
     updated_format_list <-  mmtable1_formats[[1]] %>% append(mmtable2)
 

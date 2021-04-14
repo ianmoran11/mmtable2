@@ -1,6 +1,6 @@
 header_format <- function(header, ...){
 
-  browser()
+  # browser()
 
   header_chr <- as.character(substitute(header))
 
