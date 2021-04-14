@@ -79,3 +79,15 @@ two_tables <- table_list[[1]] / table_list[[2]]
 
 many_tables <- table_list %>% reduce(`/`)
 
+
+one <-  (table_list[[1]] + table_list[[2]]) + table_list[[3]]
+two <-  table_list[[1]] + (table_list[[2]] + table_list[[3]])
+all(one$`_data` == two$`_data`)
+
+one <-  (table_list[[1]] / table_list[[2]]) / table_list[[3]]
+two <-  table_list[[1]] / (table_list[[2]] / table_list[[3]])
+all(one$`_data` == two$`_data`)
+
+one <-  (table_list[[1]] * table_list[[2]]) * table_list[[3]]
+two <-  table_list[[1]] * (table_list[[2]] *table_list[[3]])
+all(one$`_data` == two$`_data`)

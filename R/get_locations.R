@@ -41,9 +41,10 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
                           table_name = attr(mmtable_keyed,"_table_meta") %>% .[["table_name"]],
                           table_format = attr(mmtable_keyed,"_table_meta") %>% .[["_table_format"]])
 
+#-------------------
 
         mmtalbe_keyed_constructed_rowcol_index  <-
-           mmtalbe_keyed_constructed$`_data` %>% set_names(1:nrow(.)) %>% mutate(row = row_number()) %>%
+           mmtalbe_keyed_constructed$`_data` %>% set_names(1:ncol(.)) %>% mutate(row = row_number()) %>%
            gather(column,value, -row)
 
        filtered_key_values <-
