@@ -1,6 +1,8 @@
 `/.mmtable` <- function(mmtable1,mmtable2){
 
   # browser()
+  if(is.null(mmtable2)){return(mmtable1)}
+  if(is.null(mmtable1)){return(mmtable2)}
 
   # mmtable1 <- table1
   # mmtable2 <- table1

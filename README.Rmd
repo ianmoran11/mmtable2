@@ -170,7 +170,8 @@ try(many_tables  %>% gtsave("many_tables.png"))
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 
 table <-
-gapminder_mm %>%
+gapminder_mm %>% 
+  filter(var != "Life expectancy") %>% 
   mmtable(table_data = value) +
   header_top(year) +
   header_left(country) +

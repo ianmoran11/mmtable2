@@ -4,6 +4,9 @@
   # browser()
 
   if(is.null(mmtable2)){return(mmtable1)}
+  if(is.null(mmtable1)){return(mmtable2)}
+
+  if(is.null(mmtable2)){return(mmtable1)}
 
   headers_1 <- attributes(mmtable1) %>% .[["_header_info"]]
   headers_2 <- attributes(mmtable2) %>% .[["_header_info"]]

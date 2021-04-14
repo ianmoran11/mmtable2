@@ -59,6 +59,10 @@ table_constructor <-
     # Get numbers of columns in the final data frame
     final_cols <- names(df) %>% length()
 
+    # browser()
+
+    df <-  df %>% map_dfr(~ ifelse(is.na(.x),"—",.x))
+
     # Convert to gtable and set colors
     gtable <- df %>% gt() %>% data_color(columns = c(1:final_cols),colors = "white")
 

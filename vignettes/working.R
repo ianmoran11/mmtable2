@@ -1,6 +1,7 @@
 rm(list = ls())
 devtools::build()
 devtools::install(".")
+renv::snapshot()
 3
 #----------------------------------------------------------------
 install.packages("renv")
@@ -13,7 +14,6 @@ library(mmtable2)
 devtools::load_all()
 
 usethis::use_testthat()
-
 
 
 
@@ -47,7 +47,7 @@ countries <-
 gapminder %>% filter(year == max(year)) %>% arrange(-lifeExp) %>% group_by(continent) %>% top_n(2) %>%
   arrange(continent) %>% pull(country) %>% as.character()
 
-usethis::use_data(gapminder_mm)
+usethis::use_data(gapminder_mm,overwrite = T)
 
 gapminder_mm <-
 gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% countries) %>%
@@ -55,7 +55,7 @@ gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% co
   mutate(gdpPercap = round(gdpPercap/1000,3) %>% sprintf("%.1f", .)) %>%
   mutate(pop = round(pop/1000000,3) %>% sprintf("%.1f", .)) %>%
   mutate(lifeExp = round(lifeExp,3) %>% sprintf("%.1f", .)) %>%
-  select(-lifeExp) %>%
+  # select(-lifeExp) %>%
   gather(var,value, -country, -continent, -year) %>%
   mutate(var = case_when(
     var =="lifeExp" ~ "Life expectancy",
@@ -88,8 +88,50 @@ gapminder_mm %>%
 apply_formats(table_2)
 
 
+create_table <- function(df,name){
 
-?google_font()
+  df %>%
+    mmtable(table_data = value,table_name = name) +
+    header_top(year) +
+    header_left(country) +
+    header_top_left(var)  +
+    header_left_top(continent)
+}
+
+gapminder_tbl <-
+gapminder_mm %>%
+  mutate(continent_n = continent, var_n = var) %>%
+  group_by(continent_n,var_n) %>% nest() %>%
+  mutate(name = paste(continent_n,var_n, sep =" - " )) %>%
+  mutate(table =map2(data,name,create_table))
+(a +  b)
+
+a1 <-  a + NULL
+a2 <-  NULL + a
+
+all(a1$`_data` == a2$`_data`)
+
+usethis::use_test(name = "Addition-of-tables-is-associative",open = T)
+usethis::use_test(name = "Division-of-tables-is-associative",open = T)
+usethis::use_test(name = "Multiplication-of-tables-is-associative",open = T)
+
+usethis::use_test(name = "Addition-of-tables-has-an-identify",open = T)
+usethis::use_test(name = "Division-of-tables-has-an-identity",open = T)
+usethis::use_test(name = "Multiplication-of-tables-has-an-identity",open = T)
+
+
+
+devtools::test()
+
+
+c <- gapminder_tbl %>% filter(name == "Asia - Population") %>% pull(table) %>% .[[1]]
+d <- gapminder_tbl %>% filter(name == "Asia - GDP") %>% pull(table) %>% .[[1]]
+
+
+a + b
+
+gapminder_tbl$table[[1]] / gapminder_tbl$table[[2]]
+
 
 
 
