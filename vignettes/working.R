@@ -1,13 +1,13 @@
 rm(list = ls())
 devtools::build()
-devtools::install()
+devtools::install(".")
 3
 #----------------------------------------------------------------
 
 library(tibble)
 library(gt)
 library(tidyverse)
-# library(mmtable2)
+library(mmtable2)
 devtools::load_all()
 
 
@@ -32,27 +32,7 @@ table <-
   header_format(student, style = list(cell_text(align =  "right"))) +
   header_format(subject, style = list(cell_text(weight = "bold"))) +
   cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) +
-  table_format(locations = cells_body(rows = 1), style = list(cell_text( = "right")))
-
-
-table_format_table  <- student_df %>% mmtable(table_data = value,table_name = "Test")+ table_format(locations = cells_body(columns = 1), style = list(cell_text(align = "right")))
-
-apply_formats(table_format_table)
+  table_format(locations = cells_body(rows = 1), style = list(cell_text(weight = "bold")))
 
 apply_formats(table)
-
-
-cells_table <- stable + cells_format(cell_predicate = subject == "Humanities", style = list(cell_text(weight = "bold")))
-cells_table <- stable + cells_format(cell_predicate = T, style = list(cell_text(align = "right")))
-
-apply_formats(cells_table)
-
-
-
-initial_format_list <-  list(list(header = list(), format_list = list()))
-initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
-names(initial_format_list) <- initial_format_list_name
-
-table_format <- initial_format_list
-
 

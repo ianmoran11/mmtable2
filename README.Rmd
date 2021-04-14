@@ -35,7 +35,7 @@ library(gt)
 library(tidyverse)
 library(gapminder)
 library(mmtable2)
-
+library(webshot)
 ```
 
 Here's a couple of GIFs demonstrating how to use mmtable2:
@@ -49,15 +49,15 @@ knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-13+12-33
 ```
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-# source("./methods/divide_mmtable.R")
-# source("./methods/multiply_mmtable_.R")
-# source("./methods/plus_mmtable_.R")
-# source("./methods/print_mmtable.R")
+source("./methods/divide_mmtable.R")
+source("./methods/multiply_mmtable_.R")
+source("./methods/plus_mmtable_.R")
+source("./methods/print_mmtable.R")
 
-source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
-source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
-source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
-source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/print_mmtable.R")
+# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
+# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
+# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
+# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/print_mmtable.R")
 ```
 
 
