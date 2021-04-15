@@ -1,19 +1,15 @@
 #' Conditionally apply a function
 #'
-#' @param e1 an mmtable
-#' @param e2 an mmtable
-#' @return an mmtable
-#' @examples
+#' @param x an mmtable
+#' @param ... other things
 #' @export
 #' @S3method  print mmtable
-#' @method generic class
-#' @export
 
-print.mmtable  <-function(mmtable){
+print.mmtable  <-function(x, ...){
 
   # browser()
 
-  formatted_mmtable <- apply_formats(mmtable)
+  formatted_mmtable <- apply_formats(x)
 
   class(formatted_mmtable) <- c("gt_tbl","list")
 

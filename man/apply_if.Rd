@@ -21,6 +21,3 @@ data
 \description{
 Conditionally apply a function
 }
-\examples{
-
-}

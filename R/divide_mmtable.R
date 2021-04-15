@@ -3,11 +3,8 @@
 #' @param e1 an mmtable
 #' @param e2 an mmtable
 #' @return an mmtable
-#' @examples
 #' @export
 #' @S3method  "/" mmtable
-#' @method generic class
-#' @export
 
 
 "/.mmtable" <- function(e1, e2) {

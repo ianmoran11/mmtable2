@@ -4,12 +4,12 @@
 \alias{*.mmtable}
 \title{Conditionally apply a function}
 \usage{
-\method{generic}{class}(mmtable1, mmtable2)
+\method{*}{mmtable}(mmtable1, mmtable2)
 }
 \arguments{
-\item{e1}{an mmtable}
+\item{mmtable1}{an mmtable}
 
-\item{e2}{an mmtable}
+\item{mmtable2}{an mmtable}
 }
 \value{
 an mmtable

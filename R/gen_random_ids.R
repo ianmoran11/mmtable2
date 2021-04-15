@@ -3,7 +3,6 @@
 #' @param n number of ids
 #' @param length length of id
 #' @return format list
-#' @examples
 
 gen_random_ids <- function(n,length){
 

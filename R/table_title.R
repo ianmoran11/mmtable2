@@ -4,7 +4,7 @@
 #' @param ... formating instructions
 #' @return format list
 #' @export
-#' @examples
+
 
 table_title <- function(...){
 
@@ -27,7 +27,7 @@ table_title <- function(...){
 #' @param ... formating instructions
 #' @return format list
 #' @export
-#' @examples
+
 
 
 table_source_note <- function(...){

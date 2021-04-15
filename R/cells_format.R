@@ -4,7 +4,7 @@
 #' @param ... dots.
 #' @return format list
 #' @examples
-#' @export
+
 
 cells_format <- function(cell_predicate, ...){
 

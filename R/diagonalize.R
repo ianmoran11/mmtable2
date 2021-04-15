@@ -4,7 +4,6 @@
 #' @param var_char the column to be diagonalized
 #' @return data frame
 #' @examples
-#' @export
 
 
 diagonalize <-  function(df,var_char){

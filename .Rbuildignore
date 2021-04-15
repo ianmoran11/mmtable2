@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^LICENSE\.md$
+^\.travis\.yml$

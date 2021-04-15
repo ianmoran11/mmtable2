@@ -4,7 +4,7 @@
 \alias{/.mmtable}
 \title{Conditionally apply a function}
 \usage{
-\method{generic}{class}(e1, e2)
+\method{/}{mmtable}(e1, e2)
 }
 \arguments{
 \item{e1}{an mmtable}

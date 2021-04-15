@@ -4,7 +4,6 @@
 #' @param data a data frame
 #' @param ... list of data to load into envrionment
 #' @return mmtable
-#' @examples
 
 sort_and_select_columns <- function(data,...){
 

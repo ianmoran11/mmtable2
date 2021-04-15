@@ -53,7 +53,7 @@ table1 <-
   header_left(class) +
   header_left_top(subject)
 
-try(table1 %>% gtsave("table1.png"))
+try(table1 %>% gtsave("./man/figures/table1.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -80,7 +80,7 @@ table2 <-
 
 ``` r
 single_table <- table1 +  table_title("Single Table")  
-try(single_table  %>% gtsave("single_table.png"))
+try(single_table  %>% gtsave("./man/figures/single_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -89,7 +89,7 @@ try(single_table  %>% gtsave("single_table.png"))
 
 ``` r
 quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
-try(quotient_table  %>% gtsave("quotient_table.png"))
+try(quotient_table  %>% gtsave("./man/figures/quotient_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -98,7 +98,7 @@ try(quotient_table  %>% gtsave("quotient_table.png"))
 
 ``` r
 product_table <- table1 * table1.1  +  table_title("Table Product") 
-try(product_table  %>% gtsave("product_table.png"))
+try(product_table  %>% gtsave("./man/figures/product_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -107,7 +107,7 @@ try(product_table  %>% gtsave("product_table.png"))
 
 ``` r
 sum_table <- table1 + table2    +  table_title("Table Sum")     
-try(sum_table  %>% gtsave("sum_table.png"))
+try(sum_table  %>% gtsave("./man/figures/sum_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -135,7 +135,7 @@ model_df %>%
   header_top_left(term) +
   header_top_left(statistic_level)
 
-try(demo_table  %>% gtsave("demo_table.png"))
+try(demo_table  %>% gtsave("./man/figures/demo_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```

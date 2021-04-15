@@ -3,7 +3,6 @@
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
-#' @examples
 
 header_top <- function(variable){
 
@@ -33,7 +32,6 @@ header_top <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
-#' @examples
 header_top_left <- function(variable){
   var_chr <- substitute(variable) %>% as.character()
 
@@ -60,7 +58,6 @@ header_top_left <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
-#' @examples
 header_left <- function(variable){
   var_chr <- substitute(variable) %>% as.character()
 
@@ -86,7 +83,6 @@ header_left <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
-#' @examples
 
 header_left_top <- function(variable){
   var_chr <- substitute(variable) %>% as.character()

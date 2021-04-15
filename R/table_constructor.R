@@ -8,7 +8,7 @@
 #' @param table_name name of the table
 #' @param table_format formatting o the table
 #' @return mmtable
-#' @examples
+
 
 table_constructor <-
   function(df,col_header_df, row_header_df,data_vars,table_name = NULL, table_format){
@@ -73,7 +73,7 @@ table_constructor <-
 
     # browser()
 
-    df <-  df %>% map_dfr(~ ifelse(is.na(.x),"—",.x))
+    df <-  df %>% map_dfr(~ ifelse(is.na(.x),"-",.x))
 
     # Convert to gtable and set colors
     gtable <- df %>% gt() %>% data_color(columns = c(1:final_cols),colors = "white")

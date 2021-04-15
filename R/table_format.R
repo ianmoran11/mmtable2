@@ -5,7 +5,6 @@
 #' @param ... formating instructions
 #' @return format list
 #' @export
-#' @examples
 
 table_format <- function(locations, ...){
 

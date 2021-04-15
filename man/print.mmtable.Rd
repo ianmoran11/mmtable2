@@ -4,15 +4,12 @@
 \alias{print.mmtable}
 \title{Conditionally apply a function}
 \usage{
-\method{generic}{class}(mmtable)
+\method{print}{mmtable}(x, ...)
 }
 \arguments{
-\item{e1}{an mmtable}
+\item{x}{an mmtable}
 
-\item{e2}{an mmtable}
-}
-\value{
-an mmtable
+\item{...}{other things}
 }
 \description{
 Conditionally apply a function

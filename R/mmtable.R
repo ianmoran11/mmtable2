@@ -6,7 +6,6 @@
 #' @param table_name the name of the table - used for labelling when joined with another table - randomly generated if not provided.
 #' @return mmtable
 #' @export
-#' @examples
 
 
 mmtable <- function(data,table_data, table_name = NULL){

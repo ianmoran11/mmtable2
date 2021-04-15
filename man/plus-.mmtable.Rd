@@ -4,7 +4,7 @@
 \alias{+.mmtable}
 \title{Conditionally apply a function}
 \usage{
-\method{generic}{class}(mmtable1, mmtable2)
+\method{+}{mmtable}(mmtable1, mmtable2)
 }
 \arguments{
 \item{mmtable1}{an mmtable}

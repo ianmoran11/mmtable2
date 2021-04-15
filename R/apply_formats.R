@@ -3,7 +3,6 @@
 #' @param mmtable an mmtable
 #' @return mmtable
 #' @export
-#' @examples
 
 apply_formats <- function(mmtable){
 
