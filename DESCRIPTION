@@ -24,5 +24,6 @@ Imports:
 URL: https://github.com/ianmoran11/mmtable2
 BugReports: https://github.com/ianmoran11/mmtable2/issues
 Suggests: 
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    covr
 RoxygenNote: 6.1.1
