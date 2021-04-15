@@ -21,23 +21,13 @@
 
   if("table_format_list" %in% class(mmtable2)){
 
-    # str(mmtable2)
-
     mmtable1_formats  <- attributes(mmtable1) %>% .[["_table_format"]]
-
-    mmtable1_formats %>% str()
-    # mmtable2_formats_length <- length(mmtable1_formats[[1]])
 
     updated_format_list <-  mmtable1_formats %>% append(mmtable2)
 
-    updated_format_list %>% str()
-
     attr(mmtable1,"_table_format") <- updated_format_list
 
-    attr(mmtable1,"_table_format") %>%  str()
     return(mmtable1)
-
-
     }
 
   if(is.null(mmtable2)){return(mmtable1)}
@@ -61,9 +51,6 @@
   }
 
   if("table_format_list" %in% class(mmtable2)){
-    # return(mmtable1 * mmtable2)
-
-    # return_table <- invoke(mmtable2, append(list(mmtable1),attr(mmtable2,"table_args")))
 
     table_format_1 <- attributes(mmtable1) %>% .[["_table_format"]]
 
@@ -76,8 +63,6 @@
     return(mmtable1)
 
   }
-
-
 
 
   #  Get table 1 attributes

@@ -84,9 +84,6 @@
   }
 
 
-
-
-
   table_constructor(
     df = original_data,
     col_header_df = col_header_df_temp,

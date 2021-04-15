@@ -46,9 +46,6 @@ spread_col_headers <- function(data, ...){
            }
          )
 
-
-
-
          df
        })
 }
