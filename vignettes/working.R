@@ -10,16 +10,21 @@ library(tibble)
 library(gt)
 library(tidyverse)
 library(mmtable2)
-devtools::load_all()
 
+devtools::load_all()
 usethis::use_testthat()
 
-devtools::test()
 
+rm(list = ls())
+devtools::build()
+devtools::install(".")
+library(mmtable2)
 source("./methods/divide_mmtable.R")
 source("./methods/multiply_mmtable_.R")
 source("./methods/plus_mmtable_.R")
 source("./methods/print_mmtable.R")
+devtools::test()
+
 
 student_df
 
@@ -77,10 +82,14 @@ gapminder_mm %>%
   header_left(country) +
   header_top_left(var)  +
   header_left_top(continent)  +
+  table_format(
+    locations = "all",
+    style = list(cell_text(size = px(12),  weight = "bold")))
+
+  cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) +
   header_format(header = "all_rows", style = list(cell_text(weight = "bold")))
 
 
-  cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) +
 
 +
   header_format(var, style = list(cell_text(weight = "bolder"))) +

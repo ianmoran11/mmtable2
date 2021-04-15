@@ -16,6 +16,18 @@ apply_format <- function(mmtable, format_list){
 
  locations_list = format_list$locations
 
+    if(locations_list == "all"){
+
+     locations_list <- cells_body(rows = 1:nrow(mmtable$`_data`), columns =  1:ncol(mmtable$`_data`))
+
+     invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
+
+     return_table <- invoke(tab_style,.x =  invoke_list)
+
+     return(return_table)
+
+      }
+
  invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
 
  return_table <- invoke(tab_style,.x =  invoke_list)
