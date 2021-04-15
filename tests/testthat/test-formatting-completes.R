@@ -33,6 +33,6 @@ test_that("multiplication works", {
 
   t <- apply_formats(table)
 
-    expect_true(1 == 1)
+  expect_true(1 == 1)
 
 })
