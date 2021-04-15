@@ -66,6 +66,8 @@ devtools::load_all()
 
 class(table)
 
+devtools::test()
+devtools::load_all()
 
 table <-
 gapminder_mm %>%
@@ -75,8 +77,12 @@ gapminder_mm %>%
   header_left(country) +
   header_top_left(var)  +
   header_left_top(continent)  +
+  header_format(header = "all_rows", style = list(cell_text(weight = "bold")))
+
+
   cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) +
-  header_format(header = year, style = list(cell_text(align = "right"))) +
+
++
   header_format(var, style = list(cell_text(weight = "bolder"))) +
   header_format(country, style = list(cell_text(weight = "bolder"))) +
   header_format(continent, style = list(cell_text(weight = "bolder"))) +
@@ -92,7 +98,7 @@ gapminder_mm %>%
 
 apply_formats(table) %>% gt::tab_options(column_labels.hidden = T)
 apply_formats(table_2)
-
+devtools::test()
 
 
 create_table <- function(df,name){

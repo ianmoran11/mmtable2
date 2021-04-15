@@ -8,6 +8,37 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      mmtable %>% attributes() %>% .[["_header_info"]] %>% .[c("col_header_df","row_header_df")] %>%
      map(~ .x %>% mutate(header_no = row_number() ))
 
+   if(header == "all_cols"){
+     rows_to_modify <- header_dfs$col_header_df %>% pull(header_no)
+
+     cols_to_modify <-
+     map(rows_to_modify, ~ mmtable$`_data`[.x,] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
+
+     return_list <-
+     cols_to_modify %>% bind_rows() %$%
+     map2(row, col, function(x,y) list(rows = x, cols = y))
+
+     return(return_list)
+
+   }
+
+   if(header == "all_rows"){
+     cols_to_modify <- header_dfs$row_header_df %>% pull(header_no)
+
+     rows_to_modify <-
+       map(cols_to_modify, ~ mmtable$`_data`[,.x] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
+
+     return_list <-
+       rows_to_modify %>% bind_rows() %$%
+       map2(row, col, function(x,y) list(rows = y, cols = x))
+
+     return(return_list)
+
+   }
+
+
+
+
    if(header %in% header_dfs$col_header_df$col_header_vars){
     rows_to_modify <- header_dfs$col_header_df %>% filter(col_header_vars == header) %>% pull(header_no)
     cols_to_modify <- mmtable$`_data`[rows_to_modify,] %>% unlist %>% str_detect("[:alnum:]") %>% which()
