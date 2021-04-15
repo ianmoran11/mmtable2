@@ -3,6 +3,7 @@
 #'
 #' @param data a data frame
 #' @param ... list of data to load into envrionment
+#' @export
 #' @return a data frame
 
 

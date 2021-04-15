@@ -1,6 +1,5 @@
 test_that("multiplication works", {
 
-
   create_table <- function(df,name){
 
     df %>%

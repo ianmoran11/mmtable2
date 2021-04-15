@@ -22,8 +22,9 @@ test_that("multiplication works", {
   b <- gapminder_tbl %>% filter(name == "Oceania - GDP") %>% pull(table) %>% .[[1]]
   c <- gapminder_tbl %>% filter(name == "Oceania - Life expectancy") %>% pull(table) %>% .[[1]]
 
-  a1 <- (a +  b) + c
-  a2 <-  a + (b  + c)
+ a1 <- (a +  b) + c
+ a2 <-  a + (b + c)
+
 
   expect_true(
     all(a1$`_data` == a2$`_data`)

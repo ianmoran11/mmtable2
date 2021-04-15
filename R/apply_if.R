@@ -5,6 +5,7 @@
 #' @param data data used by the function or otherwise returned
 #' @param ... other objects involved in evaluation of the function
 #' @return data
+#' @export
 
 apply_if <- function(predicate, func, data, ...){
 

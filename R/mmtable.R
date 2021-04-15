@@ -37,7 +37,14 @@ mmtable <- function(data,table_data, table_name = NULL){
 
 
   attr(tc, "_table_format") <- attr(tc, "_table_format") %>%
-    append(.,    table_format(locations = "all",style = list(cell_text(size = px(12)))))
+    append(.,table_format(locations = "all",style = list(cell_text(size = px(12))))) %>%
+    append(.,cells_format(cell_predicate = T, style = list(cell_text(align = "right")))) %>%
+    append(.,header_format(header = "all_cols", style = list(cell_text(align = "right",weight = "bold")))) %>%
+    append(.,header_format(header = "all_rows", style = list(cell_text(weight = "bold"))))
+
+
+
+
 
   attr(tc, "_table_format") %>% .[[1]]
   attr(tc, "_table_format") %>% .[[2]]

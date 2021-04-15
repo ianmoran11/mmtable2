@@ -54,7 +54,7 @@ table1 <-
   header_left(class) +
   header_left_top(subject)
 
-try(table1 %>% gtsave("./man/figures/table1.png"))
+try(apply_formats(table1) %>% gtsave("./man/figures/table1.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -81,7 +81,7 @@ table2 <-
 
 ``` r
 single_table <- table1 +  table_title("Single Table")  
-try(single_table  %>% gtsave("./man/figures/single_table.png"))
+try(apply_formats(single_table)  %>% gtsave("./man/figures/single_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -90,7 +90,7 @@ try(single_table  %>% gtsave("./man/figures/single_table.png"))
 
 ``` r
 quotient_table <- table1 / table1.1  +  table_title("Table Quotient")
-try(quotient_table  %>% gtsave("./man/figures/quotient_table.png"))
+try(apply_formats(quotient_table)  %>% gtsave("./man/figures/quotient_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -99,7 +99,7 @@ try(quotient_table  %>% gtsave("./man/figures/quotient_table.png"))
 
 ``` r
 product_table <- table1 * table1.1  +  table_title("Table Product") 
-try(product_table  %>% gtsave("./man/figures/product_table.png"))
+try(apply_formats(product_table)  %>% gtsave("./man/figures/product_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -108,7 +108,7 @@ try(product_table  %>% gtsave("./man/figures/product_table.png"))
 
 ``` r
 sum_table <- table1 + table2    +  table_title("Table Sum")     
-try(sum_table  %>% gtsave("./man/figures/sum_table.png"))
+try(apply_formats(sum_table)  %>% gtsave("./man/figures/sum_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -136,25 +136,23 @@ model_df %>%
   header_top_left(term) +
   header_top_left(statistic_level)
 
-try(demo_table  %>% gtsave("./man/figures/demo_table.png"))
-#> TypeError: Attempting to change the setter of an unconfigurable property.
-#> TypeError: Attempting to change the setter of an unconfigurable property.
+try(apply_formats(demo_table)  %>% gtsave("./man/figures/demo_table.png"))
+#> Error : Problem with `mutate()` input `listed`.
+#> x `.x` must be a vector, not a function
+#> ℹ Input `listed` is `map2(col, row, ~list(row = .x, col = .y))`.
 ```
-
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="600px" />
 
 ``` r
 one_table <-  table_list[[1]]
-try(one_table  %>% gtsave("./man/figures/one_table.png"))
-#> TypeError: Attempting to change the setter of an unconfigurable property.
-#> TypeError: Attempting to change the setter of an unconfigurable property.
+try(apply_formats(one_table)  %>% gtsave("./man/figures/one_table.png"))
+#> Error : Problem with `mutate()` input `listed`.
+#> x `.x` must be a vector, not a function
+#> ℹ Input `listed` is `map2(col, row, ~list(row = .x, col = .y))`.
 ```
-
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="600px" />
 
 ``` r
 two_tables <- table_list[[1]] / table_list[[2]]
-try(two_tables  %>% gtsave("./man/figures/two_tables.png"))
+try(apply_formats(two_tables)  %>% gtsave("./man/figures/two_tables.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -163,7 +161,7 @@ try(two_tables  %>% gtsave("./man/figures/two_tables.png"))
 
 ``` r
 many_tables <- table_list %>% reduce(`/`)
-try(many_tables  %>% gtsave("./man/figures/many_tables.png"))
+try(apply_formats(many_tables)  %>% gtsave("./man/figures/many_tables.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```

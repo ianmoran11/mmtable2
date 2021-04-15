@@ -7,6 +7,7 @@
 #' @param data_vars cell variable
 #' @param table_name name of the table
 #' @param table_format formatting o the table
+#' @export
 #' @return mmtable
 
 

@@ -7,7 +7,7 @@
 #' @export
 
 table_format <- function(locations, ...){
-
+# browser()
   format_list <-
     list(list(locations = locations,func = "table_format", format_list = list(formats = ...)))
 

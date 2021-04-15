@@ -4,6 +4,7 @@
 #' @param loc a list containing a row and col items
 #' @param format_list a list of formatting commands
 #' @return format list
+#' @export
 
 
 format_a_loc <- function(mmtable, loc,format_list){

@@ -3,6 +3,7 @@
 #' @param mmtable an mmtable
 #' @param format_list a list of formating commands.
 #' @return mmtable
+#' @export
 
 apply_format <- function(mmtable, format_list){
 

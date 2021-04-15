@@ -5,7 +5,8 @@
 #' @param func the original formatting function applied
 #' @param cell_predicate predicate to determine locations
 #' @return locations
-#
+#' @export
+
 get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
   # browser()
@@ -22,9 +23,7 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      cols_to_modify <-
        map(rows_to_modify, ~ mmtable$`_data`[.x,] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
 
-     return_list <-
-       cols_to_modify %>% bind_rows() %$%
-       map2(row, col, function(x,y) list(rows = x, cols = y))
+     return_list <- cols_to_modify %>% bind_rows() %>% mutate(listed = map2(row,col, ~ list(row = .x, col = .y))) %>% pull(listed)
 
      return(return_list)
 
@@ -37,8 +36,7 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
        map(cols_to_modify, ~ mmtable$`_data`[,.x] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
 
      return_list <-
-       rows_to_modify %>% bind_rows() %$%
-       map2(row, col, function(x,y) list(rows = y, cols = x))
+       rows_to_modify %>% bind_rows() %>% mutate(listed = map2(col,row, ~ list(row = .x, col = .y))) %>% pull(listed)
 
      return(return_list)
 
