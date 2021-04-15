@@ -1,3 +1,8 @@
+#' Conditionally apply a function
+#'
+#' @param data an mmtable
+#' @export
+#' @param country_input a list containing a row and col items
 
 model_lexp <- function(data,country_input){
 
@@ -23,6 +28,11 @@ model_lexp <- function(data,country_input){
 }
 
 
+#' Conditionally apply a function
+#'
+#' @param model_df an mmtable
+#' @export
+
 table_model <- function(model_df){
 
   country <- model_df$country[1]
@@ -37,6 +47,11 @@ table_model <- function(model_df){
   table
 
 }
+
+#' Conditionally apply a function
+#'
+#' @param model_df an mmtable
+#' @export
 
 table_model_wide <- function(model_df){
 

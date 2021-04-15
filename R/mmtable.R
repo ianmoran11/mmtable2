@@ -1,3 +1,14 @@
+
+#' Conditionally apply a function
+#'
+#' @param data a data frame
+#' @param table_data the name of the column whose values will form the data cells.
+#' @param table_name the name of the table - used for labelling when joined with another table - randomly generated if not provided.
+#' @return mmtable
+#' @export
+#' @examples
+
+
 mmtable <- function(data,table_data, table_name = NULL){
 
   # browser()
@@ -35,15 +46,6 @@ mmtable <- function(data,table_data, table_name = NULL){
 
   attr(tc, "_table_format") %>% names()
 
-
   return(tc)
-
-
-  # +
-  #
-  #     table_format(locations = "all",style = list(cell_text(size = px(12)))) +
-  #     header_format(header = "all_rows",style = list(cell_text(weight = "bold"))) +
-  #     header_format(header = "all_cols",style = list(cell_text(weight = "bold", align = "right"))) +
-  #     cells_format(cell_predicate = T,style = list(cell_text(align =  "right")))
 
 }

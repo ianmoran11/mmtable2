@@ -1,3 +1,14 @@
+#' Conditionally apply a function
+#'
+#' @param e1 an mmtable
+#' @param e2 an mmtable
+#' @return an mmtable
+#' @examples
+#' @export
+#' @S3method  print mmtable
+#' @method generic class
+#' @export
+
 print.mmtable  <-function(mmtable){
 
   # browser()

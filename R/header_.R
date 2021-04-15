@@ -1,3 +1,10 @@
+#' Conditionally apply a function
+#'
+#' @param variable a column of the data frame from which header values will be constructed
+#' @return format list
+#' @export
+#' @examples
+
 header_top <- function(variable){
 
   # browser()
@@ -21,6 +28,12 @@ header_top <- function(variable){
 
 }
 
+#' Conditionally apply a function
+#'
+#' @param variable a column of the data frame from which header values will be constructed
+#' @return format list
+#' @export
+#' @examples
 header_top_left <- function(variable){
   var_chr <- substitute(variable) %>% as.character()
 
@@ -42,6 +55,12 @@ header_top_left <- function(variable){
 
 }
 
+#' Conditionally apply a function
+#'
+#' @param variable a column of the data frame from which header values will be constructed
+#' @return format list
+#' @export
+#' @examples
 header_left <- function(variable){
   var_chr <- substitute(variable) %>% as.character()
 
@@ -61,6 +80,13 @@ header_left <- function(variable){
 
 
 }
+
+#' Conditionally apply a function
+#'
+#' @param variable a column of the data frame from which header values will be constructed
+#' @return format list
+#' @export
+#' @examples
 
 header_left_top <- function(variable){
   var_chr <- substitute(variable) %>% as.character()

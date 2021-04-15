@@ -1,3 +1,15 @@
+
+#' Conditionally apply a function
+#'
+#' @param df a data frame
+#' @param col_header_df col header information
+#' @param row_header_df row header information
+#' @param data_vars cell variable
+#' @param table_name name of the table
+#' @param table_format formatting o the table
+#' @return mmtable
+#' @examples
+
 table_constructor <-
   function(df,col_header_df, row_header_df,data_vars,table_name = NULL, table_format){
 

@@ -1,3 +1,10 @@
+#' Apply formating to a mmtable
+#'
+#' @param mmtable an mmtable
+#' @param format_list a list of formating commands.
+#' @return mmtable
+#' @examples
+
 apply_format <- function(mmtable, format_list){
 
  # browser()

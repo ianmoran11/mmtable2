@@ -1,3 +1,12 @@
+
+#' Conditionally apply a function
+#'
+#' @param locations indicating which cells should be fomrated
+#' @param ... formating instructions
+#' @return format list
+#' @export
+#' @examples
+
 table_format <- function(locations, ...){
 
   format_list <-

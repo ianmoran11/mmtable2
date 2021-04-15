@@ -1,3 +1,11 @@
+#' Conditionally apply a function
+#'
+#' @param cell_predicate an expression on the source data frame identifying which cells should be formatted.
+#' @param ... dots.
+#' @return format list
+#' @examples
+#' @export
+
 cells_format <- function(cell_predicate, ...){
 
   # browser()

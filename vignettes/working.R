@@ -13,18 +13,29 @@ library(mmtable2)
 
 devtools::load_all()
 usethis::use_testthat()
+install.packages("sloop")
+library(sloop)
+
 
 
 rm(list = ls())
+devtools::document()
 devtools::build()
 devtools::install(".")
 library(mmtable2)
-source("./methods/divide_mmtable.R")
+# source("./methods/divide_mmtable.R")
 source("./methods/multiply_mmtable_.R")
 source("./methods/plus_mmtable_.R")
 source("./methods/print_mmtable.R")
 devtools::test()
 
+methods("mmtable")
+ftype(`/`)
+
+
+s3_dispatch(`/`(stable,stable))
+
+methods("/")
 
 student_df
 
@@ -48,13 +59,13 @@ apply_formats(table)
 
 
 countries <-
-gapminder %>% filter(year == max(year)) %>% arrange(-lifeExp) %>% group_by(continent) %>% top_n(2) %>%
+  gapminder %>% filter(year == max(year)) %>% arrange(-lifeExp) %>% group_by(continent) %>% top_n(2) %>%
   arrange(continent) %>% pull(country) %>% as.character()
 
 usethis::use_data(gapminder_mm,overwrite = T)
 
 gapminder_mm <-
-gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% countries) %>%
+  gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% countries) %>%
   filter(year > 1990) %>%
   mutate(gdpPercap = round(gdpPercap/1000,3) %>% sprintf("%.1f", .)) %>%
   mutate(pop = round(pop/1000000,3) %>% sprintf("%.1f", .)) %>%
@@ -65,7 +76,7 @@ gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% co
     var =="lifeExp" ~ "Life expectancy",
     var == "gdpPercap" ~ "GDP",
     var == "pop" ~ "Population")
-    )
+  )
 
 devtools::load_all()
 
@@ -75,7 +86,7 @@ devtools::test()
 devtools::load_all()
 
 table <-
-gapminder_mm %>%
+  gapminder_mm %>%
   filter(var != "Life expectancy") %>%
   mmtable(table_data = value) +
   header_top(year)  +

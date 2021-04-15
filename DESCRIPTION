@@ -21,3 +21,4 @@ URL: https://github.com/ianmoran11/mmtable2
 BugReports: https://github.com/ianmoran11/mmtable2/issues
 Suggests: 
     testthat (>= 2.1.0)
+RoxygenNote: 6.1.1

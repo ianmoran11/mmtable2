@@ -51,19 +51,6 @@ knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34
 knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-13+12-33.gif")
 ```
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-source("./methods/divide_mmtable.R")
-source("./methods/multiply_mmtable_.R")
-source("./methods/plus_mmtable_.R")
-source("./methods/print_mmtable.R")
-
-# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/divide_mmtable.R")
-# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/multiply_mmtable_.R")
-# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/plus_mmtable_.R")
-# source("https://raw.githubusercontent.com/ianmoran11/mmtable2/master/methods/print_mmtable.R")
-```
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
 student_df
 ```
@@ -169,7 +156,7 @@ try(many_tables  %>% gtsave("many_tables.png"))
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 
-table <-
+gm_table <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
   mmtable(table_data = value) +
@@ -192,9 +179,9 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1:12), columns = (1:10)),
     style = list(cell_text(size = px(12),  font = google_font("EB Garamond"))))
 
-gm_table <- apply_formats(table)
 
-try(gm_table  %>% gtsave("gm_table.png"))
+
+try(apply_formats(gm_table) %>% gtsave("gm_table.png"))
 ```
 
 

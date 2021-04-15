@@ -1,3 +1,11 @@
+
+#' Conditionally apply a function
+#'
+#' @param ... formating instructions
+#' @return format list
+#' @export
+#' @examples
+
 table_title <- function(...){
 
   # browser()
@@ -13,6 +21,13 @@ table_title <- function(...){
   table_title_fn
 
 }
+
+#' Conditionally apply a function
+#'
+#' @param ... formating instructions
+#' @return format list
+#' @export
+#' @examples
 
 
 table_source_note <- function(...){

@@ -1,3 +1,11 @@
+
+#' Conditionally apply a function
+#'
+#' @param data a data frame
+#' @param ... list of data to load into envrionment
+#' @return a data frame
+#' @examples
+
 spread_col_headers <- function(data, ...){
 
   current_list <- list(...)

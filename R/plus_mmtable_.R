@@ -1,3 +1,15 @@
+#' Conditionally apply a function
+#'
+#' @param mmtable1 an mmtable
+#' @param mmtable2 an mmtable
+#' @return an mmtable
+#' @examples
+#' @export
+#' @S3method  "+" mmtable
+#' @method generic class
+#' @export
+
+
 `+.mmtable` <- function(mmtable1,mmtable2){
 
   # browser()
