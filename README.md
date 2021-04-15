@@ -197,7 +197,7 @@ gapminder_mm %>%
 
 
 
-try(apply_formats(gm_table) %>% gtsave("gm_table.png"))
+try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```

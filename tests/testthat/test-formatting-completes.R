@@ -31,7 +31,7 @@ test_that("multiplication works", {
       locations = cells_body(rows = c(1:12), columns = (1:10)),
       style = list(cell_text(size = px(12),  font = google_font("EB Garamond"))))
 
-  table %>% print
+  t <- apply_formats(table)
 
     expect_true(T)
 
