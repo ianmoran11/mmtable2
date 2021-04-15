@@ -1,10 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-mmtable2
-========
+mmtable2 <a> <img src='man/figures/logo.png' align="right" height="131.5" /></a>
+================================================================================
 
 <!-- badges: start -->
-<!-- badges: end -->
+[![Travis build status](https://travis-ci.org/ianmoran11/mmtable2.svg?branch=master)](https://travis-ci.org/ianmoran11/mmtable2) [![Codecov test coverage](https://codecov.io/gh/ianmoran11/mmtable2/branch/master/graph/badge.svg)](https://codecov.io/gh/ianmoran11/mmtable2?branch=master) <!-- badges: end -->
+
 The goal of mmtable2 is to provide a ggplot2-like interface for untidy tables. It does this by introducing algabraic untidy tables.
 
 Installation
@@ -144,7 +145,7 @@ try(demo_table  %>% gtsave("./man/figures/demo_table.png"))
 
 ``` r
 one_table <-  table_list[[1]]
-try(one_table  %>% gtsave("one_table.png"))
+try(one_table  %>% gtsave("./man/figures/one_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -153,7 +154,7 @@ try(one_table  %>% gtsave("one_table.png"))
 
 ``` r
 two_tables <- table_list[[1]] / table_list[[2]]
-try(two_tables  %>% gtsave("two_tables.png"))
+try(two_tables  %>% gtsave("./man/figures/two_tables.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
@@ -162,7 +163,7 @@ try(two_tables  %>% gtsave("two_tables.png"))
 
 ``` r
 many_tables <- table_list %>% reduce(`/`)
-try(many_tables  %>% gtsave("many_tables.png"))
+try(many_tables  %>% gtsave("./man/figures/many_tables.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
