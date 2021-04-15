@@ -78,7 +78,7 @@ table_constructor <-
     # Set class
     class(gtable) <- append("mmtable",class(gtable))
 
-   gtable
+    gtable
     # mmtable <- c()
 
   }

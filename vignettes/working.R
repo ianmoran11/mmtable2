@@ -62,8 +62,14 @@ gapminder %>% mutate(country = as.character(country)) %>% filter(country %in% co
     var == "pop" ~ "Population")
     )
 
+devtools::load_all()
+
+class(table)
+
+
 table <-
 gapminder_mm %>%
+  filter(var != "Life expectancy") %>%
   mmtable(table_data = value) +
   header_top(year) +
   header_left(country) +
@@ -84,7 +90,9 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1:12), columns = (1:10)),
     style = list(cell_text(size = px(12),  font = google_font("EB Garamond"))))
 
+apply_formats(table) %>% gt::tab_options(column_labels.hidden = T)
 apply_formats(table_2)
+
 
 
 create_table <- function(df,name){

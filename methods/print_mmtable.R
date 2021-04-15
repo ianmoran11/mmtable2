@@ -1,7 +1,11 @@
-`+.print` <-function(x){
+print.mmtable  <-function(mmtable){
 
-  class(x) <- "gt_tbl"
+  # browser()
 
-  print(x)
+  formatted_mmtable <- apply_formats(mmtable)
+
+  class(formatted_mmtable) <- c("gt_tbl","list")
+
+  print(formatted_mmtable)
 
 }

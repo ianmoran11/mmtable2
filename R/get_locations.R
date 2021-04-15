@@ -4,11 +4,11 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
  if(func =="header_format"){
 
-    header_dfs <-
-    mmtable %>% attributes() %>% .[["_header_info"]] %>% .[c("col_header_df","row_header_df")] %>%
-      map(~ .x %>% mutate(header_no = row_number() ))
+   header_dfs <-
+     mmtable %>% attributes() %>% .[["_header_info"]] %>% .[c("col_header_df","row_header_df")] %>%
+     map(~ .x %>% mutate(header_no = row_number() ))
 
-    if(header %in% header_dfs$col_header_df$col_header_vars){
+   if(header %in% header_dfs$col_header_df$col_header_vars){
     rows_to_modify <- header_dfs$col_header_df %>% filter(col_header_vars == header) %>% pull(header_no)
     cols_to_modify <- mmtable$`_data`[rows_to_modify,] %>% unlist %>% str_detect("[:alnum:]") %>% which()
     }
