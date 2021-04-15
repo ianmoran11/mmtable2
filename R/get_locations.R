@@ -5,7 +5,7 @@
 #' @param func the original formatting function applied
 #' @param cell_predicate predicate to determine locations
 #' @return locations
-
+#
 get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
   # browser()
