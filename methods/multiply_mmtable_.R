@@ -46,7 +46,7 @@
     initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
     names(initial_format_list) <- initial_format_list_name
 
-    table_format  <- append(table_format_1[[1]], initial_format_list)
+    table_format  <- append(table_format_1, initial_format_list)
 
   }
 
@@ -56,7 +56,7 @@
     initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
     names(initial_format_list) <- initial_format_list_name
 
-    table_format  <- append(initial_format_list,table_format_2[[1]])
+    table_format  <- append(initial_format_list,table_format_2)
   }
 
   if(is.null(table_format_1) & is.null(table_format_2)){

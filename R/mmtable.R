@@ -12,8 +12,8 @@ mmtable <- function(data,table_data, table_name = NULL){
   initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
   names(initial_format_list) <- initial_format_list_name
 
-  table_format <- initial_format_list
 
+  table_format <- initial_format_list
 
   col_header_df <- tibble::tibble(col_header_vars = c(NA),direction = c(NA))
   row_header_df <- tibble::tibble(row_header_vars = c(NA), direction = c(NA))
@@ -23,6 +23,27 @@ mmtable <- function(data,table_data, table_name = NULL){
     table_name = table_name
   )
 
-  table_constructor(data,col_header_df,row_header_df,data_vars,table_meta, table_format)
+  tc <- table_constructor(data,col_header_df,row_header_df,data_vars,table_meta, table_format)
+
+
+  attr(tc, "_table_format") <- attr(tc, "_table_format") %>%
+    append(.,    table_format(locations = "all",style = list(cell_text(size = px(12)))))
+
+  attr(tc, "_table_format") %>% .[[1]]
+  attr(tc, "_table_format") %>% .[[2]]
+
+
+  attr(tc, "_table_format") %>% names()
+
+
+  return(tc)
+
+
+  # +
+  #
+  #     table_format(locations = "all",style = list(cell_text(size = px(12)))) +
+  #     header_format(header = "all_rows",style = list(cell_text(weight = "bold"))) +
+  #     header_format(header = "all_cols",style = list(cell_text(weight = "bold", align = "right"))) +
+  #     cells_format(cell_predicate = T,style = list(cell_text(align =  "right")))
 
 }

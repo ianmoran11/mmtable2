@@ -12,11 +12,11 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      rows_to_modify <- header_dfs$col_header_df %>% pull(header_no)
 
      cols_to_modify <-
-     map(rows_to_modify, ~ mmtable$`_data`[.x,] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
+       map(rows_to_modify, ~ mmtable$`_data`[.x,] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
 
      return_list <-
-     cols_to_modify %>% bind_rows() %$%
-     map2(row, col, function(x,y) list(rows = x, cols = y))
+       cols_to_modify %>% bind_rows() %$%
+       map2(row, col, function(x,y) list(rows = x, cols = y))
 
      return(return_list)
 

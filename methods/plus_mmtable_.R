@@ -2,7 +2,6 @@
 
   # browser()
 
-
   class(mmtable2)
 
   # mmtable1 <- table1
@@ -14,13 +13,16 @@
 
     mmtable1_formats  <- attributes(mmtable1) %>% .[["_table_format"]]
 
+    mmtable1_formats %>% str()
     # mmtable2_formats_length <- length(mmtable1_formats[[1]])
 
-    updated_format_list <-  mmtable1_formats[[1]] %>% append(mmtable2)
+    updated_format_list <-  mmtable1_formats %>% append(mmtable2)
 
-    attr(mmtable1,"_table_format") <- list("_table_format" = updated_format_list)
+    updated_format_list %>% str()
 
-    # attr(mmtable1,"_table_format") %>%  str()
+    attr(mmtable1,"_table_format") <- updated_format_list
+
+    attr(mmtable1,"_table_format") %>%  str()
     return(mmtable1)
 
 
@@ -53,7 +55,7 @@
 
     table_format_1 <- attributes(mmtable1) %>% .[["_table_format"]]
 
-    table_format  <- append(table_format_1[[1]], list(mmtable2))
+    table_format  <- append(table_format_1, list(mmtable2))
 
     attr(mmtable1, "_table_format") <-list(table_format = table_format)
 

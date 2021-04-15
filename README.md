@@ -170,7 +170,6 @@ try(many_tables  %>% gtsave("many_tables.png"))
 <img src="man/figures/README-unnamed-chunk-16-1.png" width="600px" />
 
 ``` r
-devtools::load_all()
 
 table <-
 gapminder_mm %>% 
@@ -194,8 +193,2838 @@ gapminder_mm %>%
   table_format(
     locations = cells_body(rows = c(1:12), columns = (1:10)),
     style = list(cell_text(size = px(12),  font = google_font("EB Garamond"))))
+#> List of 6
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#> List of 7
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 7
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 7
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 8
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 8
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 8
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 9
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 9
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 9
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 10
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 10
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 10
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 11
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 11
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 11
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 12
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 12
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 12
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 13
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 13
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 13
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 14
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 14
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 14
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 15
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 15
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 15
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 16
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NPQEM:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~(1:10)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..$ rows   : language ~c(1:12)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 2
+#>   .. .. .. .. ..$ font:List of 2
+#>   .. .. .. .. .. ..$ name       : chr "EB Garamond"
+#>   .. .. .. .. .. ..$ import_stmt: chr "@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600"| __truncated__
+#>   .. .. .. .. .. ..- attr(*, "class")= chr "font_css"
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 16
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NPQEM:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~(1:10)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..$ rows   : language ~c(1:12)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 2
+#>   .. .. .. .. ..$ font:List of 2
+#>   .. .. .. .. .. ..$ name       : chr "EB Garamond"
+#>   .. .. .. .. .. ..$ import_stmt: chr "@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600"| __truncated__
+#>   .. .. .. .. .. ..- attr(*, "class")= chr "font_css"
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 
 gm_table <- apply_formats(table)
+#> List of 16
+#>  $ format_SHDPW:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_JRUSZ:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_AMTUB:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_CEHGF:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_GINWH:List of 2
+#>   ..$ header     : list()
+#>   ..$ format_list: list()
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NPQEM:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~(1:10)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..$ rows   : language ~c(1:12)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 2
+#>   .. .. .. .. ..$ font:List of 2
+#>   .. .. .. .. .. ..$ name       : chr "EB Garamond"
+#>   .. .. .. .. .. ..$ import_stmt: chr "@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600"| __truncated__
+#>   .. .. .. .. .. ..- attr(*, "class")= chr "font_css"
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#> List of 11
+#>  $ format_EOTGV:List of 3
+#>   ..$ locations  : chr "all"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KNOEG:List of 3
+#>   ..$ cell_predicate:List of 1
+#>   .. ..$ : language ~T
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "quosures" "list"
+#>   ..$ func          : chr "cells_format"
+#>   ..$ format_list   :List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KMITQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ align: chr "right"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_KHZYV:List of 3
+#>   ..$ header     : chr "var"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_ZIKSR:List of 3
+#>   ..$ header     : chr "country"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_IDQWF:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_WFZJX:List of 3
+#>   ..$ header     : chr "continent"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_SJMRI:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 1
+#>   .. .. .. .. ..$ weight: chr "bolder"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NABWQ:List of 3
+#>   ..$ header     : chr "year"
+#>   ..$ func       : chr "header_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_bottom:List of 4
+#>   .. .. .. .. ..$ side : chr "bottom"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_PTFKL:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~TRUE
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+#>   .. ..$ rows   : language ~c(1, 3, 5, 7, 9, 11)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_border_top:List of 4
+#>   .. .. .. .. ..$ side : chr "top"
+#>   .. .. .. .. ..$ width: chr "1px"
+#>   .. .. .. .. ..$ style: chr "solid"
+#>   .. .. .. .. ..$ color: chr "grey"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_border" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
+#>  $ format_NPQEM:List of 3
+#>   ..$ locations  :List of 2
+#>   .. ..$ columns: language ~(1:10)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..$ rows   : language ~c(1:12)
+#>   .. .. ..- attr(*, ".Environment")=<environment: R_GlobalEnv> 
+#>   .. ..- attr(*, "class")= chr [1:2] "cells_body" "location_cells"
+#>   ..$ func       : chr "table_format"
+#>   ..$ format_list:List of 1
+#>   .. ..$ style:List of 1
+#>   .. .. ..$ :List of 1
+#>   .. .. .. ..$ cell_text:List of 2
+#>   .. .. .. .. ..$ font:List of 2
+#>   .. .. .. .. .. ..$ name       : chr "EB Garamond"
+#>   .. .. .. .. .. ..$ import_stmt: chr "@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600"| __truncated__
+#>   .. .. .. .. .. ..- attr(*, "class")= chr "font_css"
+#>   .. .. .. .. ..$ size: chr "12px"
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "cell_text" "cell_style"
+#>   .. .. .. ..- attr(*, "class")= chr "cell_styles"
 
 try(gm_table  %>% gtsave("gm_table.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
