@@ -4,7 +4,7 @@
 \alias{mmtable}
 \title{Conditionally apply a function}
 \usage{
-mmtable(data, table_data, table_name = NULL)
+mmtable(data, table_data, table_name = NULL, use_defaul_formats = TRUE)
 }
 \arguments{
 \item{data}{a data frame}
