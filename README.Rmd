@@ -26,19 +26,21 @@ It does this by introducing algabraic untidy tables.
 
 ## Installation
 
-This package is probably too buggy for a smooth installation experience, but feel free to clone and tinker!
+The locatr package is not available on CRAN. It can be installed from github with the following script:
+```{r gh-installation, eval = FALSE}
+devtools::install_github("ianmoran11/mmtable2")
+```
+
 
 ## Example
 
 ```{r example1, message=FALSE, warning=FALSE, include=FALSE}
-renv::restore()
-devtools::build()
-devtools::install()
 library(tidyverse)
 library(gapminder)
 library(gt)
 library(mmtable2)
 ```
+
 Here's a GIF demonstrating how to use mmtable2:
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
@@ -47,7 +49,6 @@ knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34
 
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-
 row_list <- cells_body(rows = c(1,3,5,7,9,11))
 style_list <- list(cell_borders(sides = "top",color = "grey"))
 gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
@@ -64,7 +65,6 @@ gm_table <-
     style = style_list)
 
 try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
-
 ```
 
 
@@ -78,7 +78,6 @@ Header options include: top, top_left, left, and left_top.
 
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
 style_list <- list(cell_borders(sides = "top",color = "grey"))
@@ -99,7 +98,6 @@ gm_table <-
   header_format(continent,style_list3 )
 
 try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
-
 ```
 
 
@@ -153,13 +151,10 @@ t6 <- gapminder_tbl %>% filter(name == "Asia - Life expectancy") %>% pull(table)
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 ex1 <- t1 + t2
 try(apply_formats(ex1) %>% gtsave("./man/figures/ex1.png"))
-
 ex2 <- t1 / t4
 try(apply_formats(ex2) %>% gtsave("./man/figures/ex2.png"))
-
 ex3 <- t1 * t5 * t4 *  t2
 try(apply_formats(ex3) %>% gtsave("./man/figures/ex3.png"))
-
 ```
 
 ## Formatting tables
@@ -169,7 +164,6 @@ mmtable2 outputs tables using the gt package's format.
 This means you can alter formatting using many existing gt styling commands.
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-
 gm_table_formatted <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
@@ -186,16 +180,16 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1,3,5,7,9,11)),
     style = list(cell_borders(sides = "top",color = "grey"))) + 
   table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
-
-
 try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
-
 ```
+
+
 ## Next steps 
 
-Features planned for the future include: 
-* merged column headers  
-* an option top raise top left row headers. 
+Features planned for the future include:
+
+* merged column headers
+* an option top raise top left row headers.
 
 The package is only a week old, so expect sharp edges!
 

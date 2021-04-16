@@ -11,7 +11,11 @@ The goal of mmtable2 is to provide a ggplot2-like interface for untidy tables. I
 Installation
 ------------
 
-This package is probably too buggy for a smooth installation experience, but feel free to clone and tinker!
+The locatr package is not available on CRAN. It can be installed from github with the following script:
+
+``` r
+devtools::install_github("ianmoran11/mmtable2")
+```
 
 Example
 -------
@@ -21,7 +25,6 @@ Here's a GIF demonstrating how to use mmtable2:
 <img src="https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif" width="800px" />
 
 ``` r
-
 row_list <- cells_body(rows = c(1,3,5,7,9,11))
 style_list <- list(cell_borders(sides = "top",color = "grey"))
 gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
@@ -54,7 +57,6 @@ It's placement will depend on your your choice of header\_\* functions.
 Header options include: top, top\_left, left, and left\_top.
 
 ``` r
-
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
 style_list <- list(cell_borders(sides = "top",color = "grey"))
@@ -100,7 +102,6 @@ try(apply_formats(ex1) %>% gtsave("./man/figures/ex1.png"))
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="600px" />
 
 ``` r
-
 ex2 <- t1 / t4
 try(apply_formats(ex2) %>% gtsave("./man/figures/ex2.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
@@ -110,7 +111,6 @@ try(apply_formats(ex2) %>% gtsave("./man/figures/ex2.png"))
 <img src="man/figures/README-unnamed-chunk-8-2.png" width="600px" />
 
 ``` r
-
 ex3 <- t1 * t5 * t4 *  t2
 try(apply_formats(ex3) %>% gtsave("./man/figures/ex3.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
@@ -127,7 +127,6 @@ mmtable2 outputs tables using the gt package's format.
 This means you can alter formatting using many existing gt styling commands.
 
 ``` r
-
 gm_table_formatted <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
@@ -144,16 +143,19 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1,3,5,7,9,11)),
     style = list(cell_borders(sides = "top",color = "grey"))) + 
   table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
-
-
 try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="600px" /> \#\# Next steps
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="600px" />
 
-Features planned for the future include: \* merged column headers
-\* an option top raise top left row headers.
+Next steps
+----------
+
+Features planned for the future include:
+
+-   merged column headers
+-   an option top raise top left row headers.
 
 The package is only a week old, so expect sharp edges!
