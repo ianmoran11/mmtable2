@@ -54,7 +54,6 @@ It's placement will depend on your your choice of header\_\* functions.
 Header options include: top, top\_left, left, and left\_top.
 
 ``` r
-devtools::load_all()
 
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
@@ -91,6 +90,67 @@ These are designed to be associative! For example, for the `+` operator, this im
 
 This means you can compose tables easily.
 
+``` r
+create_table <- function(df,name){
+ df %>%
+   mmtable(table_data = value,table_name = name) +
+   header_top(year) +
+   header_left(country) +
+   header_top_left(var)  +
+   header_left_top(continent)
+}
+```
+
+``` r
+gapminder_tbl <-
+ gapminder_mm %>%
+ mutate(continent_n = continent, var_n = var) %>%
+ group_by(continent_n,var_n) %>% nest() %>%
+ mutate(name = paste(continent_n,var_n, sep =" - " )) %>%
+ filter(
+   name %in% c( "Oceania - Population","Oceania - GDP","Oceania - Life expectancy") |
+   name %in% c( "Asia - Population","Asia - GDP","Asia - Life expectancy")) %>%
+ mutate(table =map2(data,name,create_table))
+```
+
+``` r
+t1 <- gapminder_tbl %>% filter(name == "Oceania - Population") %>% pull(table) %>% .[[1]]
+t2 <- gapminder_tbl %>% filter(name == "Oceania - GDP") %>% pull(table) %>% .[[1]]
+t3 <- gapminder_tbl %>% filter(name == "Oceania - Life expectancy") %>% pull(table) %>% .[[1]]
+t4 <- gapminder_tbl %>% filter(name == "Asia - Population") %>% pull(table) %>% .[[1]]
+t5 <- gapminder_tbl %>% filter(name == "Asia - GDP") %>% pull(table) %>% .[[1]]
+t6 <- gapminder_tbl %>% filter(name == "Asia - Life expectancy") %>% pull(table) %>% .[[1]]
+```
+
+``` r
+ex1 <- t1 + t2
+try(apply_formats(ex1) %>% gtsave("./man/figures/ex1.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="600px" />
+
+``` r
+
+ex2 <- t1 / t4
+try(apply_formats(ex2) %>% gtsave("./man/figures/ex2.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-8-2.png" width="600px" />
+
+``` r
+
+ex3 <- t1 * t5 * t4 *  t2
+try(apply_formats(ex3) %>% gtsave("./man/figures/ex3.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-8-3.png" width="600px" />
+
 Formatting tables
 -----------------
 
@@ -98,8 +158,32 @@ mmtable2 outputs tables using the gt package's format.
 
 This means you can alter formatting using many existing gt styling commands.
 
-Next steps
-----------
+``` r
+
+gm_table_formatted <- 
+gapminder_mm %>% 
+  filter(var != "Life expectancy") %>% 
+  mmtable(table_data = value) +
+  header_top(year) +
+  header_left(country) +
+  header_top_left(var)  +
+  header_left_top(continent)  +
+  cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) +
+  header_format(header = year, style = list(cell_text(align = "right"))) +
+  header_format("all_cols", style = list(cell_text(weight = "bolder"))) +
+  header_format("all_rows", style = list(cell_text(weight = "bolder"))) +
+  table_format(
+    locations = cells_body(rows = c(1,3,5,7,9,11)),
+    style = list(cell_borders(sides = "top",color = "grey"))) + 
+  table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+
+
+try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="600px" /> \#\# Next steps
 
 Features planned for the future include: \* merged column headers
 \* an option top raise top left row headers.
