@@ -18,6 +18,12 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
       map(~ .x %>% mutate(header_no = row_number() ))
 
    if(header == "all_cols"){
+
+     if(nrow(header_dfs$col_header_df) == 0){
+       return(list(row = NA, col = NA))
+     }
+
+
      rows_to_modify <- header_dfs$col_header_df %>% pull(header_no)
 
      cols_to_modify <-
@@ -30,7 +36,13 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
    }
 
    if(header == "all_rows"){
+
+     if(nrow(header_dfs$row_header_df) == 0){
+       return(list(row = NA, col = NA))
+     }
+
      cols_to_modify <- header_dfs$row_header_df %>% pull(header_no)
+
 
      rows_to_modify <-
        map(cols_to_modify, ~ mmtable$`_data`[,.x] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))

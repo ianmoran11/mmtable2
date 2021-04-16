@@ -37,11 +37,18 @@ apply_format <- function(mmtable, format_list){
 
       }
 
+ # browser()
+
  invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
 
  return_table <- invoke(tab_style,.x =  invoke_list)
  return(return_table)
 
+ }
+
+ if(all(is.na(unlist(locations_list)))){
+
+   return(mmtable)
  }
 
  append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
