@@ -21,12 +21,11 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/ianmoran11/mmtable2/branch/master/graph/badge.svg)](https://codecov.io/gh/ianmoran11/mmtable2?branch=master)
 <!-- badges: end -->
 
-The goal of mmtable2 is to provide a ggplot2-like interface for untidy tables.
-It does this by introducing algabraic untidy tables. 
+mmtable2 allows you to create and combine tables with a ggplot2/patchwork syntax.
 
 ## Installation
 
-The locatr package is not available on CRAN. It can be installed from github with the following script:
+mmtable2 is not available on CRAN. It can be installed from github with the following script:
 ```{r gh-installation, eval = FALSE}
 devtools::install_github("ianmoran11/mmtable2")
 ```
@@ -44,9 +43,10 @@ library(mmtable2)
 Here's a GIF demonstrating how to use mmtable2:
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif")
+knitr::include_graphics("https://unpivotr.s3.amazonaws.com/01_intro_fast.gif")
 ```
 
+And here's the code used in the GIF. 
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 row_list <- cells_body(rows = c(1,3,5,7,9,11))
@@ -75,6 +75,8 @@ You can add headers using data from a column in your data frame.
 It's placement will depend on your your choice of header_* functions.
 
 Header options include: top, top_left, left, and left_top. 
+
+Here's a table of the same data used above, this time with a different header layout. 
 
 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
@@ -108,6 +110,8 @@ You can combine tables with `+`, `/` and `*` operators.
 These are designed to be associative! For example, for the `+` operator, this implies  $(t1+t2)+t3=t1+(t2+t3).$
 
 This means you can compose tables easily.
+
+Below are a few examples.
 
 
 ```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}

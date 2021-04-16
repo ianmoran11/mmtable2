@@ -6,12 +6,12 @@ mmtable2 <a> <img src='man/figures/logo.png' align="right" height="131.5" /></a>
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/ianmoran11/mmtable2.svg?branch=master)](https://travis-ci.org/ianmoran11/mmtable2) [![Codecov test coverage](https://codecov.io/gh/ianmoran11/mmtable2/branch/master/graph/badge.svg)](https://codecov.io/gh/ianmoran11/mmtable2?branch=master) <!-- badges: end -->
 
-The goal of mmtable2 is to provide a ggplot2-like interface for untidy tables. It does this by introducing algabraic untidy tables.
+mmtable2 allows you to create and combine tables with a ggplot2/patchwork syntax.
 
 Installation
 ------------
 
-The locatr package is not available on CRAN. It can be installed from github with the following script:
+mmtable2 is not available on CRAN. It can be installed from github with the following script:
 
 ``` r
 devtools::install_github("ianmoran11/mmtable2")
@@ -22,7 +22,9 @@ Example
 
 Here's a GIF demonstrating how to use mmtable2:
 
-<img src="https://unpivotr.s3.amazonaws.com/Peek+2021-04-11+15-34.gif" width="800px" />
+<img src="https://unpivotr.s3.amazonaws.com/01_intro_fast.gif" width="800px" />
+
+And here's the code used in the GIF.
 
 ``` r
 row_list <- cells_body(rows = c(1,3,5,7,9,11))
@@ -55,6 +57,8 @@ You can add headers using data from a column in your data frame.
 It's placement will depend on your your choice of header\_\* functions.
 
 Header options include: top, top\_left, left, and left\_top.
+
+Here's a table of the same data used above, this time with a different header layout.
 
 ``` r
 row_list <- cells_body(rows = c(3,7))
@@ -91,6 +95,8 @@ You can combine tables with `+`, `/` and `*` operators.
 These are designed to be associative! For example, for the `+` operator, this implies (*t*1 + *t*2)+*t*3 = *t*1 + (*t*2 + *t*3).
 
 This means you can compose tables easily.
+
+Below are a few examples.
 
 ``` r
 ex1 <- t1 + t2
