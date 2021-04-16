@@ -91,38 +91,6 @@ These are designed to be associative! For example, for the `+` operator, this im
 This means you can compose tables easily.
 
 ``` r
-create_table <- function(df,name){
- df %>%
-   mmtable(table_data = value,table_name = name) +
-   header_top(year) +
-   header_left(country) +
-   header_top_left(var)  +
-   header_left_top(continent)
-}
-```
-
-``` r
-gapminder_tbl <-
- gapminder_mm %>%
- mutate(continent_n = continent, var_n = var) %>%
- group_by(continent_n,var_n) %>% nest() %>%
- mutate(name = paste(continent_n,var_n, sep =" - " )) %>%
- filter(
-   name %in% c( "Oceania - Population","Oceania - GDP","Oceania - Life expectancy") |
-   name %in% c( "Asia - Population","Asia - GDP","Asia - Life expectancy")) %>%
- mutate(table =map2(data,name,create_table))
-```
-
-``` r
-t1 <- gapminder_tbl %>% filter(name == "Oceania - Population") %>% pull(table) %>% .[[1]]
-t2 <- gapminder_tbl %>% filter(name == "Oceania - GDP") %>% pull(table) %>% .[[1]]
-t3 <- gapminder_tbl %>% filter(name == "Oceania - Life expectancy") %>% pull(table) %>% .[[1]]
-t4 <- gapminder_tbl %>% filter(name == "Asia - Population") %>% pull(table) %>% .[[1]]
-t5 <- gapminder_tbl %>% filter(name == "Asia - GDP") %>% pull(table) %>% .[[1]]
-t6 <- gapminder_tbl %>% filter(name == "Asia - Life expectancy") %>% pull(table) %>% .[[1]]
-```
-
-``` r
 ex1 <- t1 + t2
 try(apply_formats(ex1) %>% gtsave("./man/figures/ex1.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.

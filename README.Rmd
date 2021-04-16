@@ -112,7 +112,7 @@ These are designed to be associative! For example, for the `+` operator, this im
 This means you can compose tables easily.
 
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 create_table <- function(df,name){
  df %>%
    mmtable(table_data = value,table_name = name) +
@@ -125,7 +125,7 @@ create_table <- function(df,name){
 
 
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r, echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 gapminder_tbl <-
  gapminder_mm %>%
  mutate(continent_n = continent, var_n = var) %>%
@@ -138,7 +138,7 @@ gapminder_tbl <-
 ```
 
 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 t1 <- gapminder_tbl %>% filter(name == "Oceania - Population") %>% pull(table) %>% .[[1]]
 t2 <- gapminder_tbl %>% filter(name == "Oceania - GDP") %>% pull(table) %>% .[[1]]
 t3 <- gapminder_tbl %>% filter(name == "Oceania - Life expectancy") %>% pull(table) %>% .[[1]]
