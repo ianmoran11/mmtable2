@@ -1,7 +1,7 @@
 Package: mmtable2
 Type: Package
 Title: Create and combine tables with a ggplot2/patchwork syntax.
-Version: 0.1.0
+Version: 0.1.1
 Author: Ian Moran
 Maintainer: Ian Moran <ian.moran11@gmail.com>
 Description: Add headers using data from a column in your data frame. Combine tables with +, / and * operators. Output tables in gt package format.
