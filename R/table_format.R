@@ -5,6 +5,7 @@
 #' @param ... formating instructions
 #' @return format list
 #' @export
+#' @example
 #' \dontrun{
 #'
 #' library(tidyverse)

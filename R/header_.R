@@ -3,6 +3,7 @@
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @example
 #' \dontrun{
 #'
 #' library(tidyverse)
@@ -51,6 +52,7 @@ header_top <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @example
 #' \dontrun{
 #'
 #' library(tidyverse)
@@ -97,6 +99,7 @@ header_top_left <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @example
 #' \dontrun{
 #'
 #' library(tidyverse)
@@ -142,6 +145,7 @@ header_left <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @example
 #' \dontrun{
 #'
 #' library(tidyverse)
