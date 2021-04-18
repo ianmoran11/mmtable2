@@ -11,6 +11,9 @@
 
   # browser()
 
+
+  # browser()
+
   if(is.null(mmtable2)){return(mmtable1)}
   if(is.null(mmtable1)){return(mmtable2)}
 
@@ -81,10 +84,55 @@
   }
 
 
-  table_constructor(
+
+
+table <-   table_constructor(
     df = original_data,
     col_header_df = col_header_df_temp,
     row_header_df = row_header_df_temp,data_vars = data_vars_1, table_name = table_name,
     table_format = table_format)
 
+
+table
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

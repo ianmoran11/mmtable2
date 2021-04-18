@@ -4,7 +4,8 @@
 \name{gapminder_mm}
 \alias{gapminder_mm}
 \title{Prices of 50,000 round cut diamonds.}
-\format{A data frame with 53940 rows and 10 variables:
+\format{
+A data frame with 53940 rows and 10 variables:
 \describe{
   \item{continent}{price, in US dollars}
   \item{country}{weight of the diamond, in carats}
@@ -13,7 +14,8 @@
   \item{year}{weight of the diamond, in carats}
   ...
 }
-continent country value var year}
+continent country value var year
+}
 \source{
 \url{http://www.diamondse.info/}
 }

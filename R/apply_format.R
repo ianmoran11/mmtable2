@@ -7,7 +7,6 @@
 
 apply_format <- function(mmtable, format_list){
 
- # browser()
 
   # format_list %>% str()
 

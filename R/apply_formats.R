@@ -6,8 +6,6 @@
 
 apply_formats <- function(mmtable){
 
- # browser()
-
   table_format_list <- mmtable %>% attr("_table_format")
 
   non_empty_format_lists <-   table_format_list %>% keep(!map_lgl(.,~ unlist(.) %>% is.null))

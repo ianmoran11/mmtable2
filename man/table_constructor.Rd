@@ -4,8 +4,14 @@
 \alias{table_constructor}
 \title{Conditionally apply a function}
 \usage{
-table_constructor(df, col_header_df, row_header_df, data_vars,
-  table_name = NULL, table_format)
+table_constructor(
+  df,
+  col_header_df,
+  row_header_df,
+  data_vars,
+  table_name = NULL,
+  table_format
+)
 }
 \arguments{
 \item{df}{a data frame}
