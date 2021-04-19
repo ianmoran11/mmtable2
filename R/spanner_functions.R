@@ -1,0 +1,36 @@
+set_class <- function(object, class){
+  `<-`(class(object),class)
+  object
+}
+add_spanner <- function(gm_table2,spanner_list){
+  gm_table2 %>%
+    tab_spanner(label = spanner_list[[1]],columns = spanner_list[[2]])
+}
+spannerize <- function(gm_table2,n){
+
+  # browser()
+  df1  <-
+    gm_table2$`_data`[1:n,] %>% t(.) %>% as_tibble() %>%
+    mutate_all(.funs = list(~ if_else(. == " ", NA_character_, .,.))) %>%
+    mutate_all(.funs = list(~zoo::na.locf(.)))
+
+  vars_syms <- names(df1) %>% syms()
+
+  df2 <-
+    df1 %>%
+    mutate(column_index = row_number()) %>%
+    group_by(!!!vars_syms) %>%
+    summarise(column_index = list(column_index))
+
+
+  spanner_reduce <- list(gm_table2) %>% append(map2(.x = df2[,n] %>% pull(1), .y =  df2[,"column_index"] %>% pull(1),.f =  ~ list(.x,.y)))
+
+  table_with_spanners <- spanner_reduce %>% reduce(add_spanner)
+
+  table_with_spanners
+}
+get_spanner_html_text <- function(table){
+  table %>% gt:::as.tags.gt_tbl(gt_02) %>% toString() %>% read_xml(as_html = T) %>%
+    xml2::xml_find_all(xpath = '//*[contains(concat( " ", @class, " " ), concat( " ", "gt_col_headings", " " ))]') %>%
+    xml2::xml_children() %>% .[[1]] %>% as.character()
+}
