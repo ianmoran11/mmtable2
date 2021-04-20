@@ -25,12 +25,7 @@ gm_formatted <- apply_formats(gm_table2)
 
 # Add first row of column header
 
-get_row_header_names <- function(df){
-    unlist(df[col_header_df_01[[1,"row_no"]],]) %>% tibble(var = .) %>%
-    group_by(var) %>%
-    mutate(row_no = row_number()) %>%
-    mutate(namer = paste0(var,"[", row_no,"]")) %>% pull(namer)
-}
+
 # gt_01 <- gm_table2$`_data` %>% set_names(get_row_header_names(.)) %>%
 #          filter(row_number() > nrow(col_header_df_01))  %>% gt()
 

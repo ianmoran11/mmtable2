@@ -7,7 +7,7 @@
 
 apply_format <- function(mmtable, format_list){
 
-
+browser()
   # format_list %>% str()
 
   # format_list$func
@@ -20,37 +20,37 @@ apply_format <- function(mmtable, format_list){
  locations_list <- get_locations(mmtable = mmtable,header = format_list$header, func = format_list$func)
  }
 
- if(format_list$func == "table_format"){
+  if(format_list$func == "table_format"){
 
- locations_list = format_list$locations
+    locations_list = format_list$locations
 
     if(locations_list == "all"){
 
-     locations_list <- cells_body(rows = 1:nrow(mmtable$`_data`), columns =  1:ncol(mmtable$`_data`))
+      locations_list <- cells_body(rows = 1:nrow(mmtable$`_data`), columns =  1:ncol(mmtable$`_data`))
 
-     invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
+      invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
 
-     return_table <- invoke(tab_style,.x =  invoke_list)
+      return_table <- invoke(tab_style,.x =  invoke_list)
 
-     return(return_table)
+      return(return_table)
 
-      }
+    }
 
- # browser()
+    # browser()
 
- invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
+    invoke_list <- list(data=mmtable,locations =locations_list) %>% append(.,  format_list$format_list)
 
- return_table <- invoke(tab_style,.x =  invoke_list)
- return(return_table)
+    return_table <- invoke(tab_style,.x =  invoke_list)
+    return(return_table)
 
- }
+  }
 
- if(all(is.na(unlist(locations_list)))){
+  if(all(is.na(unlist(locations_list)))){
 
-   return(mmtable)
- }
+    return(mmtable)
+  }
 
- append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
+  append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
 
 
 }

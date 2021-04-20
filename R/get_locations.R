@@ -9,7 +9,7 @@
 
 get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
-  # browser()
+  browser()
 
   if(func =="header_format"){
 
