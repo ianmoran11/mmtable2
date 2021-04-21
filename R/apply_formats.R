@@ -22,6 +22,7 @@ apply_formats <- function(mmtable){
 
     non_empty_format_lists <-   table_format_list %>% keep(!map_lgl(.,~ unlist(.) %>% is.null))
 
+    ##!#!#!# Next step in debugging: Cant just pass on data, need to pass on mmtable attirbutes too
     mmtable_cells_rows <-  mmtable$`_data`[-c(1:    nrow(attr(mmtable,"_header_info")$col_header_df)),]
 
     col_header_df <- attributes(gm_table2) %>% .[["_header_info"]] %>% .[["col_header_df"]]
@@ -29,6 +30,14 @@ apply_formats <- function(mmtable){
     name_vec <- get_row_header_names(gm_table2$`_data`,col_header_df_01)
     single_header_gt <- mmtable_cells_rows %>% set_names(name_vec) %>% gt()
     #-----------------------------------------------------------------------------------------------
+
+    attr(single_header_gt,"names") <- attr(mmtable,"names")
+    attr(single_header_gt,"class") <- attr(mmtable,"class")
+    attr(single_header_gt,"_original_data") <- attr(mmtable,"_original_data")
+    attr(single_header_gt,"_header_info") <- attr(mmtable,"_header_info")
+    attr(single_header_gt,"_table_meta") <- attr(mmtable,"_table_meta")
+    attr(single_header_gt,"_table_format") <- attr(mmtable,"_table_format")
+
 
     formats_list_df <-
       tibble(non_empty_format_lists = non_empty_format_lists) %>%
@@ -123,7 +132,7 @@ apply_formats <- function(mmtable){
     #------------------------------------------------------------------------------------------------
     #- Transerfer spanners to main table
 
-    table_html <-  gt:::as.tags.gt_tbl(single_header_gt) %>% toString() %>% read_xml(as_html = T)
+    table_html <-  gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% read_xml(as_html = T)
     inserter <- formatted_spanners_df$new_tables %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% read_xml(as_html = T)
 
     xml_add_child(
