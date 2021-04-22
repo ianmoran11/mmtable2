@@ -7,7 +7,7 @@
 
 apply_format <- function(mmtable, format_list){
 
-browser()
+# browser()
   # format_list %>% str()
 
   # format_list$func
@@ -54,18 +54,7 @@ browser()
   crossing(rows = 1:nrow(mmtable$`_data`), cols = 1:ncol(mmtable$`_data`))  %>%
     mutate(all_cells_locations = map2(rows,cols, ~ list(row = .x, col= .y) )) %>% pull(all_cells_locations)
 
-  if(any(!locations_list %in% all_cells_locations)){
-
-    row_deductor <- attr(mmtable,"_header_info") %>% .[["col_header_df"]] %>% nrow()
-
-    new_locations_list <-  locations_list %>% map( ~list(row = .x[[1]] -row_deductor, col = .x[[2]] ))
-
-    result <-   append(list(mmtable), new_locations_list) %>% reduce(format_a_loc,format_list = format_list)
-
-    return(result)
-
-  }
-
+  # browser()
   append(list(mmtable), locations_list) %>% reduce(format_a_loc,format_list = format_list)
 
 

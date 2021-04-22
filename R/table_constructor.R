@@ -64,7 +64,7 @@ table_constructor <-
 
     # Remove column names
     df <- df %>% set_names(rep(" ",ncol(.)))
-    df <- df %>% set_names(1:ncol(df))
+    df <- df %>% set_names(names(.) %>% accumulate(paste0))
 
     # Remove stubs
     df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars),"", .)))

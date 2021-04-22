@@ -11,10 +11,18 @@
 
   # browser()
 
-  class(mmtable2)
-
   # mmtable1 <- table1
   # mmtable2 <- table1
+
+
+  if("merged_headers" %in% class(mmtable2)){
+
+    class(mmtable1) <- append(class(mmtable1),"merged_headers")
+
+    return(mmtable1)
+  }
+
+
 
   if("table_format_list" %in% class(mmtable2)){
 

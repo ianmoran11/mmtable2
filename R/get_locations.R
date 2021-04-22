@@ -9,7 +9,7 @@
 
 get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
-  browser()
+  # browser()
 
   if(func =="header_format"){
 
@@ -24,12 +24,30 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      }
 
 
+
      rows_to_modify <- header_dfs$col_header_df %>% pull(header_no)
 
      cols_to_modify <-
        map(rows_to_modify, ~ mmtable$`_data`[.x,] %>% unlist %>% str_detect("[:alnum:]") %>% which() %>% expand_grid(row = .x, col =.))
 
      return_list <- cols_to_modify %>% bind_rows() %>% mutate(listed = map2(row,col, ~ list(row = .x, col = .y))) %>% pull(listed)
+
+     if("merged_headers" %in% class(mmtable)){
+       all_cells_locations <-
+         crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
+         mutate(all_cells_locations = map2(row,col,~ list(row = .x, col = .y))) %>%
+         pull(all_cells_locations)
+
+       return_list[!return_list %in% all_cells_locations]
+
+       row_deductor <- attr(mmtable,"_header_info") %>% .[["col_header_df"]] %>% nrow()
+
+       return_list <-  return_list %>% map( ~list(row = .x[[1]] -row_deductor, col = .x[[2]] ))
+
+       return_list[!return_list %in% all_cells_locations]
+       return_list <- return_list[return_list %in% all_cells_locations]
+
+     }
 
      return(return_list)
 
@@ -50,7 +68,28 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      return_list <-
        rows_to_modify %>% bind_rows() %>% mutate(listed = map2(col,row, ~ list(row = .x, col = .y))) %>% pull(listed)
 
+
+     # if("merged_headers" %in% class(mmtable)){
+     #
+     #   all_cells_locations <-
+     #     crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
+     #     mutate(all_cells_locations = map2(row,col,~ list(row = .x, col = .y))) %>%
+     #     pull(all_cells_locations)
+     #
+     #   return_list[!return_list %in% all_cells_locations]
+     #
+     #   row_deductor <- attr(mmtable,"_header_info") %>% .[["col_header_df"]] %>% nrow()
+     #
+     #   return_list <-  return_list %>% map( ~list(row = .x[[1]] -row_deductor, col = .x[[2]] ))
+     #
+     #   return_list[!return_list %in% all_cells_locations]
+     # }
+
      return(return_list)
+
+
+
+
 
    }
 
@@ -68,7 +107,7 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      rows_to_modify <- mmtable$`_data`[,cols_to_modify] %>% unlist %>% str_detect("[:alnum:]") %>% which()
    }
 
-   return_list <- map2(rows_to_modify, cols_to_modify, function(x,y) list(rows = x, cols = y))
+   return_list <- map2(rows_to_modify, cols_to_modify, function(x,y) list(row = x, col = y))
 
    return(return_list)
 
@@ -103,7 +142,30 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
          mmtalbe_keyed_constructed_rowcol_index %>% filter(value %in% filtered_key_values)
 
        return_list <-  map2(selected_rows$row %>% as.numeric, selected_rows$column %>% as.numeric,
-            function(x,y) list(rows = x, cols = y))
+            function(x,y) list(row = x, col = y))
+
+
+
+       if("merged_headers" %in% class(mmtable)){
+
+         all_cells_locations <-
+           crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
+           mutate(all_cells_locations = map2(row,col,~ list(row = .x, col = .y))) %>%
+           pull(all_cells_locations)
+
+         return_list[!return_list %in% all_cells_locations]
+
+         row_deductor <- attr(mmtable,"_header_info") %>% .[["col_header_df"]] %>% nrow()
+
+         return_list <-  return_list %>% map( ~list(row = .x[[1]] -row_deductor, col = .x[[2]] ))
+
+         return_list[!return_list %in% all_cells_locations]
+
+         return_list <- return_list[return_list %in% all_cells_locations]
+
+
+       }
+
 
        return(return_list)
 

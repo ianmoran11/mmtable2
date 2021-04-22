@@ -6,7 +6,7 @@
 
 apply_formats <- function(mmtable){
 
-  browser()
+  # browser()
 
   # Plan
   #- create the table with row headers and single  column header
@@ -16,18 +16,20 @@ apply_formats <- function(mmtable){
 
   if("merged_headers" %in% class(mmtable)){
 
+    # browser()
+
     #- create the table with row headers and single  column header
 
     table_format_list <- mmtable %>% attr("_table_format")
 
     non_empty_format_lists <-   table_format_list %>% keep(!map_lgl(.,~ unlist(.) %>% is.null))
 
-    ##!#!#!# Next step in debugging: Cant just pass on data, need to pass on mmtable attirbutes too
     mmtable_cells_rows <-  mmtable$`_data`[-c(1:    nrow(attr(mmtable,"_header_info")$col_header_df)),]
 
-    col_header_df <- attributes(gm_table2) %>% .[["_header_info"]] %>% .[["col_header_df"]]
+    row_header_df <- attributes(mmtable) %>% .[["_header_info"]] %>% .[["row_header_df"]]
+    col_header_df <- attributes(mmtable) %>% .[["_header_info"]] %>% .[["col_header_df"]]
     col_header_df_01 <- col_header_df %>% mutate(row_no = row_number()) %>% arrange(-row_no)
-    name_vec <- get_row_header_names(gm_table2$`_data`,col_header_df_01)
+    name_vec <- get_row_header_names(mmtable$`_data`,col_header_df_01)
     single_header_gt <- mmtable_cells_rows %>% set_names(name_vec) %>% gt()
     #-----------------------------------------------------------------------------------------------
 
@@ -45,8 +47,6 @@ apply_formats <- function(mmtable){
       mutate(header = map_chr(non_empty_format_lists,
                               function(x){ifelse(is.null(x$header),NA_character_,x$header)}))
 
-    single_header_gt
-
     column_header_table_df <-
       tibble(single_header_gt = list(single_header_gt)) %>%
       mutate(header = col_header_df$col_header_vars[nrow(col_header_df)]) %>%
@@ -55,9 +55,11 @@ apply_formats <- function(mmtable){
     column_header_table_with_funcs <-
       column_header_table_df %>%
       mutate(formats = map(header, function(header_span){
-        formats_list_df %>% filter(header %in% c(NA, "all_rows",header_span))
+        formats_list_df %>% filter(header %in% c(NA, "all_rows",header_span,row_header_df$row_header_vars ))
       }
       ))
+
+
 
     formatted_column_header_table <-
       column_header_table_with_funcs %>%
@@ -75,19 +77,14 @@ apply_formats <- function(mmtable){
       )
       )
 
+
+
       mmtable_return <-
         append(formatted_column_header_table$new_tables[1],
-               formatted_column_header_table$formats[[1]]$non_empty_format_lists) %>%
+               formatted_column_header_table$formats[[1]] %>%
+                 filter(!header %in% col_header_df_01$col_header_vars) %>%
+                 pull(non_empty_format_lists)) %>%
         reduce(apply_format)
-
-    mmtable_return
-
-
-
-
-
-
-
 
     #- Then crate a table for each spannner
 
@@ -122,6 +119,8 @@ apply_formats <- function(mmtable){
                   )
                  )
 
+   temp_table <- formatted_spanners_df$new_tables[[1]]
+   no_borders <-  temp_table$`_spanners` %>% unnest("spanner_label") %>% pull(spanner_label) %>% `==`(.,"")  %>%  which()
 
     # Apply styles to spanners and columns ---------------------------------------------------------
 
@@ -141,12 +140,13 @@ apply_formats <- function(mmtable){
       .where = 0
     )
 
-    html_text <- table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>% htmltools::HTML()
+    html_text <- table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>%
+      str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
+    htmltools::HTML()
 
     htmltools::html_print(html_text)
 
     return(html_text)
-
 
 
 
