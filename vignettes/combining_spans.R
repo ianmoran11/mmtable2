@@ -17,8 +17,6 @@ style_list <- list(cell_borders(sides = "top",color = "grey"))
 
 gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
 
-
-
 gm_table2 <-
   gm_df %>%
   mmtable(table_data = value) +

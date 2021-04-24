@@ -28,8 +28,8 @@ table_constructor <-
     left_down_vars <- row_header_df %>% filter(direction =="left_top") %>% pull(row_header_vars)
 
     # Get number of headers
-    n_row_header_vars <- length(row_header_vars)
-    n_col_header_vars <- length(col_header_vars)
+    n_row_header_vars <- length(row_header_vars %>% keep(!is.na(.)))
+    n_col_header_vars <- length(col_header_vars %>% keep(!is.na(.)))
 
     # Get all relevevant variables
     all_vars <- c(col_header_vars,row_header_vars,data_vars) %>% keep(!is.na(.))
@@ -65,7 +65,7 @@ table_constructor <-
     # Remove column names
     df <- df %>% set_names(rep(" ",ncol(.)))
     df <- df %>% set_names(names(.) %>% accumulate(paste0))
-
+# browser()
     # Remove stubs
     df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars),"", .)))
 
@@ -74,7 +74,7 @@ table_constructor <-
 
     # browser()
 
-    df <-  df %>% map_dfr(~ ifelse(is.na(.x),"-",.x))
+    df <-  df %>% map_dfr(~ ifelse(is.na(.x)," ",.x))
 
     # Convert to gtable and set colors
     gtable <- df %>% gt() %>% data_color(columns = c(1:final_cols),colors = "white") %>%  tab_options(table.font.size = px(12))

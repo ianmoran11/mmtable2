@@ -1,0 +1,130 @@
+# rm(list = ls())
+library(titanic)
+library(margins)
+library(tidyverse)
+library(gt)
+library(xml2)
+devtools::load_all()
+
+get_model_data <- function(sex_filter,specification_arg, model){
+# sex_filter <- "female"
+# specification_arg <- "(II)"
+# model <- "LPM"
+
+titanic_df <-
+  titanic_train %>% as_tibble()  %>%
+  mutate(Sex = str_to_title(Sex)) %>%
+  mutate(Pclass = as.factor(Pclass)) %>% filter(Sex == sex_filter)
+
+if(specification_arg == "(I)" & model == "LPM"){
+model_obj <- titanic_df %>%  lm(Survived  ~ Age, data= .)
+model_tidy <- model_obj %>% broom::tidy()
+}
+if(specification_arg == "(II)" & model == "LPM"){
+model_obj <- titanic_df %>%  lm(Survived  ~ Age + Pclass, data= .)
+model_tidy <- model_obj %>% broom::tidy()
+}
+if(specification_arg == "(I)" & model == "Logit"){
+model_obj <- titanic_df %>%  glm(Survived  ~ Age, data= .,family = "binomial")
+model_tidy <- margins(model_obj, data= titanic_df) %>% broom::tidy()
+}
+if(specification_arg == "(II)" & model == "Logit"){
+model_obj <- titanic_df %>%  glm(Survived  ~ Age + Pclass, data= .,family = "binomial")
+model_tidy <- margins(model_obj, data= titanic_df) %>% broom::tidy()
+}
+
+coeff_df <-
+  model_tidy %>%
+  mutate(std.error = paste0("      (",sprintf("%.3f",round(std.error,3)),")   ")) %>%
+  mutate(estimate = sprintf("%.3f",round(estimate,3))) %>%
+  mutate(estimate = case_when(
+    p.value < .001 ~ paste0(estimate,"*** "),
+    p.value < .01  ~ paste0(estimate,"**  "),
+    p.value < .05  ~ paste0(estimate,"*   "),
+    T ~ paste0(estimate,"    "))) %>%
+  map_if(is.numeric, ~ .x %>% round(3) %>% sprintf("%.3f",.)) %>% bind_cols() %>%
+  gather(var,value, -term) %>%
+  mutate(var = ifelse(var == "std.error", "",var)) %>% mutate(stat_type = "Marginal effects") %>%
+  mutate(var_level = str_extract(term, "[0-9]+$") %>% ifelse(is.na(.),"",.)) %>%
+  mutate(term = term %>% str_remove_all("[0-9]+$")) %>%
+  mutate(model_type = model) %>%
+  mutate(term = str_replace_all(term,"^\\(Intercept\\)","Intercept")) %>%
+  mutate(gender = sex_filter)
+
+if("Pclass" %in% coeff_df$term){
+  coeff_df <-
+    bind_rows(coeff_df,
+       tribble(
+         ~term,    ~var,       ~value, ~stat_type,    ~var_level, ~model_type, ~gender,
+         "Pclass", "estimate", "-"   , "Marginal effects", "1",      model, sex_filter,
+         "Pclass", ""        , "-"   , "Marginal effects", "1",      model, sex_filter
+       )) %>%
+    mutate(term = str_replace_all(term,"^Pclass","Passenger class"))
+}
+
+coeff_df <- coeff_df %>%mutate(specification = specification_arg)
+
+model_df <-
+  model_obj %>% broom::glance() %>%
+  gather(var,value) %>%
+  map_if(is.numeric, ~ .x %>% round(3) %>% sprintf("%.2f",.) ) %>% bind_cols() %>%
+  filter(var %in% c("nobs","AIC","r.squared","adj.r.squared","statistic","logLik")) %>%
+  mutate(stat_type = "Model statistics") %>%
+  rename(term = var) %>%
+  mutate(model_type = model) %>%
+  mutate(term = term %>%
+           str_replace_all("^r.squared",html("R2")) %>%
+           str_replace_all("^adj.r.squared","Adjusted R2") %>%
+           str_replace_all("^logLik","Log likelihood") %>%
+           str_replace_all("^statistic","F statistic") %>%
+           str_replace_all("^nobs","Observations") %>%
+           str_replace_all("^AIC","Akaike Inf. Crit.")) %>%
+  mutate(var_level = "") %>%
+  mutate(specification = specification_arg) %>%
+  mutate(gender = sex_filter) %>%
+  mutate(value = ifelse(term == "Observations", str_remove_all(value,"\\..+"),value))
+
+# row_list <- cells_body(rows = c(1,11,17))
+# style_list <- list(cell_borders(sides = "bottom",color = "black"))
+
+table_df_2 <-
+bind_rows(coeff_df,model_df) %>%
+  mutate(term = fct_relevel(term,c("Intercept","Age", "Passenger class","Observations", "R2", "Adjusted R2",
+                                   "Log likelihood", "Akaike Inf. Crit.","statistic"
+  ))) %>%
+  filter( !var %in% c("p.value", "statistic"))
+
+table_df_2
+
+}
+
+table_temp <-
+bind_rows(
+  get_model_data(sex_filter = "Female", specification_arg = "(II)", model = "LPM" ),
+  get_model_data(sex_filter = "Female", specification_arg = "(I)", model = "LPM" ),
+  get_model_data(sex_filter = "Female", specification_arg = "(II)", model = "Logit" ),
+  get_model_data(sex_filter = "Female", specification_arg = "(I)", model = "Logit" ),
+  get_model_data(sex_filter = "Male", specification_arg = "(II)", model = "LPM" ),
+  get_model_data(sex_filter = "Male", specification_arg = "(I)", model = "LPM" ),
+  get_model_data(sex_filter = "Male", specification_arg = "(II)", model = "Logit" ),
+  get_model_data(sex_filter = "Male", specification_arg = "(I)", model = "Logit" )
+  ) %>%
+  filter(term != "Intercept") %>%
+  mmtable(table_data =  value)  +
+  header_left_top(var_level) +
+  header_left_top(term) +
+  header_left_top(stat_type) +
+  header_top(specification) +
+  header_top_left(model_type) +
+  header_top_left(gender) +
+  cells_format(cell_predicate = T, style = list(cell_text(align = "left"))) +
+  header_format(header = "all_cols", style = list(cell_text(align = "center"))) +
+  header_format(header = specification, style = list(cell_text(align = "center"))) +
+  # table_format(
+  #   locations = cells_body(rows = c(3,12)),
+  #   style = list(cell_borders(sides = "top",color = "grey")))+
+  NULL
+
+apply_formats(table_temp)
+apply_formats(table_temp + header_merged_cols())
+
