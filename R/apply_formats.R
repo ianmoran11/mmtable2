@@ -5,34 +5,28 @@
 #' @export
 
 apply_formats <- function(mmtable){
-
   # browser()
 
-  # Plan
-  #- create the table with row headers and single  column header
-  #- Then crate a table for each spannner
-  #- Transerfer spanners to main table
-
-
+# Formatting of mergeed headers ----------------------------------------------------------------------------------------
   if("merged_headers" %in% class(mmtable)){
 
     # browser()
 
-    #- create the table with row headers and single  column header
-
-    table_format_list <- mmtable %>% attr("_table_format")
-
-    non_empty_format_lists <-   table_format_list %>% keep(!map_lgl(.,~ unlist(.) %>% is.null))
-
-    mmtable_cells_rows <-  mmtable$`_data`[-c(1:    nrow(attr(mmtable,"_header_info")$col_header_df)),]
-
+    ## Get table attributes ------------------------------------------------------------------------
+    non_empty_format_lists <- mmtable %>% attr("_table_format") %>% keep(!map_lgl(.,~ unlist(.) %>% is.null))
     row_header_df <- attributes(mmtable) %>% .[["_header_info"]] %>% .[["row_header_df"]]
     col_header_df <- attributes(mmtable) %>% .[["_header_info"]] %>% .[["col_header_df"]]
-    col_header_df_01 <- col_header_df %>% mutate(row_no = row_number()) %>% arrange(-row_no)
-    name_vec <- get_row_header_names(mmtable$`_data`,col_header_df_01)
-    single_header_gt <- mmtable_cells_rows %>% set_names(name_vec) %>% gt()
-    #-----------------------------------------------------------------------------------------------
+    mmtable_cells_rows <-  mmtable$`_data`[-c(1:nrow(col_header_df)),]
 
+    ## Get derived information ---------------- ------------------------------------------------------------------------
+    ### Col header order ---------------- ------------------------------------------------------------------------------
+    col_header_df_01 <- col_header_df %>% mutate(row_no = row_number()) %>% arrange(-row_no)
+    ### Col header names (non-repeated) -------------------------------------------------------------- -----------------
+    name_vec <- get_row_header_names(mmtable$`_data`,col_header_df_01)
+    ## Create base gt table  -------------------------------------------------------------------------------------------
+    single_header_gt <- mmtable_cells_rows %>% set_names(name_vec) %>% gt()
+
+    ### Transfer all atributes to new base table -----------------------------------------------------------------------
     attr(single_header_gt,"names") <- attr(mmtable,"names")
     attr(single_header_gt,"class") <- attr(mmtable,"class")
     attr(single_header_gt,"_original_data") <- attr(mmtable,"_original_data")
@@ -40,99 +34,70 @@ apply_formats <- function(mmtable){
     attr(single_header_gt,"_table_meta") <- attr(mmtable,"_table_meta")
     attr(single_header_gt,"_table_format") <- attr(mmtable,"_table_format")
 
-
+    ## Create dataframe that summarises formatting list
     formats_list_df <-
       tibble(non_empty_format_lists = non_empty_format_lists) %>%
       mutate(func = map_chr(non_empty_format_lists,"func")) %>%
-      mutate(header = map_chr(non_empty_format_lists,
-                              function(x){ifelse(is.null(x$header),NA_character_,x$header)}))
+      mutate(header = map_chr(non_empty_format_lists,function(x){ifelse(is.null(x$header),NA_character_,x$header)}))
 
-    column_header_table_df <-
+    ## Create dataframe for basetable formatting
+    column_header_table_with_funcs <-
       tibble(single_header_gt = list(single_header_gt)) %>%
       mutate(header = col_header_df$col_header_vars[nrow(col_header_df)]) %>%
-      mutate(func = col_header_df$direction[nrow(col_header_df)])
+      mutate(func = col_header_df$direction[nrow(col_header_df)]) %>%
+      ### keep relevant foratting
+      mutate(formats = map(header, function(header){
+        formats_list_df %>%
+          filter(header %in% c(NA, "all_rows",header,row_header_df$row_header_vars )) %>%
+                            rename(format_header = header, format_func = func)
+        }))  %>% unnest(formats)
 
-    column_header_table_with_funcs <-
-      column_header_table_df %>%
-      mutate(formats = map(header, function(header_span){
-        formats_list_df %>% filter(header %in% c(NA, "all_rows",header_span,row_header_df$row_header_vars ))
-      }
-      ))
+    ## Apply formatting for first col  #!#!#!#! applying *all* formats to first header?
 
+    format_list_for_header <- column_header_table_with_funcs %>%
+      filter(!format_header %in% c("all_rows",row_header_df$row_header_vars),!format_func %in% c("cells_format") ) %>%
+      pull(non_empty_format_lists)
 
+    format_list_for_table_cells_and_rows <- column_header_table_with_funcs %>%
+      filter(!format_header %in% c("all_cols",col_header_df$col_header_vars)) %>%
+      pull(non_empty_format_lists)
 
-    formatted_column_header_table <-
-      column_header_table_with_funcs %>%
-      mutate(new_tables = map2(single_header_gt, formats,
-                               function(spanner_table,formats){
-                                 append(list(spanner_table),formats$non_empty_format_lists) %>%
-                                   reduce(
-                                     function(table,format){
-                                       tab_style(data = table,
-                                                 style = format$format_list[[1]],
-                                                 locations =cells_column_labels(columns = everything()))
-                                     }
-                                   )
-                               }
-      )
-      )
+    mmtable_return <-
+    list(single_header_gt) %>% append(format_list_for_header) %>% reduce(style_first_col_header) %>%
+                   list(.) %>% append(format_list_for_table_cells_and_rows) %>% reduce(apply_format)
 
-
-
-      mmtable_return <-
-        append(formatted_column_header_table$new_tables[1],
-               formatted_column_header_table$formats[[1]] %>%
-                 filter(!header %in% col_header_df_01$col_header_vars) %>%
-                 pull(non_empty_format_lists)) %>%
-        reduce(apply_format)
-
-    #- Then crate a table for each spannner
-
+    # Create base spanner tables --------------------------------------------------------------------------------------
     spanner_tables_gt <- map(1:(nrow(col_header_df) -1), spannerize, gm_table2= mmtable)
 
+    # Create base spanner tables --------------------------------------------------------------------------------------
     spanner_tables_df <-
-      tibble(spanner_tables_gt = spanner_tables_gt) %>%
+      tibble(spanner_tables_gt = spanner_tables_gt %>% map(list)) %>%
       mutate(header = col_header_df$col_header_vars[1:(nrow(col_header_df) -1)]) %>%
       mutate(func = col_header_df$direction[1:(nrow(col_header_df) -1)])
 
-
-    spanners_with_funcs <-
-    spanner_tables_df %>%
+    spanners_with_funcs <-  spanner_tables_df %>%
       mutate(formats = map(header, function(header_span){
-        formats_list_df %>% filter(header %in% c(NA, "all_cols",header_span))
+        formats_list_df %>%
+          filter(header %in% c(NA, "all_cols",header_span)) %>%
+          rename(format_header = header, format_func = func)
         }
-        ))
+        )) %>% unnest
+
+    spanners_with_funcs_df <-
+    spanners_with_funcs %>%
+      filter(format_header %in% c(header,"all_cols") | format_func %in% c("table_format")) %>%
+      group_by(header) %>%
+      summarise(
+        spanner_tables_df = list(first(spanner_tables_gt)),
+        format_lists = list(non_empty_format_lists))
 
     formatted_spanners_df <-
-        spanners_with_funcs %>%
-          mutate(new_tables = map2(spanner_tables_gt, formats,
-                  function(spanner_table,formats){
-                    append(list(spanner_table),formats$non_empty_format_lists) %>%
-                      reduce(
-                        function(table,format){
-                          tab_style(data = table,
-                                    style = format$format_list[[1]],
-                                    locations =cells_column_spanners(spanners = everything()))
-                          }
-                       )
-                    }
-                  )
-                 )
+      1:nrow(spanners_with_funcs_df) %>%
+      map(~ spanners_with_funcs_df %$% append(spanner_tables_df[.x], format_lists[[.x]]) %>% reduce(style_spanner))
 
-   temp_table <- formatted_spanners_df$new_tables[[1]]
-   no_borders <-  temp_table$`_spanners` %>% unnest("spanner_label") %>% pull(spanner_label) %>% `==`(.,"")  %>%  which()
-
-    # Apply styles to spanners and columns ---------------------------------------------------------
-
-
-    # spanner_tables_gt[[1]] %>%
-    #   tab_style(data = ., style = bold_style,locations =cells_column_labels(columns = everything()))
-
-    #------------------------------------------------------------------------------------------------
-    #- Transerfer spanners to main table
-
+    #-------------------------------------------------------------------------------------------------------------------
     table_html <-  gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% read_xml(as_html = T)
-    inserter <- formatted_spanners_df$new_tables %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% read_xml(as_html = T)
+    inserter <- formatted_spanners_df %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% read_xml(as_html = T)
 
     xml_add_child(
       xml_find_first(table_html, '//*[contains(concat(" ", normalize-space(@class), " "), " gt_col_headings ")]'),
@@ -140,26 +105,17 @@ apply_formats <- function(mmtable){
       .where = 0
     )
 
-    html_text <- table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>%
+    html_text <-
+      table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>%
       str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
-    htmltools::HTML()
+      htmltools::HTML()
 
     htmltools::html_print(html_text)
 
-    return(html_text)
-
-
-
-
-    # mmtable$`_data`[mmtable$]
-
-
-
-
-
-    mmtable_return
+   return(html_text)
   }
 
+# Formatting of unmergeed headers ------------------------------------------------------------------
   if(!"merged_headers" %in% class(mmtable)){
 
   table_format_list <- mmtable %>% attr("_table_format")

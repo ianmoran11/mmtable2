@@ -120,11 +120,11 @@ bind_rows(
   cells_format(cell_predicate = T, style = list(cell_text(align = "left"))) +
   header_format(header = "all_cols", style = list(cell_text(align = "center"))) +
   header_format(header = specification, style = list(cell_text(align = "center"))) +
-  # table_format(
-  #   locations = cells_body(rows = c(3,12)),
-  #   style = list(cell_borders(sides = "top",color = "grey")))+
+  table_format(
+    locations = cells_body(rows = c(1,9)),
+    style = list(cell_borders(sides = "top",weight = px(2),color = "grey")))+
   NULL
 
-apply_formats(table_temp)
 apply_formats(table_temp + header_merged_cols())
+apply_formats(table_temp)
 
