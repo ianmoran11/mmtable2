@@ -122,9 +122,12 @@ bind_rows(
   header_format(header = specification, style = list(cell_text(align = "center"))) +
   table_format(
     locations = cells_body(rows = c(1,9)),
-    style = list(cell_borders(sides = "top",weight = px(2),color = "grey")))+
+    style = list(cell_borders(sides = "top",weight = px(2),color = rgb(170/255,170/255,170/255))))+
   NULL
 
 apply_formats(table_temp + header_merged_cols())
 apply_formats(table_temp)
+
+apply_formats(table_temp_1 + table_temp_2 + header_merged_cols())
+
 

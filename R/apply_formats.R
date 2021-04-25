@@ -76,6 +76,7 @@ apply_formats <- function(mmtable){
       mutate(func = col_header_df$direction[1:(nrow(col_header_df) -1)])
 
     spanners_with_funcs <-  spanner_tables_df %>%
+      mutate(order= row_number()) %>%
       mutate(formats = map(header, function(header_span){
         formats_list_df %>%
           filter(header %in% c(NA, "all_cols",header_span)) %>%
@@ -88,8 +89,10 @@ apply_formats <- function(mmtable){
       filter(format_header %in% c(header,"all_cols") | format_func %in% c("table_format")) %>%
       group_by(header) %>%
       summarise(
+        order = first(order),
         spanner_tables_df = list(first(spanner_tables_gt)),
-        format_lists = list(non_empty_format_lists))
+        format_lists = list(non_empty_format_lists)) %>%
+      arrange(order)
 
     formatted_spanners_df <-
       1:nrow(spanners_with_funcs_df) %>%
