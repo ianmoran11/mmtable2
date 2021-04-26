@@ -3,6 +3,7 @@
 S3method("*",mmtable)
 S3method("+",mmtable)
 S3method("/",mmtable)
+S3method(print,mmtable)
 export(apply_format)
 export(apply_formats)
 export(apply_if)

@@ -5,16 +5,21 @@
 #' @export
 #' @S3method  print mmtable
 
-# print.mmtable  <-function(x, ...){
-#
-#   # browser()
-#
-#   formatted_mmtable <- apply_formats(x)
-#
-#   class(formatted_mmtable) <- c("gt_tbl","list")
-#
-#   print(formatted_mmtable
-#         # %>% gt::tab_options(column_labels.hidden = T)
-#         )
-#
-# }
+print.mmtable  <-function(x, ...){
+
+  # browser()
+
+
+
+  if("merged_headers" %in% class(x)){
+
+  return(apply_formats(x))
+  }
+
+ formatted_mmtable <-  apply_formats(x)
+
+ class(formatted_mmtable) <- c("gt_tbl","list")
+
+  print(formatted_mmtable%>% gt::tab_options(column_labels.hidden = T))
+
+}
