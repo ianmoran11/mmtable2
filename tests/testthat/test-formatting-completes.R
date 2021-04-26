@@ -1,18 +1,5 @@
 test_that("multiplication works", {
 
-  rm(list = ls())
-  library(tidyverse)
-  library(gt)
-  library(xml2)
-  devtools::load_all()
-
-  library(gapminder)
-  library(gt)
-  library(dplyr)
-  library(tidyr)
-  library(purrr)
-  library(stringr)
-
   table <-
     gapminder_mm %>%
     # filter(var != "Life expectancy") %>%
@@ -34,15 +21,8 @@ test_that("multiplication works", {
     #   style = list(cell_borders(sides = c("top"),color = "grey"))) +
     NULL
 
-   apply_formats(table)
-  t <- apply_formats(table + header_merged_cols())
+  t <- apply_formats(table)
   # t %>% write_lines("./vignettes/test.html")
-
-
-
-
-
-
   expect_true(1 == 1)
 
 })

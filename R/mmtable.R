@@ -4,6 +4,7 @@
 #' @param data a data frame
 #' @param table_data the name of the column whose values will form the data cells.
 #' @param table_name the name of the table - used for labelling when joined with another table - randomly generated if not provided.
+#' @param use_defaul_formats determines whether or note the table will have default formatting applied. Default value = TRUE.
 #' @return mmtable
 #' @export
 #' @examples

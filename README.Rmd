@@ -38,6 +38,7 @@ library(tidyverse)
 library(gapminder)
 library(gt)
 library(mmtable2)
+
 ```
 
 Here's a GIF demonstrating how to use mmtable2:
@@ -98,6 +99,7 @@ gm_table <-
     locations = row_list,
     style = style_list) +
   header_format(continent,style_list3 )
+
 
 try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
 ```
@@ -187,6 +189,34 @@ gapminder_mm %>%
 try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
 ```
 
+### Merged header columns 
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+row_list <- cells_body(rows = c(3,7))
+col_list <- cells_body(columns = c(3,5,7,9,11))
+style_list <- list(cell_borders(sides = "top",color = "grey"))
+style_list2<- list(cell_borders(sides = "left",color = "grey"))
+gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+style_list3 = list(cell_text(align = "left"))
+
+gm_table <- 
+ gm_df %>% 
+  mmtable(table_data = value) +
+  header_left(year) +
+  header_top(country) +
+  header_left_top(var)  +
+  header_top_left(continent)  +
+  table_format(
+    locations = row_list,
+    style = style_list) +
+  header_format(continent,style_list3 ) +
+  header_merged_cols()
+
+apply_formats(gm_table)
+```
+
+.
 
 ## Next steps 
 

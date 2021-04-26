@@ -12,6 +12,8 @@ mmtable(data, table_data, table_name = NULL, use_defaul_formats = TRUE)
 \item{table_data}{the name of the column whose values will form the data cells.}
 
 \item{table_name}{the name of the table - used for labelling when joined with another table - randomly generated if not provided.}
+
+\item{use_defaul_formats}{determines whether or note the table will have default formatting applied. Default value = TRUE.}
 }
 \value{
 mmtable

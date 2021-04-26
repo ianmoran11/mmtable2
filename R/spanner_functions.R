@@ -30,7 +30,8 @@ spannerize <- function(gm_table2,n){
   table_with_spanners
 }
 get_spanner_html_text <- function(table){
-  table %>% gt:::as.tags.gt_tbl(gt_02) %>% toString() %>% read_xml(as_html = T) %>%
+  table %>% gt:::as.tags.gt_tbl(gt_02) %>% toString() %>% xml2::read_xml(as_html = T) %>%
+
     xml2::xml_find_all(xpath = '//*[contains(concat( " ", @class, " " ), concat( " ", "gt_col_headings", " " ))]') %>%
     xml2::xml_children() %>% .[[1]] %>% as.character()
 }

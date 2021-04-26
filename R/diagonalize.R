@@ -3,7 +3,6 @@
 #' @param df a data frame
 #' @param var_char the column to be diagonalized
 #' @return data frame
-#' @examples
 #' @export
 
 

@@ -1,6 +1,6 @@
 Package: mmtable2
 Type: Package
-Title: Create and combine tables with a ggplot2/patchwork syntax.
+Title: Create and combine tables with a ggplot2/patchwork syntax
 Version: 0.1.1
 Author: Ian Moran
 Maintainer: Ian Moran <ian.moran11@gmail.com>
@@ -19,7 +19,10 @@ Imports:
     broom,
     tibble,
     gapminder,
-    stringr
+    stringr,
+    htmltools,
+    xml2,
+    zoo
 URL: https://github.com/ianmoran11/mmtable2
 BugReports: https://github.com/ianmoran11/mmtable2/issues
 Suggests: 

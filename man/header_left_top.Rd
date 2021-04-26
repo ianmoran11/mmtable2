@@ -15,3 +15,24 @@ format list
 \description{
 Conditionally apply a function
 }
+\examples{
+\dontrun{
+
+library(tidyverse)
+
+row_list <- cells_body(rows = c(1,3,5,7,9,11))
+style_list <- list(cell_borders(sides = "top",color = "grey"))
+gm_df <- gapminder_mm \%>\% filter(var != "Life expectancy")
+
+gm_table <-
+  gm_df \%>\%
+  mmtable(table_data = value) +
+  header_top(year) +
+  header_left(country) +
+  header_top_left(var)  +
+  header_left_top(continent)  +
+  table_format(
+    locations = row_list,
+    style = style_list)
+}
+}

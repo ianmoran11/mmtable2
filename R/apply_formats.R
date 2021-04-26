@@ -99,11 +99,11 @@ apply_formats <- function(mmtable){
       map(~ spanners_with_funcs_df %$% append(spanner_tables_df[.x], format_lists[[.x]]) %>% reduce(style_spanner))
 
     #-------------------------------------------------------------------------------------------------------------------
-    table_html <-  gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% read_xml(as_html = T)
-    inserter <- formatted_spanners_df %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% read_xml(as_html = T)
+    table_html <-  gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% xml2::read_xml(as_html = T)
+    inserter <- formatted_spanners_df %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% xml2::read_xml(as_html = T)
 
-    xml_add_child(
-      xml_find_first(table_html, '//*[contains(concat(" ", normalize-space(@class), " "), " gt_col_headings ")]'),
+    xml2::xml_add_child(
+      xml2::xml_find_first(table_html, '//*[contains(concat(" ", normalize-space(@class), " "), " gt_col_headings ")]'),
       inserter,
       .where = 0
     )

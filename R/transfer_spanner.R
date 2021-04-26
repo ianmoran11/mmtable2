@@ -7,13 +7,13 @@ transfer_spanner <- function(gt_01,gt_02){
   gt_02 <- table_list[[2]]
 
   if("gt_tbl"  %in% class(gt_01)){
-  gt_01_html <- read_xml(toString(gt:::as.tags.gt_tbl(gt_01)), as_html = TRUE)
+  gt_01_html <- xml2::read_xml(toString(gt:::as.tags.gt_tbl(gt_01)), as_html = TRUE)
   }
   if("xml_document"  %in% class(gt_01)){
-  gt_01_html <- read_html(gt_01)
+  gt_01_html <- xml2::read_xml(gt_01)
   }
 
-  gt_02_html <- read_xml(toString(gt:::as.tags.gt_tbl(gt_02)), as_html = TRUE)
+  gt_02_html <- xml2::read_xml(toString(gt:::as.tags.gt_tbl(gt_02)), as_html = TRUE)
 
   htmltools::html_print(htmltools::HTML(as.character(gt_01_html)))
   htmltools::html_print(htmltools::HTML(as.character(gt_02_html)))
@@ -26,13 +26,13 @@ transfer_spanner <- function(gt_01,gt_02){
   length(new_header_02):1 %>% map(function(x){
     xml_add_child(
       xml_find_first(gt_01_html, '//*[contains(concat( " ", @class, " " ), concat( " ", "gt_col_headings", " " ))]'),
-      read_xml(as.character(new_header_02)[[x]], html = TRUE),
+      xml2::read_xml(as.character(new_header_02)[[x]], html = TRUE),
       .where = 0)
   })
 
   xml_add_child(
     xml_find_first(gt_01_html, '//*[contains(concat( " ", @class, " " ), concat( " ", "gt_col_headings", " " ))]'),
-    read_xml(  as.character(new_header_02)[[1]], html = TRUE),
+    xml2::read_xml(  as.character(new_header_02)[[1]], html = TRUE),
     .where = 0)
 
   as.character(new_header_02)[[1]]

@@ -3,8 +3,8 @@
 #' @param cell_predicate an expression on the source data frame identifying which cells should be formatted.
 #' @param ... dots.
 #' @return format list
-#' @examples
 #' @export
+#' @examples
 #' \dontrun{
 #' gm_table_formatted <-
 #'   gapminder_mm %>%
@@ -21,7 +21,7 @@
 #'   table_format(
 #'     locations = cells_body(rows = c(1,3,5,7,9,11)),
 #'     style = list(cell_borders(sides = "top",color = "grey"))) +
-#'   table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+#'   table_source_note(source_note = "Excerpt of the Gapminder data" )
 #' }
 
 cells_format <- function(cell_predicate, ...){

@@ -1,3 +1,9 @@
+#' Conditionally apply a function
+#'
+#' @param ... formating instructions
+#' @return format list
+#' @export
+
 header_merged_cols <- function(...){
 
    return_list <-   list(...)
