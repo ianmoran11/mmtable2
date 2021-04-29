@@ -2,6 +2,8 @@ test_that("multiplication works", {
 
   local_edition(3)
 
+ testthat::skip_on_ci()
+
   table <-
     gapminder_mm %>%
     # filter(var != "Life expectancy") %>%
