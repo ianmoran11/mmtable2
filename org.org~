@@ -1,0 +1,25 @@
+* 
+** Tests 
+*** Handles value sets with an uneven number 
+*** HTML snapshot 
+*** Latex snapshot 
+** Features to add 
+*** Raised fors 
+** Issues 
+*** DONE format_cells with merged headers 
+CLOSED: [2021-04-24 Sat 22:27]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-04-24 Sat 22:27]
+- State "DONE"       from "NEXT"       [2021-04-24 Sat 21:29]
+:END:
+*** DONE Handle value sets with an uneven number (col header only)
+CLOSED: [2021-04-24 Sat 22:27]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-04-24 Sat 22:27]
+:END:
+*** DONE Refactoring
+*** DONE Snapshots for layouts
+CLOSED: [2021-05-01 Sat 16:31]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-05-01 Sat 16:31]
+:END:
