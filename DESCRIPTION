@@ -22,6 +22,7 @@ Imports:
     stringr,
     htmltools,
     xml2,
+    webshot,
     zoo
 URL: https://github.com/ianmoran11/mmtable2
 BugReports: https://github.com/ianmoran11/mmtable2/issues
