@@ -28,7 +28,17 @@ devtools::install_github("ianmoran11/mmtable2")
 ## Example
 
 ```{r, message=FALSE, warning=FALSE}
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(magrittr)
+library(broom)
+library(tibble)
+library(gapminder)
+library(stringr)
+library(htmltools)
+library(xml2)
+library(zoo)
 library(gapminder)
 library(webshot)
 library(gt)
