@@ -1,15 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-mmtable2 <a> <img src='man/figures/logo.png' align="right" height="131.5" /></a>
-================================================================================
+# mmtable2 <a> <img src='man/figures/logo.png' align="right" height="131.5" /></a>
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/ianmoran11/mmtable2.svg?branch=master)](https://travis-ci.org/ianmoran11/mmtable2) [![Codecov test coverage](https://codecov.io/gh/ianmoran11/mmtable2/branch/master/graph/badge.svg)](https://codecov.io/gh/ianmoran11/mmtable2?branch=master) [![R-CMD-check](https://github.com/ianmoran11/mmtable2/workflows/R-CMD-check/badge.svg)](https://github.com/ianmoran11/mmtable2/actions) <!-- badges: end -->
 
 mmtable2 allows you to create and combine tables with a ggplot2/patchwork syntax.
 
-Installation
-------------
+## Installation
 
 mmtable2 is not available on CRAN. It can be installed from github with the following script:
 
@@ -17,8 +15,7 @@ mmtable2 is not available on CRAN. It can be installed from github with the foll
 devtools::install_github("ianmoran11/mmtable2")
 ```
 
-Example
--------
+## Example
 
 Here's a GIF demonstrating how to use mmtable2:
 
@@ -49,8 +46,7 @@ try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="600px" />
 
-Adding headers
---------------
+## Adding headers
 
 You can add headers using data from a column in your data frame.
 
@@ -88,8 +84,7 @@ try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="600px" />
 
-Combining tables
-----------------
+## Combining tables
 
 You can combine tables with `+`, `/` and `*` operators.
 
@@ -126,8 +121,7 @@ try(apply_formats(ex3) %>% gtsave("./man/figures/ex3.png"))
 
 <img src="man/figures/README-unnamed-chunk-8-3.png" width="600px" />
 
-Formatting tables
------------------
+## Formatting tables
 
 mmtable2 outputs tables using the gt package's format.
 
@@ -185,14 +179,35 @@ gm_table_merged <-
 
 <img src="./man/figures/gm_table_merged_peek.png" width="800px" />
 
-.
+### Alternative pipe syntax (Experimental)
 
-Next steps
-----------
+Addoing the add\_ prefix to functions allows use of `%>%` in place of `+`.
+
+``` r
+row_list <- cells_body(rows = c(1,3,5,7,9,11))
+style_list <- list(cell_borders(sides = "top",color = "grey"))
+gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+
+gm_table <- 
+ gm_df %>% 
+  mmtable(table_data = value) %>% 
+  add_header_top(year) %>% 
+  add_header_left(country) %>% 
+  add_header_top_left(var)  %>% 
+  add_header_left_top(continent)  %>% 
+  add_table_format(
+    locations = row_list,
+    style = style_list)
+
+try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table_pipe.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="600px" />
+
+## Next steps
 
 Features planned for the future include:
 
--   merged column headers
--   an option top raise top left row headers.
-
-The package is only a week old, so expect sharp edges!
+-   increases performance

@@ -127,7 +127,7 @@ apply_formats <- function(mmtable){
 
   mmtable_return <- append(list(mmtable), non_empty_format_lists) %>% reduce(apply_format)
 
-  mmtable_return
+  mmtable_return %>% gt::tab_options(column_labels.hidden = T)
   }
 }
 
