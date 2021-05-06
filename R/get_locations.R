@@ -34,7 +34,7 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
      if("merged_headers" %in% class(mmtable)){
        all_cells_locations <-
-         crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
+         tidyr::crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
          mutate(all_cells_locations = map2(row,col,~ list(row = .x, col = .y))) %>%
          pull(all_cells_locations)
 
@@ -149,7 +149,7 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
        if("merged_headers" %in% class(mmtable)){
 
          all_cells_locations <-
-           crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
+           tidyr::crossing(row = 1:nrow(mmtable$`_data`), col = 1:ncol(mmtable$`_data`)) %>%
            mutate(all_cells_locations = map2(row,col,~ list(row = .x, col = .y))) %>%
            pull(all_cells_locations)
 

@@ -51,7 +51,7 @@ apply_format <- function(mmtable, format_list){
   }
 
   all_cells_locations <-
-  crossing(rows = 1:nrow(mmtable$`_data`), cols = 1:ncol(mmtable$`_data`))  %>%
+  tidyr::crossing(rows = 1:nrow(mmtable$`_data`), cols = 1:ncol(mmtable$`_data`))  %>%
     mutate(all_cells_locations = map2(rows,cols, ~ list(row = .x, col= .y) )) %>% pull(all_cells_locations)
 
   # browser()
