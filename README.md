@@ -211,3 +211,27 @@ try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table_pipe.png"))
 Features planned for the future include:
 
 -   increases performance
+
+``` r
+gm_table_formatted <- 
+gapminder_mm %>% 
+  filter(var != "Life expectancy") %>% 
+  mmtable(table_data = value, use_defaul_formats = T) %>% 
+  add_header_top(year) %>% 
+  add_header_left(country) %>% 
+  add_header_top_left(var)  %>% 
+  add_header_left_top(continent)  %>% 
+  add_cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) %>% 
+  add_header_format(header = year, style = list(cell_text(align = "right"))) %>% 
+  add_header_format("all_cols", style = list(cell_text(weight = "bolder"))) %>% 
+  add_header_format("all_rows", style = list(cell_text(weight = "bolder"))) %>% 
+  add_table_format(
+    locations = cells_body(rows = c(1,3,5,7,9,11)),
+    style = list(cell_borders(sides = "top",color = "grey"))) %>% 
+  add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+#> TypeError: Attempting to change the setter of an unconfigurable property.
+```
+
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="600px" />

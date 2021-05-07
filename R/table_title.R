@@ -51,6 +51,7 @@ table_source_note <- function(...){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+
 add_table_source_note <- function(mmtable,...){
   `+`(mmtable, table_source_note(...))
 }
