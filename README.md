@@ -213,7 +213,7 @@ Features planned for the future include:
 -   increases performance
 
 ``` r
-gm_table_formatted <- 
+gm_table_piped <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
   mmtable(table_data = value, use_defaul_formats = T) %>% 
@@ -229,7 +229,8 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1,3,5,7,9,11)),
     style = list(cell_borders(sides = "top",color = "grey"))) %>% 
   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
-try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
+
+try(apply_formats(gm_table_piped) %>% gtsave("./man/figures/gm_table_piped.png"))
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
