@@ -181,36 +181,7 @@ gm_table_merged <-
 
 ### Alternative pipe syntax (Experimental)
 
-Addoing the add\_ prefix to functions allows use of `%>%` in place of `+`.
-
-``` r
-row_list <- cells_body(rows = c(1,3,5,7,9,11))
-style_list <- list(cell_borders(sides = "top",color = "grey"))
-gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
-
-gm_table <- 
- gm_df %>% 
-  mmtable(table_data = value) %>% 
-  add_header_top(year) %>% 
-  add_header_left(country) %>% 
-  add_header_top_left(var)  %>% 
-  add_header_left_top(continent)  %>% 
-  add_table_format(
-    locations = row_list,
-    style = style_list)
-
-try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table_pipe.png"))
-#> TypeError: Attempting to change the setter of an unconfigurable property.
-#> TypeError: Attempting to change the setter of an unconfigurable property.
-```
-
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="600px" />
-
-## Next steps
-
-Features planned for the future include:
-
--   increases performance
+Adding the `add_` prefix to functions allows use of `%>%` in place of `+`.
 
 ``` r
 gm_table_piped <- 
@@ -235,4 +206,4 @@ try(apply_formats(gm_table_piped) %>% gtsave("./man/figures/gm_table_piped.png")
 #> TypeError: Attempting to change the setter of an unconfigurable property.
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="600px" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="600px" />
