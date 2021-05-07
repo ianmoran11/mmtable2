@@ -41,14 +41,13 @@ cells_format <- function(cell_predicate, ...){
   # format_list %>% str()
 
   format_list
-
-
-
 }
-#' Conditionally apply a function
+
+#' Add cells formatting
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for add_cells_format
+#' @return an mmtable
 #' @export
 add_cells_format <- function(mmtable,...){
   `+`(mmtable, cells_format(...))

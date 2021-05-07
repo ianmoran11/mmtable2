@@ -30,11 +30,13 @@ header_format <- function(header, ...){
 
   }
 
-#' Conditionally apply a function
+#' Add formatting to a header
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for add_header_format
+#' @return an mmtable
 #' @export
+
 add_header_format <- function(mmtable,...){
   `+`(mmtable, header_format(...))
 }

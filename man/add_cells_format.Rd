@@ -2,16 +2,18 @@
 % Please edit documentation in R/cells_format.R
 \name{add_cells_format}
 \alias{add_cells_format}
-\title{Conditionally apply a function}
+\title{Add cells formatting}
 \usage{
 add_cells_format(mmtable, ...)
 }
 \arguments{
-\item{variable}{a column of the data frame from which header values will be constructed}
+\item{mmtable}{an mmtable object}
+
+\item{...}{arguments for add_cells_format}
 }
 \value{
-format list
+an mmtable
 }
 \description{
-Conditionally apply a function
+Add cells formatting
 }

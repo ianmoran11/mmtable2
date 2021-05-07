@@ -2,16 +2,18 @@
 % Please edit documentation in R/header_format.R
 \name{add_header_format}
 \alias{add_header_format}
-\title{Conditionally apply a function}
+\title{Add formatting to a header}
 \usage{
 add_header_format(mmtable, ...)
 }
 \arguments{
-\item{variable}{a column of the data frame from which header values will be constructed}
+\item{mmtable}{an mmtable object}
+
+\item{...}{arguments for add_header_format}
 }
 \value{
-format list
+an mmtable
 }
 \description{
-Conditionally apply a function
+Add formatting to a header
 }

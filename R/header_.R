@@ -191,39 +191,46 @@ header_left_top <- function(variable){
 
 
 
-#' Conditionally apply a function
+#' Add a top header
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for header_top
+#' @return an mmtable
 #' @export
 
 add_header_top <- function(mmtable, ...){
   `+`(mmtable, header_top(...))
 }
 
-#' Conditionally apply a function
+#' Add a top left header
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for header_top_left
+#' @return an mmtable
 #' @export
+
 add_header_top_left <- function(mmtable, ...){
   `+`(mmtable, header_top_left(...))
 }
-#' Conditionally apply a function
+
+#' Add a left header
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for header_left
+#' @return an mmtable
 #' @export
+
 
 add_header_left <- function(mmtable, ...){
   `+`(mmtable, header_left(...))
 }
 
 
-#' Conditionally apply a function
+#' Add a left top header
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for header_left_top
+#' @return an mmtable
 #' @export
 
 add_header_left_top <- function(mmtable, ...){

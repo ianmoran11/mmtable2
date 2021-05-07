@@ -45,11 +45,13 @@ table_format <- function(locations, ...){
 }
 
 
-#' Conditionally apply a function
+#' Add formatting to a table
 #'
-#' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @param mmtable an mmtable object
+#' @param ... arguments for table_format
+#' @return an mmtable
 #' @export
+
 add_table_format <- function(mmtable,...){
     `+`(mmtable, table_format(...))
   }

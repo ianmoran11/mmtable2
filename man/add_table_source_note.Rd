@@ -2,16 +2,18 @@
 % Please edit documentation in R/table_title.R
 \name{add_table_source_note}
 \alias{add_table_source_note}
-\title{Conditionally apply a function}
+\title{Add a table source note}
 \usage{
 add_table_source_note(mmtable, ...)
 }
 \arguments{
-\item{variable}{a column of the data frame from which header values will be constructed}
+\item{mmtable}{an mmtable object}
+
+\item{...}{arguments for table_source_note}
 }
 \value{
-format list
+an mmtable
 }
 \description{
-Conditionally apply a function
+Add a table source note
 }

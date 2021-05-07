@@ -2,16 +2,18 @@
 % Please edit documentation in R/header_.R
 \name{add_header_left_top}
 \alias{add_header_left_top}
-\title{Conditionally apply a function}
+\title{Add a left top header}
 \usage{
 add_header_left_top(mmtable, ...)
 }
 \arguments{
-\item{variable}{a column of the data frame from which header values will be constructed}
+\item{mmtable}{an mmtable object}
+
+\item{...}{arguments for header_left_top}
 }
 \value{
-format list
+an mmtable
 }
 \description{
-Conditionally apply a function
+Add a left top header
 }

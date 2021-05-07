@@ -2,16 +2,18 @@
 % Please edit documentation in R/table_format.R
 \name{add_table_format}
 \alias{add_table_format}
-\title{Conditionally apply a function}
+\title{Add formatting to a table}
 \usage{
 add_table_format(mmtable, ...)
 }
 \arguments{
-\item{variable}{a column of the data frame from which header values will be constructed}
+\item{mmtable}{an mmtable object}
+
+\item{...}{arguments for table_format}
 }
 \value{
-format list
+an mmtable
 }
 \description{
-Conditionally apply a function
+Add formatting to a table
 }
