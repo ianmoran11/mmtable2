@@ -45,3 +45,13 @@ table_source_note <- function(...){
   table_title_fn
 
 }
+
+#' Conditionally apply a function
+#'
+#' @param variable a column of the data frame from which header values will be constructed
+#' @return format list
+#' @export
+add_table_source_note <- function(mmtable,...){
+  `+`(mmtable, table_source_note(...))
+}
+

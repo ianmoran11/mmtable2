@@ -45,3 +45,11 @@ cells_format <- function(cell_predicate, ...){
 
 
 }
+#' Conditionally apply a function
+#'
+#' @param variable a column of the data frame from which header values will be constructed
+#' @return format list
+#' @export
+add_cells_format <- function(mmtable,...){
+  `+`(mmtable, cells_format(...))
+}
