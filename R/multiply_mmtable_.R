@@ -33,12 +33,12 @@
 
   original_data <- bind_rows(original_data_2,original_data_1)
 
-  col_header_df_1 <- headers_1$col_header_df %>% map_dfr(as.character)
-  row_header_df_1 <- headers_1$row_header_df %>% map_dfr(as.character)
+  col_header_df_1 <- headers_1$col_header_df %>% purrr::map_dfr(as.character)
+  row_header_df_1 <- headers_1$row_header_df %>% purrr::map_dfr(as.character)
   data_vars_1 <-     headers_1$data_vars
 
-  col_header_df_2 <- headers_2$col_header_df %>% map_dfr(as.character)
-  row_header_df_2 <- headers_2$row_header_df %>% map_dfr(as.character)
+  col_header_df_2 <- headers_2$col_header_df %>% purrr::map_dfr(as.character)
+  row_header_df_2 <- headers_2$row_header_df %>% purrr::map_dfr(as.character)
   data_vars_2 <-     headers_2$data_vars
 
   col_header_df_temp <-  bind_rows(col_header_df_2,col_header_df_1) %>% filter(complete.cases(.)) %>% unique()

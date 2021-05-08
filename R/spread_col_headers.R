@@ -43,7 +43,7 @@ spread_col_headers <- function(data, ...){
                                 }
            )
 
-         df <- df %>% map_dfr(as.character)
+         df <- df %>% purrr::map_dfr(as.character)
 
          df2 <-  tibble(names = names(df), values = names(df)) %>% spread(names,values)
 

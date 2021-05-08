@@ -13,9 +13,9 @@ model_lexp <- function(data,country_input){
   model_table <-
     bind_rows(
       model %>% broom::tidy() %>% gather(statistic, value, -term) %>% mutate(statistic_level = "Coefficients") %>%
-        mutate(value = round(value,3)) %>% map_dfr(~ as.character(.x) %>% str_replace_all("(?<=[A-Z|a-z])\\."," ") %>% str_to_title),
+        mutate(value = round(value,3)) %>% purrr::map_dfr(~ as.character(.x) %>% str_replace_all("(?<=[A-Z|a-z])\\."," ") %>% str_to_title),
       model %>% broom::glance() %>% gather(statistic, value) %>% mutate(statistic_level = "Model Statistics")  %>%
-        mutate(value = round(value,3)) %>% map_dfr(~ as.character(.x) %>% str_replace_all("(?<=[A-Z|a-z])\\."," ") %>% str_to_title) %>% mutate(term = " ")
+        mutate(value = round(value,3)) %>% purrr::map_dfr(~ as.character(.x) %>% str_replace_all("(?<=[A-Z|a-z])\\."," ") %>% str_to_title) %>% mutate(term = " ")
     ) %>%
     mutate(value = sprintf("%.3f", as.numeric(value)) %>% as.character() ) %>%
     mutate(value = ifelse(statistic == "Std Error",paste0("(",value,")"),value)) %>%
