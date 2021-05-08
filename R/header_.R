@@ -10,7 +10,7 @@
 #'
 #' row_list <- cells_body(rows = c(1,3,5,7,9,11))
 #' style_list <- list(cell_borders(sides = "top",color = "grey"))
-#' gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+#' gm_df <- gapminder_mm %>% dplyr::filter(var != "Life expectancy")
 #'
 #' gm_table <-
 #'   gm_df %>%
@@ -62,7 +62,7 @@ header_top <- function(variable){
 #'
 #' row_list <- cells_body(rows = c(1,3,5,7,9,11))
 #' style_list <- list(cell_borders(sides = "top",color = "grey"))
-#' gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+#' gm_df <- gapminder_mm %>% dplyr::filter(var != "Life expectancy")
 #'
 #' gm_table <-
 #'   gm_df %>%
@@ -109,7 +109,7 @@ header_top_left <- function(variable){
 #'
 #' row_list <- cells_body(rows = c(1,3,5,7,9,11))
 #' style_list <- list(cell_borders(sides = "top",color = "grey"))
-#' gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+#' gm_df <- gapminder_mm %>% dplyr::filter(var != "Life expectancy")
 #'
 #' gm_table <-
 #'   gm_df %>%
@@ -155,7 +155,7 @@ header_left <- function(variable){
 #'
 #' row_list <- cells_body(rows = c(1,3,5,7,9,11))
 #' style_list <- list(cell_borders(sides = "top",color = "grey"))
-#' gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+#' gm_df <- gapminder_mm %>% dplyr::filter(var != "Life expectancy")
 #'
 #' gm_table <-
 #'   gm_df %>%

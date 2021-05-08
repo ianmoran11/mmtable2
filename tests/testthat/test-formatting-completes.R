@@ -1,5 +1,7 @@
 test_that("multiplication works", {
 
+ library(dplyr)
+
   table <-
     gapminder_mm %>%
     # filter(var != "Life expectancy") %>%

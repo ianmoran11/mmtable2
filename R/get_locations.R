@@ -97,13 +97,13 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
 
    if(header %in% header_dfs$col_header_df$col_header_vars){
-     rows_to_modify <- header_dfs$col_header_df %>% filter(col_header_vars == header) %>% pull(header_no)
+     rows_to_modify <- header_dfs$col_header_df %>% dplyr::filter(col_header_vars == header) %>% pull(header_no)
      cols_to_modify <- mmtable$`_data`[rows_to_modify,] %>% unlist %>% str_detect("[:alnum:]") %>% which()
    }
 
    if(header %in% header_dfs$row_header_df$row_header_vars){
 
-     cols_to_modify <- header_dfs$row_header_df %>% filter(row_header_vars == header) %>% pull(header_no)
+     cols_to_modify <- header_dfs$row_header_df %>% dplyr::filter(row_header_vars == header) %>% pull(header_no)
      rows_to_modify <- mmtable$`_data`[,cols_to_modify] %>% unlist %>% str_detect("[:alnum:]") %>% which()
    }
 
@@ -136,10 +136,10 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
       gather(column,value, -row)
 
        filtered_key_values <-
-         attr(mmtable_keyed,"_original_data") %>% filter(!!!cell_predicate) %>% pull(.value_key)
+         attr(mmtable_keyed,"_original_data") %>% dplyr::filter(!!!cell_predicate) %>% pull(.value_key)
 
        selected_rows <-
-         mmtalbe_keyed_constructed_rowcol_index %>% filter(value %in% filtered_key_values)
+         mmtalbe_keyed_constructed_rowcol_index %>% dplyr::filter(value %in% filtered_key_values)
 
        return_list <-  map2(selected_rows$row %>% as.numeric, selected_rows$column %>% as.numeric,
             function(x,y) list(row = x, col = y))

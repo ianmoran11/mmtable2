@@ -41,8 +41,8 @@
   row_header_df_2 <- headers_2$row_header_df %>% purrr::map_dfr(as.character)
   data_vars_2 <-     headers_2$data_vars
 
-  col_header_df_temp <-  bind_rows(col_header_df_2,col_header_df_1) %>% filter(complete.cases(.)) %>% unique()
-  row_header_df_temp <-  bind_rows(row_header_df_2,row_header_df_1) %>% filter(complete.cases(.)) %>% unique()
+  col_header_df_temp <-  bind_rows(col_header_df_2,col_header_df_1) %>% dplyr::filter(complete.cases(.)) %>% unique()
+  row_header_df_temp <-  bind_rows(row_header_df_2,row_header_df_1) %>% dplyr::filter(complete.cases(.)) %>% unique()
   table_name <-  table_meta_1$table_name
 
 

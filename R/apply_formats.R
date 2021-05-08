@@ -48,18 +48,18 @@ apply_formats <- function(mmtable){
       ### keep relevant foratting
       mutate(formats = map(header, function(header){
         formats_list_df %>%
-          filter(header %in% c(NA, "all_rows",header,row_header_df$row_header_vars )) %>%
+          dplyr::filter(header %in% c(NA, "all_rows",header,row_header_df$row_header_vars )) %>%
                             rename(format_header = header, format_func = func)
         }))  %>% unnest(formats)
 
     ## Apply formatting for first col  #!#!#!#! applying *all* formats to first header?
 
     format_list_for_header <- column_header_table_with_funcs %>%
-      filter(!format_header %in% c("all_rows",row_header_df$row_header_vars),!format_func %in% c("cells_format") ) %>%
+      dplyr::filter(!format_header %in% c("all_rows",row_header_df$row_header_vars),!format_func %in% c("cells_format") ) %>%
       pull(non_empty_format_lists)
 
     format_list_for_table_cells_and_rows <- column_header_table_with_funcs %>%
-      filter(!format_header %in% c("all_cols",col_header_df$col_header_vars)) %>%
+      dplyr::filter(!format_header %in% c("all_cols",col_header_df$col_header_vars)) %>%
       pull(non_empty_format_lists)
 
     mmtable_return <-
@@ -79,14 +79,14 @@ apply_formats <- function(mmtable){
       mutate(order= row_number()) %>%
       mutate(formats = map(header, function(header_span){
         formats_list_df %>%
-          filter(header %in% c(NA, "all_cols",header_span)) %>%
+          dplyr::filter(header %in% c(NA, "all_cols",header_span)) %>%
           rename(format_header = header, format_func = func)
         }
         )) %>% unnest
 
     spanners_with_funcs_df <-
     spanners_with_funcs %>%
-      filter(format_header %in% c(header,"all_cols") | format_func %in% c("table_format")) %>%
+      dplyr::filter(format_header %in% c(header,"all_cols") | format_func %in% c("table_format")) %>%
       group_by(header) %>%
       summarise(
         order = first(order),

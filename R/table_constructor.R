@@ -24,8 +24,8 @@ table_constructor <-
     row_header_vars <- row_header_df$row_header_vars
 
     # Get diagonal headers
-    down_right_vars <- col_header_df %>% filter(direction =="top_left") %>% pull(col_header_vars)
-    left_down_vars <- row_header_df %>% filter(direction =="left_top") %>% pull(row_header_vars)
+    down_right_vars <- col_header_df %>% dplyr::filter(direction =="top_left") %>% pull(col_header_vars)
+    left_down_vars <- row_header_df %>% dplyr::filter(direction =="left_top") %>% pull(row_header_vars)
 
     # Get number of headers
     n_row_header_vars <- length(row_header_vars %>% keep(!is.na(.)))

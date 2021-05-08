@@ -8,7 +8,7 @@ model_lexp <- function(data,country_input){
 
   # browser()
 
-  model <- data %>% filter(country == country_input) %>%  lm(lifeExp ~ year + gdpPercap, data = . )
+  model <- data %>% dplyr::filter(country == country_input) %>%  lm(lifeExp ~ year + gdpPercap, data = . )
 
   model_table <-
     bind_rows(
@@ -20,8 +20,8 @@ model_lexp <- function(data,country_input){
     mutate(value = sprintf("%.3f", as.numeric(value)) %>% as.character() ) %>%
     mutate(value = ifelse(statistic == "Std Error",paste0("(",value,")"),value)) %>%
     mutate(term = ifelse(term == "Gdppercap","GDP per capita",term)) %>%
-    mutate(country = country_input) %>%   filter(!statistic %in% c("P Value","Statistic","Aic","Bic","Df","Df Residual","Loglik","Nobs","Sigma","Deviance"))  %>%
-    filter(term != "(Intercept)")
+    mutate(country = country_input) %>%   dplyr::filter(!statistic %in% c("P Value","Statistic","Aic","Bic","Df","Df Residual","Loglik","Nobs","Sigma","Deviance"))  %>%
+    dplyr::filter(term != "(Intercept)")
 
   model_table
 

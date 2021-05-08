@@ -57,7 +57,7 @@ spread_col_headers <- function(data, ...){
              df <-
                bind_rows(df2,df) %>% select(names(df)) %>% mutate_all(.funs = list(~ str_split(.x,"\n"))) %>%
                unnest() %>%
-               filter(
+               dplyr::filter(
                  map_lgl(1:nrow(.),
                          function(x,y){
                            lgl_vec <-  y[x,] %>% unlist %>% any(!. %in% c("",NA))
