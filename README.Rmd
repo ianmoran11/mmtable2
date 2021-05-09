@@ -167,7 +167,7 @@ ex2 <- t1 / t4
 ex2
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
-apply_formats(ex1) %>% gtsave("./man/figures/ex2.png")
+apply_formats(ex2) %>% gtsave("./man/figures/ex2.png")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE,error=FALSE, out.width = "600px", paged.print=FALSE}
 knitr::include_graphics("./man/figures/ex2.png")
@@ -179,7 +179,7 @@ ex3 <- t1 * t5 * t4 *  t2
 ex3
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
-apply_formats(ex1) %>% gtsave("./man/figures/ex3.png")
+apply_formats(ex3) %>% gtsave("./man/figures/ex3.png")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE,error=FALSE, out.width = "600px", paged.print=FALSE}
 knitr::include_graphics("./man/figures/ex3.png")
