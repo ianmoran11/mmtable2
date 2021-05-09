@@ -22,6 +22,8 @@ print.mmtable  <-function(x, ...){
 
  class(formatted_mmtable) <- c("gt_tbl","list")
 
- print(formatted_mmtable %>% gt::tab_options(column_labels.hidden = T))
+ final_table <- formatted_mmtable %>% gt::tab_options(column_labels.hidden = T)
+
+ print(final_table)
 
 }

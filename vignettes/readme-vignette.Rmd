@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 mmtable2 is not available on CRAN. It can be installed from github with the following script:
 ```{r gh-installation, eval = FALSE}
 devtools::install_github("ianmoran11/mmtable2")
-```
+```  
 
 
 ## Example
@@ -63,9 +63,8 @@ gm_table <-
     locations = row_list,
     style = style_list)
 
-try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
+gm_table
 ```
-
 
 ## Adding headers
 
@@ -76,8 +75,6 @@ It's placement will depend on your your choice of header_* functions.
 Header options include: top, top_left, left, and left_top. 
 
 Here's a table of the same data used above, this time with a different header layout. 
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
@@ -98,22 +95,13 @@ gm_table <-
     style = style_list) +
   header_format(continent,style_list3 )
 
-
-try(apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png"))
+gm_table
 ```
 
 
 ## Combining tables
 
 You can combine tables with `+`, `/` and `*` operators.
-
-These are designed to be associative! For example, for the `+` operator, this implies  $(t1+t2)+t3=t1+(t2+t3).$
-
-This means you can compose tables easily.
-
-Below are a few examples.
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 create_table <- function(df,name){
  df %>%
@@ -124,9 +112,6 @@ create_table <- function(df,name){
    header_left_top(continent)
 }
 ```
-
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 gapminder_tbl <-
  gapminder_mm %>%
@@ -138,8 +123,6 @@ gapminder_tbl <-
    name %in% c( "Asia - Population","Asia - GDP","Asia - Life expectancy")) %>%
  mutate(table =map2(data,name,create_table))
 ```
-
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 t1 <- gapminder_tbl %>% filter(name == "Oceania - Population") %>% pull(table) %>% .[[1]]
 t2 <- gapminder_tbl %>% filter(name == "Oceania - GDP") %>% pull(table) %>% .[[1]]
@@ -150,22 +133,31 @@ t6 <- gapminder_tbl %>% filter(name == "Asia - Life expectancy") %>% pull(table)
 
 ```
 
-
+The `+` operator places tables side-by-side (sharing headers)  
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 ex1 <- t1 + t2
-try(apply_formats(ex1) %>% gtsave("./man/figures/ex1.png"))
-ex2 <- t1 / t4
-try(apply_formats(ex2) %>% gtsave("./man/figures/ex2.png"))
-ex3 <- t1 * t5 * t4 *  t2
-try(apply_formats(ex3) %>% gtsave("./man/figures/ex3.png"))
+ex1
 ```
+
+
+The `/` operator places tables on top of one another (sharing headers)  
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+ex2 <- t1 / t4
+ex2
+```
+
+The `*` operator "integrates" tables  
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+ex3 <- t1 * t5 * t4 *  t2
+ex3
+```
+
 
 ## Formatting tables
 
 mmtable2 outputs tables using the gt package's format.
 
 This means you can alter formatting using many existing gt styling commands.
-
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 gm_table_formatted <- 
 gapminder_mm %>% 
@@ -183,12 +175,14 @@ gapminder_mm %>%
     locations = cells_body(rows = c(1,3,5,7,9,11)),
     style = list(cell_borders(sides = "top",color = "grey"))) + 
   table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
-try(apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png"))
+
+gm_table_formatted
 ```
 
 ### Merged header columns 
 
-
+Table headers can be merged with `header_merged_cols()`. 
+This supports an aributrary number of column headers. 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
@@ -210,15 +204,12 @@ gm_table_merged <-
   header_format(continent,style_list3 ) +
   header_merged_cols()
 
-# apply_formats(gm_table_merged)
+gm_table_merged
 ```
 
+### Alternative pipe syntax
 
-
-### Alternative pipe syntax (Experimental)
-
-Addoing the add_ prefix to functions allows use of `%>%` in place of `+`.
-
+Adding the `add_` prefix to functions allows use of `%>%` in place of `+`.
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 gm_table_piped <- 
 gapminder_mm %>% 
@@ -237,10 +228,6 @@ gapminder_mm %>%
     style = list(cell_borders(sides = "top",color = "grey"))) %>% 
   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
 
-try(apply_formats(gm_table_piped) %>% gtsave("./man/figures/gm_table_piped.png"))
+gm_table_piped
 ```
-
-
-
-
 

@@ -35,7 +35,6 @@ library(mmtable2)
 ```
 
 Here’s a GIF demonstrating how to use mmtable2:
-
 <img src="https://unpivotr.s3.amazonaws.com/01_intro_fast.gif" width="800px" />
 
 And here’s the code used in the GIF.
@@ -101,12 +100,7 @@ gm_table
 
 You can combine tables with `+`, `/` and `*` operators.
 
-These are designed to be associative! For example, for the `+` operator,
-this implies (*t*1 + *t*2) + *t*3 = *t*1 + (*t*2 + *t*3).
-
-This means you can compose tables easily.
-
-Below are a few examples.
+The `+` operator places tables side-by-side (sharing headers)
 
 ``` r
 ex1 <- t1 + t2
@@ -115,12 +109,16 @@ ex1
 
 <img src="./man/figures/ex1.png" width="600px" />
 
+The `/` operator places tables on top of one another (sharing headers)
+
 ``` r
 ex2 <- t1 / t4
 ex2
 ```
 
 <img src="./man/figures/ex2.png" width="600px" />
+
+The `*` operator “integrates” tables
 
 ``` r
 ex3 <- t1 * t5 * t4 *  t2
@@ -161,6 +159,9 @@ gm_table_formatted
 
 ### Merged header columns
 
+Table headers can be merged with `header_merged_cols()`. This supports
+an aributrary number of column headers.
+
 ``` r
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
@@ -187,7 +188,7 @@ gm_table_merged
 
 <img src="./man/figures/gm_table_merged_peek.png" width="800px" />
 
-### Alternative pipe syntax (Experimental)
+### Alternative pipe syntax
 
 Adding the `add_` prefix to functions allows use of `%>%` in place of
 `+`.
