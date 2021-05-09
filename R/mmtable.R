@@ -7,6 +7,12 @@
 #' @param use_defaul_formats determines whether or note the table will have default formatting applied. Default value = TRUE.
 #' @return mmtable
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom dplyr bind_rows
+#' @importFrom purrr invoke
+#' @importFrom dplyr mutate
+#' @importFrom gt cell_text
+#' @importFrom tibble tibble
 #' @examples
 #' \dontrun{
 #'

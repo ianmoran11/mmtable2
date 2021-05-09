@@ -4,6 +4,8 @@
 #' @param ... dots.
 #' @return format list
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom rlang enquos
 #' @examples
 #' \dontrun{
 #' gm_table_formatted <-

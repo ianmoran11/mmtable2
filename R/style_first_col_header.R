@@ -1,3 +1,9 @@
+
+#' @importFrom gt cells_column_labels
+#' @importFrom dplyr everything
+#' @importFrom gt tab_style
+
+
 style_first_col_header <- function(table,format){
 
 

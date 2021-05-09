@@ -3,6 +3,26 @@
 #' @param mmtable an mmtable
 #' @return mmtable
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom dplyr arrange
+#' @importFrom dplyr first
+#' @importFrom dplyr group_by
+#' @importFrom gt gt
+#' @importFrom purrr keep
+#' @importFrom purrr map
+#' @importFrom purrr map_chr
+#' @importFrom purrr map_lgl
+#' @importFrom dplyr mutate
+#' @importFrom dplyr pull
+#' @importFrom purrr reduce
+#' @importFrom dplyr row_number
+#' @importFrom dplyr rename
+#' @importFrom purrr set_names
+#' @importFrom stringr str_remove_all
+#' @importFrom stringr str_replace_all
+#' @importFrom dplyr summarise
+#' @importFrom tibble tibble
+#' @importFrom tidyr unnest
 
 apply_formats <- function(mmtable){
   # browser()
@@ -49,7 +69,7 @@ apply_formats <- function(mmtable){
       mutate(formats = map(header, function(header){
         formats_list_df %>%
           dplyr::filter(header %in% c(NA, "all_rows",header,row_header_df$row_header_vars )) %>%
-                            rename(format_header = header, format_func = func)
+                            dplyr::rename(format_header = header, format_func = func)
         }))  %>% unnest(formats)
 
     ## Apply formatting for first col  #!#!#!#! applying *all* formats to first header?

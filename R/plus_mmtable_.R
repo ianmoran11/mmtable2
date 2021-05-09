@@ -4,6 +4,11 @@
 #' @param mmtable2 an mmtable
 #' @return an mmtable
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom dplyr bind_rows
+#' @importFrom purrr invoke
+#' @importFrom dplyr mutate
+#' @importFrom tibble tibble
 #' @S3method  "+" mmtable
 
 

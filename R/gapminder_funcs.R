@@ -3,6 +3,11 @@
 #' @param data an mmtable
 #' @export
 #' @param country_input a list containing a row and col items
+#' @importFrom magrittr %>%
+#' @importFrom dplyr bind_rows
+#' @importFrom tidyr gather
+#' @importFrom stats lm
+#' @importFrom dplyr mutate
 
 model_lexp <- function(data,country_input){
 

@@ -4,6 +4,12 @@
 #' @param var_char the column to be diagonalized
 #' @return data frame
 #' @export
+#' @importFrom rlang :=
+#' @importFrom magrittr %>%
+#' @importFrom dplyr if_else
+#' @importFrom dplyr lag
+#' @importFrom dplyr mutate
+#' @importFrom rlang sym
 
 
 diagonalize <-  function(df,var_char){

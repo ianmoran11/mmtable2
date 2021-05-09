@@ -1,3 +1,11 @@
+
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
+#' @importFrom xml2 xml_add_child
+#' @importFrom xml2 xml_find_first
+
+
+
 transfer_spanner <- function(gt_01,gt_02){
 
   browser()

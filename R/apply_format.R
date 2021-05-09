@@ -4,6 +4,8 @@
 #' @param format_list a list of formating commands.
 #' @return mmtable
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom gt tab_spanner
 
 apply_format <- function(mmtable, format_list){
 

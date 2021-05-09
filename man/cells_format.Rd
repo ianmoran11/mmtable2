@@ -21,7 +21,7 @@ Conditionally apply a function
 \dontrun{
 gm_table_formatted <-
   gapminder_mm \%>\%
-  filter(var != "Life expectancy") \%>\%
+  dplyr::filter(var != "Life expectancy") \%>\%
   mmtable(table_data = value) +
   header_top(year) +
   header_left(country) +

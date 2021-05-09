@@ -2,10 +2,27 @@ set_class <- function(object, class){
   `<-`(class(object),class)
   object
 }
+
+#' @importFrom magrittr %>%
+
 add_spanner <- function(gm_table2,spanner_list){
   gm_table2 %>%
     tab_spanner(label = spanner_list[[1]],columns = spanner_list[[2]])
 }
+
+
+#' @importFrom magrittr %>%
+#' @importFrom tibble as_tibble
+#' @importFrom dplyr group_by
+#' @importFrom purrr map2
+#' @importFrom dplyr mutate
+#' @importFrom dplyr mutate_all
+#' @importFrom dplyr pull
+#' @importFrom purrr reduce
+#' @importFrom dplyr row_number
+#' @importFrom dplyr summarise
+#' @importFrom rlang syms
+
 spannerize <- function(gm_table2,n){
 
   # browser()
@@ -29,6 +46,10 @@ spannerize <- function(gm_table2,n){
 
   table_with_spanners
 }
+
+
+#' @importFrom magrittr %>%
+
 get_spanner_html_text <- function(table){
   table %>% gt:::as.tags.gt_tbl(gt_02) %>% toString() %>% xml2::read_xml(as_html = T) %>%
 

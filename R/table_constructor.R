@@ -8,6 +8,23 @@
 #' @param table_name name of the table
 #' @param table_format formatting o the table
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom purrr accumulate
+#' @importFrom tibble as_tibble
+#' @importFrom gt data_color
+#' @importFrom dplyr funs
+#' @importFrom gt gt
+#' @importFrom purrr keep
+#' @importFrom dplyr mutate_at
+#' @importFrom dplyr pull
+#' @importFrom gt px
+#' @importFrom purrr reduce
+#' @importFrom dplyr row_number
+#' @importFrom dplyr select
+#' @importFrom purrr set_names
+#' @importFrom rlang syms
+#' @importFrom gt tab_options
+#' @importFrom dplyr vars
 #' @return mmtable
 
 

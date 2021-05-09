@@ -5,6 +5,7 @@
 #' @param ... formating instructions
 #' @return format list
 #' @export
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
 #'

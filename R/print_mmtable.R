@@ -4,6 +4,8 @@
 #' @param ... other things
 #' @export
 #' @S3method  print mmtable
+#' @importFrom magrittr %>%
+
 
 print.mmtable  <-function(x, ...){
 

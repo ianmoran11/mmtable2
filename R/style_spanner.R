@@ -1,3 +1,8 @@
+
+#' @importFrom gt cells_column_spanners
+#' @importFrom dplyr everything
+#' @importFrom gt tab_style
+
 style_spanner <- function(table,format){
 
   # browser()

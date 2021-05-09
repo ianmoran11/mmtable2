@@ -4,6 +4,7 @@
 #' @param length length of id
 #' @return format list
 #' @export
+#' @importFrom purrr map_chr
 
 gen_random_ids <- function(n,length){
 

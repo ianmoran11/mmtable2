@@ -6,6 +6,16 @@
 #' @param cell_predicate predicate to determine locations
 #' @return locations
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom dplyr bind_rows
+#' @importFrom tidyr gather
+#' @importFrom purrr map
+#' @importFrom purrr map2
+#' @importFrom dplyr mutate
+#' @importFrom dplyr pull
+#' @importFrom dplyr row_number
+#' @importFrom purrr set_names
+#' @importFrom stringr str_detect
 
 get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
@@ -112,6 +122,7 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
    return(return_list)
 
  }
+
 
   if(func =="cells_format"){
 

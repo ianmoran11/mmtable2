@@ -3,6 +3,7 @@
 #' @param header the nme of a variable that is currently a header in the table
 #' @param ... formating instructions
 #' @return format list
+#' @importFrom magrittr %>%
 #' @export
 
 

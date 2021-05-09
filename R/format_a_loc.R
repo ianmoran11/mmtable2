@@ -5,6 +5,9 @@
 #' @param format_list a list of formatting commands
 #' @return format list
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom gt cells_body
+#' @importFrom purrr invoke
 
 
 format_a_loc <- function(mmtable, loc,format_list){
@@ -13,7 +16,7 @@ format_a_loc <- function(mmtable, loc,format_list){
 
   # print(loc)
 
-  invoke_list <- list(data=mmtable,locations = cells_body(row = loc[[1]], columns = loc[[2]])) %>% append(.,  format_list$format_list)
+  invoke_list <- list(data=mmtable,locations = cells_body(rows = loc[[1]], columns = loc[[2]])) %>% append(.,  format_list$format_list)
 
   table <- invoke(tab_style,.x =  invoke_list)
 

@@ -5,6 +5,10 @@
 #' @return an mmtable
 #' @export
 #' @S3method  "/" mmtable
+#' @importFrom magrittr %>%
+#' @importFrom dplyr bind_rows
+#' @importFrom dplyr mutate
+#' @importFrom tibble tibble
 
 
 "/.mmtable" <- function(e1, e2) {

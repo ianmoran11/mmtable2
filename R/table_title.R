@@ -3,6 +3,8 @@
 #'
 #' @param ... formating instructions
 #' @return format list
+#' @importFrom magrittr %>%
+#' @importFrom gt tab_header
 #' @export
 
 
@@ -26,6 +28,7 @@ table_title <- function(...){
 #'
 #' @param ... formating instructions
 #' @return format list
+#' @importFrom gt tab_source_note
 #' @export
 
 

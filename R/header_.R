@@ -23,6 +23,8 @@
 #'     locations = row_list,
 #'     style = style_list)
 #' }
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 
 header_top <- function(variable){
 
@@ -55,6 +57,8 @@ header_top <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 #' @examples
 #' \dontrun{
 #'
@@ -102,6 +106,8 @@ header_top_left <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 #' @examples
 #' \dontrun{
 #'
@@ -148,6 +154,8 @@ header_left <- function(variable){
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return format list
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 #' @examples
 #' \dontrun{
 #'
@@ -196,6 +204,8 @@ header_left_top <- function(variable){
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_top
 #' @return an mmtable
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 #' @export
 
 add_header_top <- function(mmtable, ...){
@@ -207,6 +217,8 @@ add_header_top <- function(mmtable, ...){
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_top_left
 #' @return an mmtable
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 #' @export
 
 add_header_top_left <- function(mmtable, ...){
@@ -218,6 +230,8 @@ add_header_top_left <- function(mmtable, ...){
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_left
 #' @return an mmtable
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
 #' @export
 
 
