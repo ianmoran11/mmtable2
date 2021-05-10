@@ -59,8 +59,10 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
      }
 
-     return(return_list)
+     vec_return_list <- single_cells_to_vector(return_list)
 
+       # return(return_list)
+       return(vec_return_list)
    }
 
    if(header == "all_rows"){
@@ -95,7 +97,12 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
      #   return_list[!return_list %in% all_cells_locations]
      # }
 
-     return(return_list)
+    # browser()
+
+     vec_return_list <- single_cells_to_vector(return_list)
+
+       # return(return_list)
+       return(vec_return_list)
 
 
 
@@ -119,7 +126,12 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
    return_list <- map2(rows_to_modify, cols_to_modify, function(x,y) list(row = x, col = y))
 
-   return(return_list)
+
+   vec_return_list <- single_cells_to_vector(return_list)
+
+       # return(return_list)
+       return(vec_return_list)
+
 
  }
 
@@ -178,7 +190,11 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
        }
 
 
-       return(return_list)
+       vec_return_list <- single_cells_to_vector(return_list)
+
+       # return(return_list)
+       return(vec_return_list)
+
 
   }
 
