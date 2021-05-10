@@ -14,9 +14,16 @@ spread_col_headers <- function(data, ...){
   with(current_list,
        {
          # create single top header column
+
+         # browser()
+
          df <- data
 
+
+         #!#!#! converting to character here.
          df <- df %>% unite(col = header_temp, !!!(col_header_vars),sep = "\n")
+
+         df <-df %>% mutate(header_temp = forcats::fct_relevel(header_temp, unique(df$header_temp)))
 
          # Get all unique header values
          header_temp_vals <- df$header_temp %>% unique()
@@ -31,8 +38,12 @@ spread_col_headers <- function(data, ...){
            mutate(len = map_int(data, nrow)) %>%
            mutate(rep = max(len)- len) %>%
            mutate(data = map2(data,rep,add_n_blanc_rows)) %>%
-           select(-len, -rep) %>%
-           spread(header_temp, data)
+           select(-len, -rep)
+
+         df <-
+        df %>%
+           spread(header_temp, data) %>%
+          select(everything(), df$header_temp)
 
          # Unlist to get table values, and then unnest -----------------------------------------------
          withCallingHandlers(
