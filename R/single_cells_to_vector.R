@@ -1,3 +1,8 @@
+#' Convert a list of cells to a list of cell ranges
+#'
+#' @param row_col_list list of cells
+#' @export
+
 single_cells_to_vector <- function(row_col_list){
 # row_col_list <- return_list
 # browser()

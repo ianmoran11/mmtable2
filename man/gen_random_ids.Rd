@@ -2,7 +2,7 @@
 % Please edit documentation in R/gen_random_ids.R
 \name{gen_random_ids}
 \alias{gen_random_ids}
-\title{Conditionally apply a function}
+\title{Generate a random string}
 \usage{
 gen_random_ids(n, length)
 }
@@ -15,5 +15,5 @@ gen_random_ids(n, length)
 format list
 }
 \description{
-Conditionally apply a function
+Generate a random string
 }

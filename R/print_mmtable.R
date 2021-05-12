@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Print an mmtable object
 #'
 #' @param x an mmtable
 #' @param ... other things

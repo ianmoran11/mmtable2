@@ -10,7 +10,7 @@ header_top_left(variable)
 \item{variable}{a column of the data frame from which header values will be constructed}
 }
 \value{
-format list
+an mmtable object
 }
 \description{
 Conditionally apply a function

@@ -3,7 +3,7 @@
 \docType{data}
 \name{gapminder_mm}
 \alias{gapminder_mm}
-\title{Prices of 50,000 round cut diamonds.}
+\title{Gapminder data.}
 \format{
 A data frame with 53940 rows and 10 variables:
 \describe{
@@ -23,7 +23,6 @@ continent country value var year
 gapminder_mm
 }
 \description{
-A dataset containing the prices and other attributes of almost 54,000
-diamonds.
+Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country.
 }
 \keyword{datasets}

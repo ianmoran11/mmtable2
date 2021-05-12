@@ -1,10 +1,10 @@
 
-#' Conditionally apply a function
+#' Create an mmtable object
 #'
 #' @param data a data frame
 #' @param table_data the name of the column whose values will form the data cells.
-#' @param table_name the name of the table - used for labelling when joined with another table - randomly generated if not provided.
-#' @param use_defaul_formats determines whether or note the table will have default formatting applied. Default value = TRUE.
+#' @param table_name the name of the table - used for labeling when joined with another table - randomly generated if not provided.
+#' @param use_default_formats determines whether or note the table will have default formatting applied. Default value = TRUE.
 #' @return mmtable
 #' @export
 #' @importFrom magrittr %>%
@@ -34,15 +34,14 @@
 #'     style = style_list)
 #' }
 
-mmtable <- function(data,table_data, table_name = NULL, use_defaul_formats = TRUE){
+mmtable <- function(data,table_data, table_name = NULL, use_default_formats = TRUE){
 
   # browser()
 
   if(is.null(table_name)){table_name <- paste0("Table ",sample(LETTERS,size = 5) %>% paste(collapse = "")) }
 
-  temp_value_var <- as.character(substitute(table_data))
 
-  data <- data %>% mutate(.value = !!sym(temp_value_var) %>% as.character())
+  data <- data %>% mutate(.value = {{table_data}})
 
   initial_format_list <-  list(list(header = list(), format_list = list()))
   initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
@@ -62,7 +61,7 @@ mmtable <- function(data,table_data, table_name = NULL, use_defaul_formats = TRU
   tc <- table_constructor(data,col_header_df,row_header_df,data_vars,table_meta, table_format)
 
 
-  if(use_defaul_formats == TRUE){
+  if(use_default_formats == TRUE){
   attr(tc, "_table_format") <- attr(tc, "_table_format") %>%
     append(.,table_format(locations = "all",style = list(cell_text(size = px(12))))) %>%
     append(.,cells_format(cell_predicate = T, style = list(cell_text(align = "right")))) %>%

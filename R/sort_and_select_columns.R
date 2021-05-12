@@ -1,5 +1,5 @@
 
-#' Conditionally apply a function
+#' Sort and select columns
 #'
 #' @param data a data frame
 #' @param ... list of data to load into envrionment

@@ -1,8 +1,20 @@
+#' Set the class of an object
+#'
+#' @param object a object
+#' @param class new class of object
+#' @export
+#' @return mmtable
+
 set_class <- function(object, class){
   `<-`(class(object),class)
   object
 }
-
+#' Add a spanner to a table
+#'
+#' @param gm_table2 a mmtable
+#' @param spanner_list a list of spannner calls
+#' @export
+#' @return mmtable
 #' @importFrom magrittr %>%
 
 add_spanner <- function(gm_table2,spanner_list){
@@ -10,6 +22,13 @@ add_spanner <- function(gm_table2,spanner_list){
     tab_spanner(label = spanner_list[[1]],columns = spanner_list[[2]])
 }
 
+#' Convert header to spanner
+#'
+#' @param gm_table2 a mmtable
+#' @param n number of spanners
+#' @export
+#' @return mmtable
+#' @importFrom magrittr %>%
 
 #' @importFrom magrittr %>%
 #' @importFrom tibble as_tibble
@@ -47,7 +66,11 @@ spannerize <- function(gm_table2,n){
   table_with_spanners
 }
 
-
+#' Get the html associated with a spanner
+#'
+#' @param gm_table2 an mmtable
+#' @export
+#' @return html
 #' @importFrom magrittr %>%
 
 get_spanner_html_text <- function(table){

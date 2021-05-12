@@ -2,16 +2,16 @@
 % Please edit documentation in R/table_title.R
 \name{table_title}
 \alias{table_title}
-\title{Conditionally apply a function}
+\title{Add a table title}
 \usage{
 table_title(...)
 }
 \arguments{
-\item{...}{formating instructions}
+\item{...}{arguments of gt::tab_header}
 }
 \value{
 format list
 }
 \description{
-Conditionally apply a function
+Add a table title
 }

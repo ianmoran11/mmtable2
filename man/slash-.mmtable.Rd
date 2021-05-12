@@ -2,7 +2,7 @@
 % Please edit documentation in R/divide_mmtable.R
 \name{/.mmtable}
 \alias{/.mmtable}
-\title{Conditionally apply a function}
+\title{Concatenate tables horizontally}
 \usage{
 \method{/}{mmtable}(e1, e2)
 }
@@ -15,5 +15,5 @@
 an mmtable
 }
 \description{
-Conditionally apply a function
+Concatenate tables horizontally
 }

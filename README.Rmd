@@ -246,7 +246,7 @@ gm_table_merged <-
   header_format(continent,style_list3 ) +
   header_merged_cols()
 
-gm_table_merged %>% print()
+# gm_table_merged %>% print()
 ```
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}

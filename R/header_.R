@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Add a top header
 #'
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return an mmtable object
@@ -52,7 +52,7 @@ header_top <- function(variable){
 
 
 
-#' Conditionally apply a function
+#' Add a top left header
 #'
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return an mmtable object
@@ -101,7 +101,7 @@ header_top_left <- function(variable){
 
 }
 
-#' Conditionally apply a function
+#' Add a left header
 #'
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return an mmtable object
@@ -149,7 +149,7 @@ header_left <- function(variable){
 
 }
 
-#' Conditionally apply a function
+#' Add a left top header
 #'
 #' @param variable a column of the data frame from which header values will be constructed
 #' @return an mmtable object

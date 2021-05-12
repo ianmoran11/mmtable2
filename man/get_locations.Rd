@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_locations.R
 \name{get_locations}
 \alias{get_locations}
-\title{Conditionally apply a function}
+\title{Identify which locations are to be formatted.}
 \usage{
 get_locations(mmtable, header = NULL, func, cell_predicate = NULL)
 }
@@ -19,5 +19,5 @@ get_locations(mmtable, header = NULL, func, cell_predicate = NULL)
 locations
 }
 \description{
-Conditionally apply a function
+Identify which locations are to be formatted.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/print_mmtable.R
 \name{print.mmtable}
 \alias{print.mmtable}
-\title{Conditionally apply a function}
+\title{Print an mmtable object}
 \usage{
 \method{print}{mmtable}(x, ...)
 }
@@ -12,5 +12,5 @@
 \item{...}{other things}
 }
 \description{
-Conditionally apply a function
+Print an mmtable object
 }

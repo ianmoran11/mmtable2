@@ -1,7 +1,7 @@
 
-#' Conditionally apply a function
+#' Add a table title
 #'
-#' @param ... formating instructions
+#' @param ... arguments of gt::tab_header
 #' @return format list
 #' @importFrom magrittr %>%
 #' @importFrom gt tab_header
@@ -24,14 +24,12 @@ table_title <- function(...){
 
 }
 
-#' Conditionally apply a function
+#' Table source note
 #'
-#' @param ... formating instructions
+#' @param ... arguments of gt::tab_source_note
 #' @return format list
 #' @importFrom gt tab_source_note
 #' @export
-
-
 
 table_source_note <- function(...){
 
@@ -52,7 +50,7 @@ table_source_note <- function(...){
 #' Add a table source note
 #'
 #' @param mmtable an mmtable object
-#' @param ... arguments for table_source_note
+#' @param ... arguments of gt::tab_source_note
 #' @return an mmtable
 #' @export
 

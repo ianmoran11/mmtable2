@@ -3,20 +3,17 @@
 \docType{data}
 \name{student_df_2}
 \alias{student_df_2}
-\title{Prices of 50,000 round cut diamonds.}
+\title{A minimal data set of student subjects and grades}
 \format{
 A data frame with 53940 rows and 10 variables:
 \describe{
-  \item{class}{price, in US dollars}
-  \item{grade}{price, in US dollars}
-  \item{student}{price, in US dollars}
-  \item{subject}{price, in US dollars}
-  \item{value}{price, in US dollars}
+  \item{subject}{}
+  \item{class}{}
+  \item{student}{}
+  \item{value}{}
+  \item{grade}{}
   ...
 }
-}
-\source{
-\url{http://www.diamondse.info/}
 }
 \usage{
 student_df_2

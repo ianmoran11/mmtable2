@@ -2,7 +2,7 @@
 % Please edit documentation in R/sort_and_select_columns.R
 \name{sort_and_select_columns}
 \alias{sort_and_select_columns}
-\title{Conditionally apply a function}
+\title{Sort and select columns}
 \usage{
 sort_and_select_columns(data, ...)
 }
@@ -15,5 +15,5 @@ sort_and_select_columns(data, ...)
 mmtable
 }
 \description{
-Conditionally apply a function
+Sort and select columns
 }

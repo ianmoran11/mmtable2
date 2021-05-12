@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Integrate two tables horizontally
 #'
 #' @param mmtable1 an mmtable
 #' @param mmtable2 an mmtable
@@ -19,6 +19,8 @@
   # mmtable1 <- table1
   # mmtable2 <- table1
 
+  if(is.null(mmtable2)){return(mmtable1)}
+  if(is.null(mmtable1)){return(mmtable2)}
 
   if("merged_headers" %in% class(mmtable2)){
 
@@ -26,8 +28,6 @@
 
     return(mmtable1)
   }
-
-
 
   if("table_format_list" %in% class(mmtable2)){
 
@@ -40,14 +40,13 @@
     return(mmtable1)
     }
 
-  if(is.null(mmtable2)){return(mmtable1)}
-  if(is.null(mmtable1)){return(mmtable2)}
-
-
   if("mmtable_header" %in% class(mmtable2)){
     return(mmtable1 * mmtable2)
   }
 
+  if("mmtable_header" %in% class(mmtable1)){
+    return(mmtable2 * mmtable1)
+  }
 
   if("mmtable_table_item" %in% class(mmtable2)){
     # return(mmtable1 * mmtable2)
@@ -79,7 +78,6 @@
   # Give table_id_header
   table_meta_1 <- attr(mmtable1,"_table_meta")
   # Get header info
-
   table_format_1 <- attr(mmtable1,"_table_format")
   header_info_1 <- attr(mmtable1,"_header_info")
 

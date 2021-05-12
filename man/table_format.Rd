@@ -2,12 +2,12 @@
 % Please edit documentation in R/table_format.R
 \name{table_format}
 \alias{table_format}
-\title{Conditionally apply a function}
+\title{Format a mmtable object.}
 \usage{
 table_format(locations, ...)
 }
 \arguments{
-\item{locations}{indicating which cells should be fomrated}
+\item{locations}{indicating which cells should be formatted.}
 
 \item{...}{formating instructions}
 }
@@ -15,7 +15,7 @@ table_format(locations, ...)
 format list
 }
 \description{
-Conditionally apply a function
+Format a mmtable object.
 }
 \examples{
 \dontrun{
