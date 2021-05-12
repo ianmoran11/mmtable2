@@ -1,7 +1,7 @@
 #' Conditionally apply a function
 #'
 #' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @return an mmtable object
 #' @export
 #' @examples
 #' \dontrun{
@@ -55,7 +55,7 @@ header_top <- function(variable){
 #' Conditionally apply a function
 #'
 #' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @return an mmtable object
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
@@ -104,7 +104,7 @@ header_top_left <- function(variable){
 #' Conditionally apply a function
 #'
 #' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @return an mmtable object
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
@@ -152,7 +152,7 @@ header_left <- function(variable){
 #' Conditionally apply a function
 #'
 #' @param variable a column of the data frame from which header values will be constructed
-#' @return format list
+#' @return an mmtable object
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
@@ -203,10 +203,34 @@ header_left_top <- function(variable){
 #'
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_top
-#' @return an mmtable
+#' @return an mmtable object
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #' @export
+#' @examples
+#' \dontrun{
+#'
+#' library(tidyverse)
+#'
+#' gm_table_piped <-
+#'   gapminder_mm %>%
+#'   filter(var != "Life expectancy") %>%
+#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   add_header_top(year) %>%
+#'   add_header_left(country) %>%
+#'   add_header_top_left(var)  %>%
+#'   add_header_left_top(continent)  %>%
+#'   add_cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format(header = year, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format("all_cols", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_header_format("all_rows", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_table_format(
+#'     locations = cells_body(rows = c(1,3,5,7,9,11)),
+#'     style = list(cell_borders(sides = "top",color = "grey"))) %>%
+#'   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+#'
+#' gm_table_piped
+#' }
 
 add_header_top <- function(mmtable, ...){
   `+`(mmtable, header_top(...))
@@ -216,10 +240,35 @@ add_header_top <- function(mmtable, ...){
 #'
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_top_left
-#' @return an mmtable
+#' @return an mmtable object
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #' @export
+#' @examples
+#' \dontrun{
+#'
+#' library(tidyverse)
+#'
+#' gm_table_piped <-
+#'   gapminder_mm %>%
+#'   filter(var != "Life expectancy") %>%
+#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   add_header_top(year) %>%
+#'   add_header_left(country) %>%
+#'   add_header_top_left(var)  %>%
+#'   add_header_left_top(continent)  %>%
+#'   add_cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format(header = year, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format("all_cols", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_header_format("all_rows", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_table_format(
+#'     locations = cells_body(rows = c(1,3,5,7,9,11)),
+#'     style = list(cell_borders(sides = "top",color = "grey"))) %>%
+#'   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+#'
+#' gm_table_piped
+#' }
+
 
 add_header_top_left <- function(mmtable, ...){
   `+`(mmtable, header_top_left(...))
@@ -229,10 +278,35 @@ add_header_top_left <- function(mmtable, ...){
 #'
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_left
-#' @return an mmtable
+#' @return an mmtable object
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #' @export
+#' @examples
+#' \dontrun{
+#'
+#' library(tidyverse)
+#'
+#' gm_table_piped <-
+#'   gapminder_mm %>%
+#'   filter(var != "Life expectancy") %>%
+#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   add_header_top(year) %>%
+#'   add_header_left(country) %>%
+#'   add_header_top_left(var)  %>%
+#'   add_header_left_top(continent)  %>%
+#'   add_cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format(header = year, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format("all_cols", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_header_format("all_rows", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_table_format(
+#'     locations = cells_body(rows = c(1,3,5,7,9,11)),
+#'     style = list(cell_borders(sides = "top",color = "grey"))) %>%
+#'   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+#'
+#' gm_table_piped
+#' }
+
 
 
 add_header_left <- function(mmtable, ...){
@@ -244,8 +318,33 @@ add_header_left <- function(mmtable, ...){
 #'
 #' @param mmtable an mmtable object
 #' @param ... arguments for header_left_top
-#' @return an mmtable
+#' @return an mmtable object
 #' @export
+#' @examples
+#' \dontrun{
+#'
+#' library(tidyverse)
+#'
+#' gm_table_piped <-
+#'   gapminder_mm %>%
+#'   filter(var != "Life expectancy") %>%
+#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   add_header_top(year) %>%
+#'   add_header_left(country) %>%
+#'   add_header_top_left(var)  %>%
+#'   add_header_left_top(continent)  %>%
+#'   add_cells_format(cell_predicate = T, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format(header = year, style = list(cell_text(align = "right"))) %>%
+#'   add_header_format("all_cols", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_header_format("all_rows", style = list(cell_text(weight = "bolder"))) %>%
+#'   add_table_format(
+#'     locations = cells_body(rows = c(1,3,5,7,9,11)),
+#'     style = list(cell_borders(sides = "top",color = "grey"))) %>%
+#'   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
+#'
+#' gm_table_piped
+#' }
+
 
 add_header_left_top <- function(mmtable, ...){
   `+`(mmtable, header_left_top(...))

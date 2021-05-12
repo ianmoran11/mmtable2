@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Identify which locations are to be formatted.
 #'
 #' @param mmtable an mmtable
 #' @param header header from original data

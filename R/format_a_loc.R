@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Apply formatting to a location
 #'
 #' @param mmtable an mmtable
 #' @param loc a list containing a row and col items

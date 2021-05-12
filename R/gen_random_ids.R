@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Generate a random string
 #'
 #' @param n number of ids
 #' @param length length of id

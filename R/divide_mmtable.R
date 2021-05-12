@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Concatenate tables horizontally
 #'
 #' @param e1 an mmtable
 #' @param e2 an mmtable

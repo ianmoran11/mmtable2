@@ -1,7 +1,7 @@
 #' Apply formating to a mmtable
 #'
 #' @param mmtable an mmtable
-#' @param format_list a list of formating commands.
+#' @param format_list a list of styles of the same format as the gt::tab_style list argument https://gt.rstudio.com/reference/tab_style.html.
 #' @return mmtable
 #' @export
 #' @importFrom magrittr %>%

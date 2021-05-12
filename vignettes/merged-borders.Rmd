@@ -1,0 +1,69 @@
+---
+title: "Readme vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Readme vignette}
+  \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+## Installation
+
+mmtable2 is not available on CRAN. It can be installed from github with the following script:
+```{r gh-installation, include=FALSE}
+devtools::install_github("ianmoran11/mmtable2")
+```  
+
+
+## Example
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(magrittr)
+library(broom)
+library(tibble)
+library(gapminder)
+library(stringr)
+library(htmltools)
+library(xml2)
+library(zoo)
+library(gapminder)
+library(webshot)
+library(gt)
+library(mmtable2)
+```
+
+
+### Merged header columns 
+
+Table headers can be merged with `header_merged_cols()`. 
+This supports an aributrary number of column headers. 
+```{r echo=FALSE, message=FALSE, warning=FALSE,error=FALSE, out.width = "600px", paged.print=FALSE}
+gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
+
+gm_table_merged <- 
+ gm_df %>% 
+  mmtable(table_data = value) +
+  header_left(year) +
+  header_top(country) +
+  header_left_top(var)  +
+  header_top_left(continent)  +
+  header_merged_cols()
+
+gm_table_merged
+```

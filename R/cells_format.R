@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Format table cells
 #'
 #' @param cell_predicate an expression on the source data frame identifying which cells should be formatted.
 #' @param ... dots.

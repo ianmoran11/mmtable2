@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Format the cells of a header.
 #'
 #' @param header the nme of a variable that is currently a header in the table
 #' @param ... formating instructions

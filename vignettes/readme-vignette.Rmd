@@ -95,7 +95,7 @@ gm_table <-
     style = style_list) +
   header_format(continent,style_list3 )
 
-gm_table
+gm_table %>% mmtable2::apply_formats()
 ```
 
 
@@ -136,20 +136,20 @@ t6 <- gapminder_tbl %>% filter(name == "Asia - Life expectancy") %>% pull(table)
 The `+` operator places tables side-by-side (sharing headers)  
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 ex1 <- t1 + t2
-ex1
+ex1 %>% mmtable2::apply_formats()
 ```
 
 
 The `/` operator places tables on top of one another (sharing headers)  
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 ex2 <- t1 / t4
-ex2
+ex2 %>% mmtable2::apply_formats()
 ```
 
 The `*` operator "integrates" tables  
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 ex3 <- t1 * t5 * t4 *  t2
-ex3
+ex3 %>% mmtable2::apply_formats()
 ```
 
 
@@ -176,7 +176,7 @@ gapminder_mm %>%
     style = list(cell_borders(sides = "top",color = "grey"))) + 
   table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
 
-gm_table_formatted
+gm_table_formatted %>% mmtable2::apply_formats()
 ```
 
 ### Merged header columns 
@@ -184,12 +184,7 @@ gm_table_formatted
 Table headers can be merged with `header_merged_cols()`. 
 This supports an aributrary number of column headers. 
 ```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-row_list <- cells_body(rows = c(3,7))
-col_list <- cells_body(columns = c(3,5,7,9,11))
-style_list <- list(cell_borders(sides = "top",color = "grey"))
-style_list2<- list(cell_borders(sides = "left",color = "grey"))
 gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
-style_list3 = list(cell_text(align = "left"))
 
 gm_table_merged <- 
  gm_df %>% 
@@ -198,13 +193,9 @@ gm_table_merged <-
   header_top(country) +
   header_left_top(var)  +
   header_top_left(continent)  +
-  table_format(
-    locations = row_list,
-    style = style_list) +
-  header_format(continent,style_list3 ) +
   header_merged_cols()
 
-gm_table_merged
+gm_table_merged %>% mmtable2::apply_formats()
 ```
 
 ### Alternative pipe syntax
@@ -228,6 +219,6 @@ gapminder_mm %>%
     style = list(cell_borders(sides = "top",color = "grey"))) %>% 
   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
 
-gm_table_piped
+gm_table_piped %>% mmtable2::apply_formats()
 ```
 

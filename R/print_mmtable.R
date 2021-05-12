@@ -6,24 +6,44 @@
 #' @S3method  print mmtable
 #' @importFrom magrittr %>%
 
+ print.mmtable  <-function(x, ...){
 
-print.mmtable  <-function(x, ...){
+  apply_formats(x)
 
-  # browser()
+ }
 
 
+# print.mmtable  <-function(x, ...){
+#
+#   # browser()
+#   if("merged_headers" %in% class(x)){
+#
+#     # browser()
+#   formatted_mmtable_html <-   apply_formats(x) %>%  attr("merged_col_html")
+#     # Use `print()` to print to the console
+#
+#   html_print(formatted_mmtable_html)
+#
+#   return(formatted_mmtable_html)
+#
+#   }
+#
+#  formatted_mmtable <-  apply_formats(x) %>% gt::tab_options(column_labels.hidden = T)
+#  html_tbl <- gt:::as.tags.gt_tbl(formatted_mmtable)
+#  # Use `print()` to print to the console
+#  print(html_tbl, browse = view, ...)
+#
+#
+#
+#
+# }
 
-  if("merged_headers" %in% class(x)){
+#
+#
+#
+knit_print.mmtable  <-function(x, ...){
 
-  return(apply_formats(x))
-  }
-
- formatted_mmtable <-  apply_formats(x)
-
- class(formatted_mmtable) <- c("gt_tbl","list")
-
- final_table <- formatted_mmtable %>% gt::tab_options(column_labels.hidden = T)
-
- print(final_table)
-
+  knitr::knit_print(apply_formats(x))
 }
+
+

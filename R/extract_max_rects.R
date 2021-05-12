@@ -1,3 +1,9 @@
+#' Extract the largest binary rectary from a list of rows and cols
+#'
+#' @param extraction_list a list containting a dataframe of rows and cols and a list of already extracted rows and cols.
+#' @return extraction_list
+
+
 extract_max_rects <- function(extraction_list){
 
   # browser()

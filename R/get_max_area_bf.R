@@ -1,3 +1,11 @@
+#' An algorthm to identify the largest rectangle in a histogram
+#'
+#' @param heights a list of the heights of the histogram.
+#' @return list
+#' @export
+#' @importFrom magrittr %>%
+
+
 get_max_area_bf <- function(heights){
 
   # browser()
