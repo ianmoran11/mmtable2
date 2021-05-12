@@ -274,6 +274,7 @@ gapminder_mm %>%
     style = list(cell_borders(sides = "top",color = "grey"))) %>% 
   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
 
+webshot(url = gm_table_piped %>% print(),file = "test.png")
 gm_table_piped %>% print()
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
