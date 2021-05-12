@@ -102,7 +102,7 @@ apply_formats <- function(mmtable){
           dplyr::filter(header %in% c(NA, "all_cols",header_span)) %>%
           rename(format_header = header, format_func = func)
         }
-        )) %>% unnest
+        )) %>% unnest(cols = c(spanner_tables_gt, formats))
 
     spanners_with_funcs_df <-
     spanners_with_funcs %>%

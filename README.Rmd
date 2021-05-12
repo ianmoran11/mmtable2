@@ -226,10 +226,10 @@ gm_table_formatted %>% print()
 Table headers can be merged with `header_merged_cols()`. 
 This supports an aributrary number of column headers. 
 ```{r message=FALSE, warning=FALSE, echo = T}
-row_list <- cells_body(rows = c(3,7))
+row_list <- cells_body(rows = c(1,5))
 col_list <- cells_body(columns = c(3,5,7,9,11))
-style_list <- list(cell_borders(sides = "top",color = "grey"))
-style_list2<- list(cell_borders(sides = "left",color = "grey"))
+style_list <- list(cell_borders(sides = "top",color = "darkgrey",weight = px(2)))
+style_list2<- list(cell_borders(sides = "left"))
 gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
 style_list3 = list(cell_text(align = "left"))
 

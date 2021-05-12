@@ -26,7 +26,7 @@ apply_format <- function(mmtable, format_list){
 
     locations_list = format_list$locations
 
-    if(locations_list == "all"){
+    if(locations_list[1] == "all"){
 
       locations_list <- cells_body(rows = 1:nrow(mmtable$`_data`), columns =  1:ncol(mmtable$`_data`))
 

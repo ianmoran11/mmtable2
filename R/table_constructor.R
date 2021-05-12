@@ -76,7 +76,7 @@ table_constructor <-
     #  Diagnolise col headers
     if(length(down_right_vars)> 0){
       diagonalized_rows <- which(col_header_vars %in% down_right_vars) %>% paste0("V",.)
-      df <-   t(df) %>% as_tibble() %>% list(.) %>% append(.,diagonalized_rows) %>% reduce(diagonalize) %>% t() %>% as_tibble()
+      df <-   t(df) %>% as.data.frame() %>% list(.) %>% append(.,diagonalized_rows) %>% reduce(diagonalize) %>% t() %>% as_tibble()
     }
 
     # Remove column names
