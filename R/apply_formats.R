@@ -118,6 +118,7 @@ apply_formats <- function(mmtable){
       map(~ spanners_with_funcs_df %$% append(spanner_tables_df[.x], format_lists[[.x]]) %>% reduce(style_spanner) )
 
     #-------------------------------------------------------------------------------------------------------------------
+    # browser()
     table_html <-  gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% xml2::read_xml(as_html = T)
     inserter <- formatted_spanners_df %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% xml2::read_xml(as_html = T)
 
@@ -131,7 +132,16 @@ apply_formats <- function(mmtable){
 
     html_text <-
       table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>%
+      str_split("\n") %>% .[[1]] %>% .[-c(1:4)] %>%
+      keep(!str_detect(.,"^</html>")) %>%
+      keep(!str_detect(.,"^</head>")) %>%
+      str_remove_all("\\</body.+") %>%
+      str_remove_all("\\<body\\>") %>%
+      str_remove_all("^<html>") %>%
+      # str_replace_all('"gt_table"\\>$','"gt_table">\n') %>%
+      paste(collapse = "\n") %>%
       str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
+      keep(nchar(.)!= 0 ) %>%
       htmltools::HTML()
 
 #------EXPERIMENTAL--------------------------------------------------------------
@@ -163,11 +173,9 @@ apply_formats <- function(mmtable){
     #   )
 
 #------------------------------------------------------------------------------
-    # attr(mmtable_return,"merged_col_html") <- html_tbl
+  attr(mmtable_return,"html") <- html_text
 
-  htmltools::html_print(html_text)
-
-   return(html_text)
+  return(mmtable_return)
 
   }
 
@@ -184,9 +192,9 @@ apply_formats <- function(mmtable){
 
   html_text <-   gt:::as.tags.gt_tbl(final_mmtable_return) %>% as.character() %>% htmltools::HTML()
 
-  htmltools::html_print(html_text)
+  attr(final_mmtable_return,"html") <- html_text
 
-   return(html_text)
+  return(final_mmtable_return)
   }
 }
 

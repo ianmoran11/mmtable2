@@ -2,7 +2,7 @@
 % Please edit documentation in R/header_.R
 \name{header_left_top}
 \alias{header_left_top}
-\title{Conditionally apply a function}
+\title{Add a left top header}
 \usage{
 header_left_top(variable)
 }
@@ -13,7 +13,7 @@ header_left_top(variable)
 an mmtable object
 }
 \description{
-Conditionally apply a function
+Add a left top header
 }
 \examples{
 \dontrun{
