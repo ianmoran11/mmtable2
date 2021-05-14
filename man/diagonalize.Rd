@@ -2,7 +2,7 @@
 % Please edit documentation in R/diagonalize.R
 \name{diagonalize}
 \alias{diagonalize}
-\title{Conditionally apply a function}
+\title{Remove adjacent repeats in a dataframe}
 \usage{
 diagonalize(df, var_char)
 }
@@ -15,5 +15,5 @@ diagonalize(df, var_char)
 data frame
 }
 \description{
-Conditionally apply a function
+Remove adjacent repeats in a dataframe
 }

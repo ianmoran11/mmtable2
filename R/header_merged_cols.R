@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Merge header columns
 #'
 #' @param ... formating instructions
 #' @return format list

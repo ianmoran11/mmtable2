@@ -2,7 +2,7 @@
 % Please edit documentation in R/spread_col_headers.R
 \name{spread_col_headers}
 \alias{spread_col_headers}
-\title{Conditionally apply a function}
+\title{Spread rows to columns}
 \usage{
 spread_col_headers(data, ...)
 }
@@ -15,5 +15,5 @@ spread_col_headers(data, ...)
 a data frame
 }
 \description{
-Conditionally apply a function
+Spread rows to columns
 }

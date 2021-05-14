@@ -2,7 +2,7 @@
 % Please edit documentation in R/format_a_loc.R
 \name{format_a_loc}
 \alias{format_a_loc}
-\title{Conditionally apply a function}
+\title{Apply formatting to a location}
 \usage{
 format_a_loc(mmtable, loc, format_list)
 }
@@ -17,5 +17,5 @@ format_a_loc(mmtable, loc, format_list)
 format list
 }
 \description{
-Conditionally apply a function
+Apply formatting to a location
 }

@@ -85,7 +85,6 @@ apply_formats <- function(mmtable){
     mmtable_return <-
     list(single_header_gt) %>% append(format_list_for_header) %>% reduce(style_first_col_header) %>%
                    list(.) %>% append(format_list_for_table_cells_and_rows) %>% reduce(apply_format)
-
     # Create base spanner tables --------------------------------------------------------------------------------------
     spanner_tables_gt <- map(1:(nrow(col_header_df) -1), spannerize, gm_table2= mmtable)
 
@@ -116,9 +115,11 @@ apply_formats <- function(mmtable){
 
     formatted_spanners_df <-
       1:nrow(spanners_with_funcs_df) %>%
-      map(~ spanners_with_funcs_df %$% append(spanner_tables_df[.x], format_lists[[.x]]) %>% reduce(style_spanner))
+      map(~ spanners_with_funcs_df %$% append(spanner_tables_df[.x], format_lists[[.x]]) %>% reduce(style_spanner) )
 
     #-------------------------------------------------------------------------------------------------------------------
+    # browser()
+    # gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% cat
     table_html <-  gt:::as.tags.gt_tbl(mmtable_return) %>% toString() %>% xml2::read_xml(as_html = T)
     inserter <- formatted_spanners_df %>% map(get_spanner_html_text) %>% paste(collapse = "\n") %>% xml2::read_xml(as_html = T)
 
@@ -128,14 +129,61 @@ apply_formats <- function(mmtable){
       .where = 0
     )
 
+    # xml2::xml_remove(xml2::xml_find_first(table_html,"head"))
+
+
+
     html_text <-
       table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>%
+      str_split("\n") %>% .[[1]]  %>%  .[-c(1)] %>%
+      keep(!str_detect(.,"^</html>")) %>%
+      keep(!str_detect(.,"^</head>")) %>%
+      str_remove_all("\\</body.+") %>%
+      str_remove_all("\\<body\\>") %>%
+      str_remove_all("^<html>") %>%
+      # str_replace_all('"gt_table"\\>$','"gt_table">\n') %>%
+      paste(collapse = "\n") %>%
       str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
+      keep(nchar(.)!= 0 ) %>%
       htmltools::HTML()
 
-    htmltools::html_print(html_text)
+  # htmltools::html_print(html_text)
 
-   return(html_text)
+#------EXPERIMENTAL--------------------------------------------------------------
+    # Generate the HTML table
+    # html_table <- render_as_html(data = x)
+    # html_table <- html_text
+    # Compile the SCSS as CSS
+    # id <- "sldkfjhsdfou"
+    # css <- gt:::compile_scss(data = mmtable_return, id =id)
+    #
+    # # Get options related to the enclosing <div>
+    # container_overflow_x <- gt:::dt_options_get_value(mmtable_return, option = "container_overflow_x")
+    # container_overflow_y <- gt:::dt_options_get_value(mmtable_return, option = "container_overflow_y")
+    # container_width <- gt:::dt_options_get_value(mmtable_return, option = "container_width")
+    # container_height <- gt:::dt_options_get_value(mmtable_return, option = "container_height")
+    #
+    # # Attach the dependency to the HTML table
+    # html_tbl <-
+    #   htmltools::tags$div(
+    #     id = id,
+    #     htmltools::tags$style(htmltools::HTML(css)),
+    #     style = htmltools::css(
+    #       `overflow-x` = container_overflow_x,
+    #       `overflow-y` = container_overflow_y,
+    #       width = container_width,
+    #       height = container_height
+    #     ),
+    #     html_table
+    #   )
+
+#------------------------------------------------------------------------------
+  attr(mmtable_return,"html") <- html_text
+
+
+
+  return(mmtable_return)
+
   }
 
 # Formatting of unmergeed headers ------------------------------------------------------------------
@@ -147,7 +195,13 @@ apply_formats <- function(mmtable){
 
   mmtable_return <- append(list(mmtable), non_empty_format_lists) %>% reduce(apply_format)
 
-  mmtable_return %>% gt::tab_options(column_labels.hidden = T)
+  final_mmtable_return <-  mmtable_return %>% gt::tab_options(column_labels.hidden = T)
+
+  html_text <-   gt:::as.tags.gt_tbl(final_mmtable_return) %>% as.character() %>% htmltools::HTML()
+
+  attr(final_mmtable_return,"html") <- html_text
+
+  return(final_mmtable_return)
   }
 }
 

@@ -2,16 +2,16 @@
 % Please edit documentation in R/table_title.R
 \name{table_source_note}
 \alias{table_source_note}
-\title{Conditionally apply a function}
+\title{Table source note}
 \usage{
 table_source_note(...)
 }
 \arguments{
-\item{...}{formating instructions}
+\item{...}{arguments of gt::tab_source_note}
 }
 \value{
 format list
 }
 \description{
-Conditionally apply a function
+Table source note
 }

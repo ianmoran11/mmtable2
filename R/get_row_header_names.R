@@ -1,3 +1,10 @@
+#' Get row header names.
+#'
+#' @param df a dataframe
+#' @param col_header_df_01 a dataframe of col headers
+#' @return a vector of names
+#' @export
+#' @importFrom magrittr %>%
 #' @importFrom magrittr %>%
 #' @importFrom dplyr group_by
 #' @importFrom dplyr mutate

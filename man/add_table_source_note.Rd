@@ -9,7 +9,7 @@ add_table_source_note(mmtable, ...)
 \arguments{
 \item{mmtable}{an mmtable object}
 
-\item{...}{arguments for table_source_note}
+\item{...}{arguments of gt::tab_source_note}
 }
 \value{
 an mmtable

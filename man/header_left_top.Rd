@@ -2,7 +2,7 @@
 % Please edit documentation in R/header_.R
 \name{header_left_top}
 \alias{header_left_top}
-\title{Conditionally apply a function}
+\title{Add a left top header}
 \usage{
 header_left_top(variable)
 }
@@ -10,10 +10,10 @@ header_left_top(variable)
 \item{variable}{a column of the data frame from which header values will be constructed}
 }
 \value{
-format list
+an mmtable object
 }
 \description{
-Conditionally apply a function
+Add a left top header
 }
 \examples{
 \dontrun{

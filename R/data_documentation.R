@@ -1,8 +1,7 @@
 
-#' Prices of 50,000 round cut diamonds.
+#' Gapminder data.
 #'
-#' A dataset containing the prices and other attributes of almost 54,000
-#' diamonds.
+#' Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country.
 #'
 #' @format A data frame with 53940 rows and 10 variables:
 #' \describe{
@@ -17,73 +16,69 @@
 #' @source \url{http://www.diamondse.info/}
 "gapminder_mm"
 
-#' Prices of 50,000 round cut diamonds.
+
+#' A minimal data set of student subjects and grades
 #'
 #' A dataset containing the prices and other attributes of almost 54,000
 #' diamonds.
 #'
 #' @format A data frame with 53940 rows and 10 variables:
 #' \describe{
-#'   \item{class}{price, in US dollars}
-#'   \item{grade}{price, in US dollars}
-#'   \item{student}{price, in US dollars}
-#'   \item{subject}{price, in US dollars}
-#'   \item{value}{price, in US dollars}
+#'   \item{subject}{}
+#'   \item{class}{}
+#'   \item{student}{}
+#'   \item{value}{}
+#'   \item{grade}{}
 #'   ...
 #' }
-#' @source \url{http://www.diamondse.info/}
 "student_df"
 
 
-#' Prices of 50,000 round cut diamonds.
+#' A minimal data set of student subjects and grades
 #'
 #' A dataset containing the prices and other attributes of almost 54,000
 #' diamonds.
 #'
 #' @format A data frame with 53940 rows and 10 variables:
 #' \describe{
-#'   \item{class}{price, in US dollars}
-#'   \item{grade}{price, in US dollars}
-#'   \item{student}{price, in US dollars}
-#'   \item{subject}{price, in US dollars}
-#'   \item{value}{price, in US dollars}
+#'   \item{subject}{}
+#'   \item{class}{}
+#'   \item{student}{}
+#'   \item{value}{}
+#'   \item{grade}{}
 #'   ...
 #' }
-#' @source \url{http://www.diamondse.info/}
 "student_df_1"
 
 
-#' Prices of 50,000 round cut diamonds.
+#' A minimal data set of student subjects and grades
 #'
 #' A dataset containing the prices and other attributes of almost 54,000
 #' diamonds.
 #'
 #' @format A data frame with 53940 rows and 10 variables:
 #' \describe{
-#'   \item{class}{price, in US dollars}
-#'   \item{grade}{price, in US dollars}
-#'   \item{student}{price, in US dollars}
-#'   \item{subject}{price, in US dollars}
-#'   \item{value}{price, in US dollars}
+#'   \item{subject}{}
+#'   \item{class}{}
+#'   \item{student}{}
+#'   \item{value}{}
+#'   \item{grade}{}
 #'   ...
 #' }
-#' @source \url{http://www.diamondse.info/}
 "student_df_2"
 
-
-#' Prices of 50,000 round cut diamonds.
+#' A minimal data set of student subjects and grades
 #'
 #' A dataset containing the prices and other attributes of almost 54,000
 #' diamonds.
 #'
 #' @format A data frame with 53940 rows and 10 variables:
 #' \describe{
-#'   \item{class}{price, in US dollars}
-#'   \item{grade}{price, in US dollars}
-#'   \item{student}{price, in US dollars}
-#'   \item{subject}{price, in US dollars}
-#'   \item{value}{price, in US dollars}
+#'   \item{subject}{}
+#'   \item{class}{}
+#'   \item{student}{}
+#'   \item{value}{}
+#'   \item{grade}{}
 #'   ...
 #' }
-#' @source \url{http://www.diamondse.info/}
 "table1"

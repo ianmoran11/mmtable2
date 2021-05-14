@@ -1,5 +1,5 @@
 
-#' Conditionally apply a function
+#' Use attributes to construct a table with column and row headers.
 #'
 #' @param df a data frame
 #' @param col_header_df col header information
@@ -84,7 +84,7 @@ table_constructor <-
     df <- df %>% set_names(names(.) %>% accumulate(paste0))
 # browser()
     # Remove stubs
-    df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = funs(ifelse(row_number() %in% c(0:n_col_header_vars),"", .)))
+    df <- df %>% mutate_at(.vars = vars(0:n_row_header_vars), .funs = list( ~ ifelse(row_number() %in% c(0:n_col_header_vars),"", .)))
 
     # Get numbers of columns in the final data frame
     final_cols <- names(df) %>% length()

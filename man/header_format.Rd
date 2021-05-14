@@ -2,18 +2,18 @@
 % Please edit documentation in R/header_format.R
 \name{header_format}
 \alias{header_format}
-\title{Conditionally apply a function}
+\title{Format the cells of a header.}
 \usage{
 header_format(header, ...)
 }
 \arguments{
-\item{header}{the nme of a variable that is currently a header in the table}
+\item{header}{the name of a variable that is currently a header in the table}
 
-\item{...}{formating instructions}
+\item{...}{a list of styles, with format required by gt::tab_style style argument. https://gt.rstudio.com/reference/tab_style.html}
 }
 \value{
 format list
 }
 \description{
-Conditionally apply a function
+Format the cells of a header.
 }

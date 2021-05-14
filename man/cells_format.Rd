@@ -2,7 +2,7 @@
 % Please edit documentation in R/cells_format.R
 \name{cells_format}
 \alias{cells_format}
-\title{Conditionally apply a function}
+\title{Format table cells}
 \usage{
 cells_format(cell_predicate, ...)
 }
@@ -15,7 +15,7 @@ cells_format(cell_predicate, ...)
 format list
 }
 \description{
-Conditionally apply a function
+Format table cells
 }
 \examples{
 \dontrun{

@@ -1,69 +1,31 @@
 ---
-title: "Readme vignette"
+title: "Getting Started"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Readme vignette}
+  %\VignetteIndexEntry{Getting Started}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
 
-## Installation
-
-mmtable2 is not available on CRAN. It can be installed from github with the following script:
-```{r gh-installation, eval = FALSE}
-devtools::install_github("ianmoran11/mmtable2")
-```  
-
-
-## Example
-
-```{r, message=FALSE, warning=FALSE}
-library(dplyr)
-library(tidyr)
-library(purrr)
-library(magrittr)
-library(broom)
-library(tibble)
-library(gapminder)
-library(stringr)
-library(htmltools)
-library(xml2)
-library(zoo)
-library(gapminder)
-library(webshot)
-library(gt)
+```{r setup}
 library(mmtable2)
 ```
 
-Here's an example using the gapminder dataset.
-
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-row_list <- cells_body(rows = c(1,3,5,7,9,11))
-style_list <- list(cell_borders(sides = "top",color = "grey"))
-gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
-
-gm_table <- 
- gm_df %>% 
-  mmtable(table_data = value) +
-  header_top(year) +
-  header_left(country) +
-  header_top_left(var)  +
-  header_left_top(continent)  +
-  table_format(
-    locations = row_list,
-    style = style_list)
-
-gm_table
+```{r example1, echo=TRUE, message=FALSE, warning=FALSE}
+library(gapminder)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(purrr)
+library(gt)
+library(mmtable2)
 ```
 
 ## Adding headers
@@ -75,7 +37,7 @@ It's placement will depend on your your choice of header_* functions.
 Header options include: top, top_left, left, and left_top. 
 
 Here's a table of the same data used above, this time with a different header layout. 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r message=FALSE, warning=FALSE, echo = T}
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
 style_list <- list(cell_borders(sides = "top",color = "grey"))
@@ -95,14 +57,13 @@ gm_table <-
     style = style_list) +
   header_format(continent,style_list3 )
 
-gm_table
+gm_table 
 ```
-
 
 ## Combining tables
 
 You can combine tables with `+`, `/` and `*` operators.
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 create_table <- function(df,name){
  df %>%
    mmtable(table_data = value,table_name = name) +
@@ -112,53 +73,54 @@ create_table <- function(df,name){
    header_left_top(continent)
 }
 ```
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
 gapminder_tbl <-
  gapminder_mm %>%
  mutate(continent_n = continent, var_n = var) %>%
  group_by(continent_n,var_n) %>% nest() %>%
- mutate(name = paste(continent_n,var_n, sep =" - " )) %>%
+ ungroup() %>% 
  filter(
-   name %in% c( "Oceania - Population","Oceania - GDP","Oceania - Life expectancy") |
-   name %in% c( "Asia - Population","Asia - GDP","Asia - Life expectancy")) %>%
+   (continent_n == "Oceania" & var_n == "Population") | 
+   (continent_n == "Oceania" & var_n == "GDP") |
+   (continent_n == "Asia" & var_n == "Population") |
+   (continent_n == "Asia" & var_n == "GDP"))  %>% 
+ arrange(continent_n,var_n) %>% 
+ mutate(name = paste("Table",row_number(), sep =" " )) %>% 
  mutate(table =map2(data,name,create_table))
 ```
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-t1 <- gapminder_tbl %>% filter(name == "Oceania - Population") %>% pull(table) %>% .[[1]]
-t2 <- gapminder_tbl %>% filter(name == "Oceania - GDP") %>% pull(table) %>% .[[1]]
-t3 <- gapminder_tbl %>% filter(name == "Oceania - Life expectancy") %>% pull(table) %>% .[[1]]
-t4 <- gapminder_tbl %>% filter(name == "Asia - Population") %>% pull(table) %>% .[[1]]
-t5 <- gapminder_tbl %>% filter(name == "Asia - GDP") %>% pull(table) %>% .[[1]]
-t6 <- gapminder_tbl %>% filter(name == "Asia - Life expectancy") %>% pull(table) %>% .[[1]]
 
+```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+t1 <- gapminder_tbl %>% filter(name == "Table 1") %>% pull(table) %>% .[[1]]
+t2 <- gapminder_tbl %>% filter(name == "Table 2") %>% pull(table) %>% .[[1]]
+t3 <- gapminder_tbl %>% filter(name == "Table 3") %>% pull(table) %>% .[[1]]
+t4 <- gapminder_tbl %>% filter(name == "Table 4") %>% pull(table) %>% .[[1]]
 ```
 
 The `+` operator places tables side-by-side (sharing headers)  
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r message=FALSE, warning=FALSE, echo = T}
 ex1 <- t1 + t2
-ex1
+ex1 
 ```
 
-
 The `/` operator places tables on top of one another (sharing headers)  
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-ex2 <- t1 / t4
-ex2
+```{r message=FALSE, warning=FALSE, echo = T}
+ex2 <- t1 / t3
+ex2 
 ```
 
 The `*` operator "integrates" tables  
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-ex3 <- t1 * t5 * t4 *  t2
-ex3
+```{r message=FALSE, warning=FALSE, echo = T}
+ex3 <- t1 * t3 * t4 *  t2
+ex3 
 ```
-
 
 ## Formatting tables
 
 mmtable2 outputs tables using the gt package's format.
 
 This means you can alter formatting using many existing gt styling commands.
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r message=FALSE, warning=FALSE, echo = T}
 gm_table_formatted <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
@@ -183,8 +145,8 @@ gm_table_formatted
 
 Table headers can be merged with `header_merged_cols()`. 
 This supports an aributrary number of column headers. 
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
-row_list <- cells_body(rows = c(3,7))
+```{r message=FALSE, warning=FALSE, echo = T}
+row_list <- cells_body(rows = c(1,5))
 col_list <- cells_body(columns = c(3,5,7,9,11))
 style_list <- list(cell_borders(sides = "top",color = "grey"))
 style_list2<- list(cell_borders(sides = "left",color = "grey"))
@@ -204,17 +166,17 @@ gm_table_merged <-
   header_format(continent,style_list3 ) +
   header_merged_cols()
 
-gm_table_merged
+ gm_table_merged
 ```
 
 ### Alternative pipe syntax
 
 Adding the `add_` prefix to functions allows use of `%>%` in place of `+`.
-```{r, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+```{r message=FALSE, warning=FALSE, echo = T}
 gm_table_piped <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
-  mmtable(table_data = value, use_defaul_formats = T) %>% 
+  mmtable(table_data = value, use_default_formats = T) %>% 
   add_header_top(year) %>% 
   add_header_left(country) %>% 
   add_header_top_left(var)  %>% 
@@ -230,4 +192,5 @@ gapminder_mm %>%
 
 gm_table_piped
 ```
+
 

@@ -9,7 +9,7 @@ apply_format(mmtable, format_list)
 \arguments{
 \item{mmtable}{an mmtable}
 
-\item{format_list}{a list of formating commands.}
+\item{format_list}{a list of styles of the same format as the gt::tab_style list argument https://gt.rstudio.com/reference/tab_style.html.}
 }
 \value{
 mmtable

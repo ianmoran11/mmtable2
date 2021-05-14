@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Integrate two tables horizontally
 #'
 #' @param mmtable1 an mmtable
 #' @param mmtable2 an mmtable

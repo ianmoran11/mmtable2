@@ -2,7 +2,7 @@
 % Please edit documentation in R/plus_mmtable_.R
 \name{+.mmtable}
 \alias{+.mmtable}
-\title{Conditionally apply a function}
+\title{Integrate two tables horizontally}
 \usage{
 \method{+}{mmtable}(mmtable1, mmtable2)
 }
@@ -15,5 +15,5 @@
 an mmtable
 }
 \description{
-Conditionally apply a function
+Integrate two tables horizontally
 }

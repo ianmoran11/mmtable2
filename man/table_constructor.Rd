@@ -2,7 +2,7 @@
 % Please edit documentation in R/table_constructor.R
 \name{table_constructor}
 \alias{table_constructor}
-\title{Conditionally apply a function}
+\title{Use attributes to construct a table with column and row headers.}
 \usage{
 table_constructor(
   df,
@@ -30,5 +30,5 @@ table_constructor(
 mmtable
 }
 \description{
-Conditionally apply a function
+Use attributes to construct a table with column and row headers.
 }

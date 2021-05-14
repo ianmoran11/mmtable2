@@ -2,24 +2,24 @@
 % Please edit documentation in R/mmtable.R
 \name{mmtable}
 \alias{mmtable}
-\title{Conditionally apply a function}
+\title{Create an mmtable object}
 \usage{
-mmtable(data, table_data, table_name = NULL, use_defaul_formats = TRUE)
+mmtable(data, table_data, table_name = NULL, use_default_formats = TRUE)
 }
 \arguments{
 \item{data}{a data frame}
 
 \item{table_data}{the name of the column whose values will form the data cells.}
 
-\item{table_name}{the name of the table - used for labelling when joined with another table - randomly generated if not provided.}
+\item{table_name}{the name of the table - used for labeling when joined with another table - randomly generated if not provided.}
 
-\item{use_defaul_formats}{determines whether or note the table will have default formatting applied. Default value = TRUE.}
+\item{use_default_formats}{determines whether or note the table will have default formatting applied. Default value = TRUE.}
 }
 \value{
 mmtable
 }
 \description{
-Conditionally apply a function
+Create an mmtable object
 }
 \examples{
 \dontrun{

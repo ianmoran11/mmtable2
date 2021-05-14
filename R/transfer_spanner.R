@@ -1,4 +1,9 @@
-
+#' Transfer spanner from one table to another
+#'
+#' @param gt_01 arguments of gt::tab_source_note
+#' @param gt_02 arguments of gt::tab_source_note
+#' @return an mmtable
+#' @export
 #' @importFrom magrittr %>%
 #' @importFrom purrr map
 #' @importFrom xml2 xml_add_child

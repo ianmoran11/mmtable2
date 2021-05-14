@@ -2,7 +2,7 @@
 % Please edit documentation in R/header_merged_cols.R
 \name{header_merged_cols}
 \alias{header_merged_cols}
-\title{Conditionally apply a function}
+\title{Merge header columns}
 \usage{
 header_merged_cols(...)
 }
@@ -13,5 +13,5 @@ header_merged_cols(...)
 format list
 }
 \description{
-Conditionally apply a function
+Merge header columns
 }

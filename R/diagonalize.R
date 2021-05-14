@@ -1,4 +1,4 @@
-#' Conditionally apply a function
+#' Remove adjacent repeats in a dataframe
 #'
 #' @param df a data frame
 #' @param var_char the column to be diagonalized
