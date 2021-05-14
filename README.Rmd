@@ -65,7 +65,7 @@ gm_table <-
     locations = row_list,
     style = style_list)
 
-gm_table %>% print()
+gm_table 
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # apply_formats(gm_table) %>% gtsave("./man/figures/gm_table.png")
@@ -104,7 +104,7 @@ gm_table <-
     style = style_list) +
   header_format(continent,style_list3 )
 
-gm_table %>% print()
+gm_table 
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # apply_formats(gm_table) %>% gtsave("./man/figures/gm_table2.png")
@@ -153,7 +153,7 @@ t4 <- gapminder_tbl %>% filter(name == "Table 4") %>% pull(table) %>% .[[1]]
 The `+` operator places tables side-by-side (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex1 <- t1 + t2
-ex1 %>% print()
+ex1 
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # apply_formats(ex1) %>% gtsave("./man/figures/ex1.png")
@@ -166,7 +166,7 @@ ex1 %>% print()
 The `/` operator places tables on top of one another (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex2 <- t1 / t3
-ex2 %>% print()
+ex2 
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # apply_formats(ex2) %>% gtsave("./man/figures/ex2.png")
@@ -178,7 +178,7 @@ ex2 %>% print()
 The `*` operator "integrates" tables  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex3 <- t1 * t3 * t4 *  t2
-ex3 %>% print()
+ex3 
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # apply_formats(ex3) %>% gtsave("./man/figures/ex3.png")
@@ -211,7 +211,7 @@ gapminder_mm %>%
     style = list(cell_borders(sides = "top",color = "grey"))) + 
   table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
 
-gm_table_formatted %>% print()
+gm_table_formatted
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # apply_formats(gm_table_formatted) %>% gtsave("./man/figures/gm_table_formatted.png")
@@ -246,7 +246,7 @@ gm_table_merged <-
   header_format(continent,style_list3 ) +
   header_merged_cols()
 
-# gm_table_merged %>% print()
+ gm_table_merged
 ```
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
@@ -260,7 +260,7 @@ Adding the `add_` prefix to functions allows use of `%>%` in place of `+`.
 gm_table_piped <- 
 gapminder_mm %>% 
   filter(var != "Life expectancy") %>% 
-  mmtable(table_data = value, use_defaul_formats = T) %>% 
+  mmtable(table_data = value, use_default_formats = T) %>% 
   add_header_top(year) %>% 
   add_header_left(country) %>% 
   add_header_top_left(var)  %>% 
@@ -274,8 +274,9 @@ gapminder_mm %>%
     style = list(cell_borders(sides = "top",color = "grey"))) %>% 
   add_table_source_note(source_note = "Excerpt of the Gapminder data on life expectancy, GDP per capita, and population by country." )
 
-webshot(url = gm_table_piped %>% print(),file = "test.png")
-gm_table_piped %>% print()
+# webshot(url = gm_table_piped %>% print(),file = "test.png")
+gm_table_piped
+
 ```
 ```{r error=FALSE, message=FALSE, warning=FALSE, include=FALSE, out.width="600px", paged.print=FALSE}
 # try(apply_formats(gm_table_piped) %>% gtsave("./man/figures/gm_table_piped.png"))
