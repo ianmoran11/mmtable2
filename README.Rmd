@@ -23,7 +23,6 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 mmtable2 allows you to create and combine tables with a ggplot2/patchwork syntax.
-
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
 knitr::include_graphics("https://unpivotr.s3.amazonaws.com/01_intro_fast.gif")
 ```
