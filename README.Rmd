@@ -22,7 +22,10 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-mmtable2 allows you to create and combine tables with a ggplot2/patchwork syntax.
+mmtable2 allows you to create and combine tables with a ggplot2/patchwork syntax.  
+
+See a short introduction in the packages [getting started vignette](https://ianmoran11.github.io/mmtable2/articles/getting-started.html).
+
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
 knitr::include_graphics("https://unpivotr.s3.amazonaws.com/01_intro_fast.gif")
 ```
