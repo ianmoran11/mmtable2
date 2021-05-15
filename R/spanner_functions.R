@@ -41,6 +41,7 @@ add_spanner <- function(gm_table2,spanner_list){
 #' @importFrom dplyr row_number
 #' @importFrom dplyr summarise
 #' @importFrom rlang syms
+#' @importFrom dplyr ungroup
 
 spannerize <- function(gm_table2,n){
 
@@ -56,7 +57,9 @@ spannerize <- function(gm_table2,n){
     df1 %>%
     mutate(column_index = row_number()) %>%
     group_by(!!!vars_syms) %>%
-    summarise(column_index = list(column_index))
+    summarise(column_index = list(column_index)) %>%
+    ungroup() %>%
+    mutate_at(.vars= vars(-ncol(.)), .funs = list(~ paste0(.,"[",row_number(),"]") ))
 
 
   spanner_reduce <- list(gm_table2) %>% append(map2(.x = df2[,n] %>% pull(1), .y =  df2[,"column_index"] %>% pull(1),.f =  ~ list(.x,.y)))

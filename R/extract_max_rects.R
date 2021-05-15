@@ -5,6 +5,9 @@
 #' @importFrom tidyr crossing
 #' @importFrom dplyr filter
 #' @importFrom tidyr spread
+#' @importFrom dplyr case_when
+#' @importFrom dplyr full_join
+#' @importFrom dplyr left_join
 
 
 extract_max_rects <- function(extraction_list){

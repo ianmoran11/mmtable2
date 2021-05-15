@@ -32,6 +32,9 @@ Suggests:
     testthat (>= 2.1.0),
     covr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    margins,
+    tidyverse,
+    titanic
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
