@@ -134,7 +134,9 @@ apply_formats <- function(mmtable){
 
 
     html_text <-
-      table_html %>%  as.character() %>% str_remove_all("\\[[0-9]+\\]") %>%
+      table_html %>%  as.character() %>%
+      str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
+      str_remove_all("\\[[0-9]+\\]") %>%
       str_split("\n") %>% .[[1]]  %>%  .[-c(1)] %>%
       keep(!str_detect(.,"^</html>")) %>%
       keep(!str_detect(.,"^</head>")) %>%
@@ -142,8 +144,8 @@ apply_formats <- function(mmtable){
       str_remove_all("\\<body\\>") %>%
       str_remove_all("^<html>") %>%
       # str_replace_all('"gt_table"\\>$','"gt_table">\n') %>%
+      str_trim() %>% keep(nchar(.)>0)
       paste(collapse = "\n") %>%
-      str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
       keep(nchar(.)!= 0 ) %>%
       htmltools::HTML()
 
@@ -197,7 +199,12 @@ apply_formats <- function(mmtable){
 
   final_mmtable_return <-  mmtable_return %>% gt::tab_options(column_labels.hidden = T)
 
-  html_text <-   gt:::as.tags.gt_tbl(final_mmtable_return) %>% as.character() %>% htmltools::HTML()
+  html_text <-
+    gt:::as.tags.gt_tbl(final_mmtable_return) %>%
+    as.character() %>%
+    str_split("\n") %>% .[[1]] %>%
+    str_trim() %>% keep(nchar(.)>0) %>% paste(collapse = "\n") %>%
+    htmltools::HTML()
 
   attr(final_mmtable_return,"html") <- html_text
 
