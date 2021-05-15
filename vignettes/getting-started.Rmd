@@ -14,11 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(mmtable2)
-```
-
-```{r example1, echo=TRUE, message=FALSE, warning=FALSE}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(gapminder)
 library(dplyr)
 library(tidyr)
@@ -32,11 +28,11 @@ library(mmtable2)
 
 You can add headers using data from a column in your data frame. 
 
-It's placement will depend on your your choice of header_* functions.
+Its placement will depend on your your choice of header_* functions.
 
 Header options include: top, top_left, left, and left_top. 
 
-Here's a table of the same data used above, this time with a different header layout. 
+Here's an example. 
 ```{r message=FALSE, warning=FALSE, echo = T}
 row_list <- cells_body(rows = c(3,7))
 col_list <- cells_body(columns = c(3,5,7,9,11))
