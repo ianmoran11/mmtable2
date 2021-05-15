@@ -23,12 +23,9 @@ mmtable2 can handle tables with multiple layers of header columns. This is paric
 
 Below is an example using the titanic data set to predict survival using logit/LPM, two specifications and separate models for males and females.
 
-The modeling and data preparation are not our primary concern here, but click "Expand" below if you'd like to see the function completes these tasks.  
+The modeling and data preparation are not our primary concern here, but see the source rmd file of this vignette if you'd like to see the function completes these tasks.  
 
-
-<details><summary>Expand</summary>
-
-```{r message=FALSE, warning=FALSE, echo = T}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library(mmtable2)
 library(titanic)
 library(margins)
@@ -172,7 +169,7 @@ table_data  %>%
     style = list(
       cell_borders(sides = "top",
       weight = px(2),
-      color = rgb(170/255,170/255,170/255)))
+      color = "lightgrey"))
     ) +
   header_merged_cols() +
   NULL

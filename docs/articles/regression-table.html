@@ -104,107 +104,7 @@
 <h2 class="hasAnchor">
 <a href="#modelling-titanic-survival" class="anchor"></a>Modelling titanic survival</h2>
 <p>Below is an example using the titanic data set to predict survival using logit/LPM, two specifications and separate models for males and females.</p>
-<p>The modeling and data preparation are not our primary concern here, but click "Expand" below if you'd like to see the function completes these tasks.</p>
-<p><details><summary>Expand</summary></details></p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ianmoran11/mmtable2">mmtable2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/paulhendricks/titanic">titanic</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/margins">margins</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://xml2.r-lib.org/">xml2</a></span><span class="op">)</span>
-
-<span class="va">get_model_data</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">sex_filter</span>,<span class="va">specification_arg</span>, <span class="va">model</span><span class="op">)</span><span class="op">{</span>
-<span class="co"># sex_filter &lt;- "female"</span>
-<span class="co"># specification_arg &lt;- "(II)"</span>
-<span class="co"># model &lt;- "LPM"</span>
-
-<span class="va">titanic_df</span> <span class="op">&lt;-</span>
-  <span class="va">titanic_train</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span>  <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Sex <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_title</a></span><span class="op">(</span><span class="va">Sex</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Pclass <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">Pclass</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Sex</span> <span class="op">==</span> <span class="va">sex_filter</span><span class="op">)</span>
-
-<span class="kw">if</span><span class="op">(</span><span class="va">specification_arg</span> <span class="op">==</span> <span class="st">"(I)"</span> <span class="op">&amp;</span> <span class="va">model</span> <span class="op">==</span> <span class="st">"LPM"</span><span class="op">)</span><span class="op">{</span>
-<span class="va">model_obj</span> <span class="op">&lt;-</span> <span class="va">titanic_df</span> <span class="op">%&gt;%</span>  <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Survived</span>  <span class="op">~</span> <span class="va">Age</span>, data<span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="va">model_tidy</span> <span class="op">&lt;-</span> <span class="va">model_obj</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="kw">if</span><span class="op">(</span><span class="va">specification_arg</span> <span class="op">==</span> <span class="st">"(II)"</span> <span class="op">&amp;</span> <span class="va">model</span> <span class="op">==</span> <span class="st">"LPM"</span><span class="op">)</span><span class="op">{</span>
-<span class="va">model_obj</span> <span class="op">&lt;-</span> <span class="va">titanic_df</span> <span class="op">%&gt;%</span>  <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Survived</span>  <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Pclass</span>, data<span class="op">=</span> <span class="va">.</span><span class="op">)</span>
-<span class="va">model_tidy</span> <span class="op">&lt;-</span> <span class="va">model_obj</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="kw">if</span><span class="op">(</span><span class="va">specification_arg</span> <span class="op">==</span> <span class="st">"(I)"</span> <span class="op">&amp;</span> <span class="va">model</span> <span class="op">==</span> <span class="st">"Logit"</span><span class="op">)</span><span class="op">{</span>
-<span class="va">model_obj</span> <span class="op">&lt;-</span> <span class="va">titanic_df</span> <span class="op">%&gt;%</span>  <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">Survived</span>  <span class="op">~</span> <span class="va">Age</span>, data<span class="op">=</span> <span class="va">.</span>,family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span>
-<span class="va">model_tidy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/margins/man/margins.html">margins</a></span><span class="op">(</span><span class="va">model_obj</span>, data<span class="op">=</span> <span class="va">titanic_df</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="kw">if</span><span class="op">(</span><span class="va">specification_arg</span> <span class="op">==</span> <span class="st">"(II)"</span> <span class="op">&amp;</span> <span class="va">model</span> <span class="op">==</span> <span class="st">"Logit"</span><span class="op">)</span><span class="op">{</span>
-<span class="va">model_obj</span> <span class="op">&lt;-</span> <span class="va">titanic_df</span> <span class="op">%&gt;%</span>  <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">Survived</span>  <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Pclass</span>, data<span class="op">=</span> <span class="va">.</span>,family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span>
-<span class="va">model_tidy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/margins/man/margins.html">margins</a></span><span class="op">(</span><span class="va">model_obj</span>, data<span class="op">=</span> <span class="va">titanic_df</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">coeff_df</span> <span class="op">&lt;-</span>
-  <span class="va">model_tidy</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>std.error <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"      ("</span>,<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.3f"</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">std.error</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>,<span class="st">")   "</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>estimate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.3f"</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">estimate</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>estimate <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
-    <span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">.001</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">estimate</span>,<span class="st">"*** "</span><span class="op">)</span>,
-    <span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">.01</span>  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">estimate</span>,<span class="st">"**  "</span><span class="op">)</span>,
-    <span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">.05</span>  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">estimate</span>,<span class="st">"*   "</span><span class="op">)</span>,
-    <span class="cn">T</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">estimate</span>,<span class="st">"    "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_if.html">map_if</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.3f"</span>,<span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span><span class="op">(</span><span class="va">var</span>,<span class="va">value</span>, <span class="op">-</span><span class="va">term</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">var</span> <span class="op">==</span> <span class="st">"std.error"</span>, <span class="st">""</span>,<span class="va">var</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"Marginal effects"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>var_level <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">term</span>, <span class="st">"[0-9]+$"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>,<span class="st">""</span>,<span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>term <span class="op">=</span> <span class="va">term</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span><span class="st">"[0-9]+$"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model_type <span class="op">=</span> <span class="va">model</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">term</span>,<span class="st">"^\\(Intercept\\)"</span>,<span class="st">"Intercept"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>gender <span class="op">=</span> <span class="va">sex_filter</span><span class="op">)</span>
-
-<span class="kw">if</span><span class="op">(</span><span class="st">"Pclass"</span> <span class="op">%in%</span> <span class="va">coeff_df</span><span class="op">$</span><span class="va">term</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">coeff_df</span> <span class="op">&lt;-</span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">coeff_df</span>,
-       <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
-         <span class="op">~</span><span class="va">term</span>,    <span class="op">~</span><span class="va">var</span>,       <span class="op">~</span><span class="va">value</span>, <span class="op">~</span><span class="va">stat_type</span>,    <span class="op">~</span><span class="va">var_level</span>, <span class="op">~</span><span class="va">model_type</span>, <span class="op">~</span><span class="va">gender</span>,
-         <span class="st">"Pclass"</span>, <span class="st">"estimate"</span>, <span class="st">"-"</span>   , <span class="st">"Marginal effects"</span>, <span class="st">"1"</span>,      <span class="va">model</span>, <span class="va">sex_filter</span>,
-         <span class="st">"Pclass"</span>, <span class="st">""</span>        , <span class="st">"-"</span>   , <span class="st">"Marginal effects"</span>, <span class="st">"1"</span>,      <span class="va">model</span>, <span class="va">sex_filter</span>
-       <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">term</span>,<span class="st">"^Pclass"</span>,<span class="st">"Passenger class"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">coeff_df</span> <span class="op">&lt;-</span> <span class="va">coeff_df</span> <span class="op">%&gt;%</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>specification <span class="op">=</span> <span class="va">specification_arg</span><span class="op">)</span>
-
-<span class="va">model_df</span> <span class="op">&lt;-</span>
-  <span class="va">model_obj</span> <span class="op">%&gt;%</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span><span class="op">(</span><span class="va">var</span>,<span class="va">value</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_if.html">map_if</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.2f"</span>,<span class="va">.</span><span class="op">)</span> <span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">var</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nobs"</span>,<span class="st">"AIC"</span>,<span class="st">"r.squared"</span>,<span class="st">"adj.r.squared"</span>,<span class="st">"statistic"</span>,<span class="st">"logLik"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"Model statistics"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>term <span class="op">=</span> <span class="va">var</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model_type <span class="op">=</span> <span class="va">model</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>term <span class="op">=</span> <span class="va">term</span> <span class="op">%&gt;%</span>
-           <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"^r.squared"</span>,<span class="fu"><a href="https://gt.rstudio.com/reference/html.html">html</a></span><span class="op">(</span><span class="st">"R2"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-           <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"^adj.r.squared"</span>,<span class="st">"Adjusted R2"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-           <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"^logLik"</span>,<span class="st">"Log likelihood"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-           <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"^statistic"</span>,<span class="st">"F statistic"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-           <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"^nobs"</span>,<span class="st">"Observations"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-           <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"^AIC"</span>,<span class="st">"Akaike Inf. Crit."</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>var_level <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>specification <span class="op">=</span> <span class="va">specification_arg</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>gender <span class="op">=</span> <span class="va">sex_filter</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">term</span> <span class="op">==</span> <span class="st">"Observations"</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span><span class="va">value</span>,<span class="st">"\\..+"</span><span class="op">)</span>,<span class="va">value</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># row_list &lt;- cells_body(rows = c(1,11,17))</span>
-<span class="co"># style_list &lt;- list(cell_borders(sides = "bottom",color = "black"))</span>
-
-<span class="va">table_df_2</span> <span class="op">&lt;-</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">coeff_df</span>,<span class="va">model_df</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">term</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Intercept"</span>,<span class="st">"Age"</span>, <span class="st">"Passenger class"</span>,<span class="st">"Observations"</span>, <span class="st">"R2"</span>, <span class="st">"Adjusted R2"</span>,
-                                   <span class="st">"Log likelihood"</span>, <span class="st">"Akaike Inf. Crit."</span>,<span class="st">"statistic"</span>
-  <span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span> <span class="op">!</span><span class="va">var</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"p.value"</span>, <span class="st">"statistic"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">table_df_2</span>
-
-<span class="op">}</span></code></pre></div>
+<p>The modeling and data preparation are not our primary concern here, but see the source rmd file of this vignette if you'd like to see the function completes these tasks.</p>
 <p></p>
 <div id="data-preparation" class="section level3">
 <h3 class="hasAnchor">
@@ -256,15 +156,15 @@
     style <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
       <span class="fu"><a href="https://gt.rstudio.com/reference/cell_borders.html">cell_borders</a></span><span class="op">(</span>sides <span class="op">=</span> <span class="st">"top"</span>,
       weight <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/px.html">px</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>,
-      color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">170</span><span class="op">/</span><span class="fl">255</span>,<span class="fl">170</span><span class="op">/</span><span class="fl">255</span>,<span class="fl">170</span><span class="op">/</span><span class="fl">255</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+      color <span class="op">=</span> <span class="st">"lightgrey"</span><span class="op">)</span><span class="op">)</span>
     <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="../reference/header_merged_cols.html">header_merged_cols</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="cn">NULL</span></code></pre></div>
-<div id="rxlpbzevsc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fpqljylhwy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
-#rxlpbzevsc .gt_table {
+#fpqljylhwy .gt_table {
 display: table;
 border-collapse: collapse;
 margin-left: auto;
@@ -288,7 +188,7 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_heading {
+#fpqljylhwy .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -299,7 +199,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_title {
+#fpqljylhwy .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -308,7 +208,7 @@ padding-bottom: 4px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#rxlpbzevsc .gt_subtitle {
+#fpqljylhwy .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -317,12 +217,12 @@ padding-bottom: 4px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#rxlpbzevsc .gt_bottom_border {
+#fpqljylhwy .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_col_headings {
+#fpqljylhwy .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -336,7 +236,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_col_heading {
+#fpqljylhwy .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -355,7 +255,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#rxlpbzevsc .gt_column_spanner_outer {
+#fpqljylhwy .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -366,13 +266,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#rxlpbzevsc .gt_column_spanner_outer:first-child {
+#fpqljylhwy .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#rxlpbzevsc .gt_column_spanner_outer:last-child {
+#fpqljylhwy .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#rxlpbzevsc .gt_column_spanner {
+#fpqljylhwy .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -383,7 +283,7 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#rxlpbzevsc .gt_group_heading {
+#fpqljylhwy .gt_group_heading {
 padding: 8px;
 color: #333333;
 background-color: #FFFFFF;
@@ -404,7 +304,7 @@ border-right-width: 1px;
 border-right-color: #D3D3D3;
 vertical-align: middle;
 }
-#rxlpbzevsc .gt_empty_group_heading {
+#fpqljylhwy .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -418,13 +318,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#rxlpbzevsc .gt_from_md > :first-child {
+#fpqljylhwy .gt_from_md > :first-child {
 margin-top: 0;
 }
-#rxlpbzevsc .gt_from_md > :last-child {
+#fpqljylhwy .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#rxlpbzevsc .gt_row {
+#fpqljylhwy .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -442,7 +342,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#rxlpbzevsc .gt_stub {
+#fpqljylhwy .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -453,7 +353,7 @@ border-right-width: 2px;
 border-right-color: #D3D3D3;
 padding-left: 12px;
 }
-#rxlpbzevsc .gt_summary_row {
+#fpqljylhwy .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -462,7 +362,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#rxlpbzevsc .gt_first_summary_row {
+#fpqljylhwy .gt_first_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -471,7 +371,7 @@ border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_grand_summary_row {
+#fpqljylhwy .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -480,7 +380,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#rxlpbzevsc .gt_first_grand_summary_row {
+#fpqljylhwy .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -489,10 +389,10 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_striped {
+#fpqljylhwy .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#rxlpbzevsc .gt_table_body {
+#fpqljylhwy .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -500,7 +400,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_footnotes {
+#fpqljylhwy .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -513,12 +413,12 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_footnote {
+#fpqljylhwy .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding: 4px;
 }
-#rxlpbzevsc .gt_sourcenotes {
+#fpqljylhwy .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -531,33 +431,33 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#rxlpbzevsc .gt_sourcenote {
+#fpqljylhwy .gt_sourcenote {
 font-size: 90%;
 padding: 4px;
 }
-#rxlpbzevsc .gt_left {
+#fpqljylhwy .gt_left {
 text-align: left;
 }
-#rxlpbzevsc .gt_center {
+#fpqljylhwy .gt_center {
 text-align: center;
 }
-#rxlpbzevsc .gt_right {
+#fpqljylhwy .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#rxlpbzevsc .gt_font_normal {
+#fpqljylhwy .gt_font_normal {
 font-weight: normal;
 }
-#rxlpbzevsc .gt_font_bold {
+#fpqljylhwy .gt_font_bold {
 font-weight: bold;
 }
-#rxlpbzevsc .gt_font_italic {
+#fpqljylhwy .gt_font_italic {
 font-style: italic;
 }
-#rxlpbzevsc .gt_super {
+#fpqljylhwy .gt_super {
 font-size: 65%;
 }
-#rxlpbzevsc .gt_footnote_marks {
+#fpqljylhwy .gt_footnote_marks {
 font-style: italic;
 font-weight: normal;
 font-size: 65%;
@@ -628,36 +528,36 @@ font-size: 65%;
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 Marginal effects
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 Age
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 0.004
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 -0.003
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 0.004
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 -0.003
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 -0.003*
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 -0.007***
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 -0.003*
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 -0.007***
 </td>
 </tr>
@@ -866,36 +766,36 @@ Passenger class
 </td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 Model statistics
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 Observations
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 261
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 261
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 261
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 261
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 453
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 453
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 453
 </td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: #AAAAAA;">
+<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
 453
 </td>
 </tr>
