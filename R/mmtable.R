@@ -41,7 +41,7 @@ mmtable <- function(data,table_data, table_name = NULL, use_default_formats = TR
   if(is.null(table_name)){table_name <- paste0("Table ",sample(LETTERS,size = 5) %>% paste(collapse = "")) }
 
 
-  data <- data %>% mutate(.value = {{table_data}})
+  data <- data %>% mutate(.value = {{table_data}} %>% as.character())
 
   initial_format_list <-  list(list(header = list(), format_list = list()))
   initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))

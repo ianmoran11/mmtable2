@@ -1,0 +1,66 @@
+---
+title: "Makings a histogram with mmtable2 (formating)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Makings a histogram with mmtable2 (formating)}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+mmtable2 uses the style features of gt. This gives you a lot of control over the format of your table. As an example, a rainbow histogram is constructed below. 
+
+### Data generation
+
+The code below generates a set of random numbers and bins them in 10s.
+
+```{r message=FALSE, warning=FALSE, echo = T}
+library(mmtable2)
+library(tidyverse)
+
+set.seed(123)
+df <- 
+tibble(data = rnorm(100,100,30) %>% round()) %>% 
+  mutate(rounded = floor(data/10)*10) %>% 
+  mutate(rounded_chr = paste0(rounded,"'s"))  %>% 
+  arrange(rounded,desc(data))
+
+df %>% glimpse
+```
+
+### Table construction
+
+The code below constructs a table with these values, and then adds a list of formatting commands. 
+
+```{r message=FALSE, warning=FALSE, echo = T}
+table <- 
+df %>% 
+  mmtable(table_data = data) +
+  header_top_left(rounded_chr) + 
+  header_format(rounded_chr, 
+                list(gt::cell_fill(color = "black"),
+                     gt::cell_text(color = "white")))
+
+colors <-  c("#ff0000","#ffa500","#ffff00","#008000",
+             "#0000ff","#4b0082","#ee82ee")
+
+color_list <- 
+  map2(unique(df$rounded_chr),rep(colors,2), 
+       function(nums,colours){
+        cells_format(cell_predicate =nchar(data) %in% c(2,3) & 
+                     rounded_chr == nums, 
+                     gt::cell_fill(color = colours))
+         }
+       )
+
+append(list(table),color_list) %>% reduce(`+`)
+```

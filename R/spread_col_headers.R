@@ -16,10 +16,7 @@ spread_col_headers <- function(data, ...){
          # create single top header column
 
          # browser()
-
          df <- data
-
-
          #!#!#! converting to character here.
          df <- df %>% unite(col = header_temp, !!!(col_header_vars),sep = "\n")
 
