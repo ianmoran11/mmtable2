@@ -3,5 +3,6 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
-last_built: 2021-05-14T12:55Z
+  regression-table: regression-table.html
+last_built: 2021-05-15T06:58Z
 
