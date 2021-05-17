@@ -1,6 +1,7 @@
 
 #' Format a mmtable object.
 #'
+#'
 #' @param locations indicating which cells should be formatted.
 #' @param ... formating instructions
 #' @return format list
