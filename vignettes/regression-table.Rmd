@@ -162,8 +162,12 @@ table_data  %>%
   header_top(specification) +
   header_top_left(model_type) +
   header_top_left(gender) +
-  cells_format(cell_predicate = T, style = list(cell_text(align = "left"))) +
-  header_format(header = "all_cols", style = list(cell_text(align = "center"))) +
+  cells_format(cell_predicate = T, 
+               style = list(cell_text(align = "left"))
+               ) +
+  header_format(header = "all_cols", 
+                style = list(cell_text(align = "center"))
+                ) +
   table_format(
     locations = cells_body(rows = c(1,9)),
     style = list(

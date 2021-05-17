@@ -42,6 +42,14 @@ df %>% glimpse
 The code below constructs a table with these values, and then adds a list of formatting commands. 
 
 ```{r message=FALSE, warning=FALSE, echo = T}
+# Generate random data 
+df <- 
+tibble(data = rnorm(100,100,30) %>% round()) %>% 
+  mutate(rounded = floor(data/10)*10) %>% 
+  mutate(rounded_chr = paste0(rounded,"'s"))  %>% 
+  arrange(rounded,desc(data))
+
+# Create table  
 table <- 
 df %>% 
   mmtable(table_data = data) +
@@ -50,9 +58,9 @@ df %>%
                 list(gt::cell_fill(color = "black"),
                      gt::cell_text(color = "white")))
 
+# Format table
 colors <-  c("#ff0000","#ffa500","#ffff00","#008000",
              "#0000ff","#4b0082","#ee82ee")
-
 color_list <- 
   map2(unique(df$rounded_chr),rep(colors,2), 
        function(nums,colours){
