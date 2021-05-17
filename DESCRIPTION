@@ -18,11 +18,9 @@ Imports:
     magrittr,
     broom,
     tibble,
-    gapminder,
     stringr,
     htmltools,
     xml2,
-    webshot,
     rlang,
     forcats,
     zoo
@@ -30,6 +28,8 @@ URL: https://github.com/ianmoran11/mmtable2
 BugReports: https://github.com/ianmoran11/mmtable2/issues
 Suggests: 
     testthat (>= 2.1.0),
+    webshot,
+    gapminder,
     covr,
     knitr,
     rmarkdown,
