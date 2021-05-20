@@ -2,9 +2,11 @@ pandoc: 1.19.2.4
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  getting-started: getting-started.html
-  regression-table: regression-table.html
-  table-components: table-components.html
-  table-histogram: table-histogram.html
-last_built: 2021-05-19T10:21Z
+  Building-a-regression-table: Building-a-regression-table.html
+  Combining-tables: Combining-tables.html
+  Constructing-tables: Constructing-tables.html
+  Some-minimal-examples: Some-minimal-examples.html
+  Styling-tables: Styling-tables.html
+  Tidy-and-untidy-tables: Tidy-and-untidy-tables.html
+last_built: 2021-05-20T02:37Z
 

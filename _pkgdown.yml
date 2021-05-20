@@ -1,0 +1,23 @@
+articles:
+- title: Quick start
+  navbar: Quick start
+  contents:
+  - Some-minimal-examples
+
+- title: Key concepts
+  navbar: Key concepts
+  contents:
+  - Tidy-and-untidy-tables
+
+- title: Deep dives
+  navbar: Deep dives
+  desc: Vignettes aimed at package developers
+  contents:
+  - Constructing-tables
+  - Combining-tables
+  - Styling-tables
+
+- title: Gallery
+  navbar: Gallery
+  contents:
+  - Building-a-regression-table

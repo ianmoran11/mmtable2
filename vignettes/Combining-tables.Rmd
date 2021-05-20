@@ -1,0 +1,82 @@
+---
+title: "Combining tables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(gapminder)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(purrr)
+library(gt)
+library(mmtable2)
+```
+
+## Combining tables
+
+You can combine tables with `+`, `/` and `*` operators.
+```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+create_table <- function(df,name){
+ df %>%
+   mmtable(table_data = value,table_name = name) +
+   header_top(year) +
+   header_left(country) +
+   header_top_left(var)  +
+   header_left_top(continent)
+}
+```
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+gapminder_tbl <-
+ gapminder_mm %>%
+ mutate(continent_n = continent, var_n = var) %>%
+ group_by(continent_n,var_n) %>% nest() %>%
+ ungroup() %>% 
+ filter(
+   (continent_n == "Oceania" & var_n == "Population") | 
+   (continent_n == "Oceania" & var_n == "GDP") |
+   (continent_n == "Asia" & var_n == "Population") |
+   (continent_n == "Asia" & var_n == "GDP"))  %>% 
+ arrange(continent_n,var_n) %>% 
+ mutate(name = paste("Table",row_number(), sep =" " )) %>% 
+ mutate(table =map2(data,name,create_table))
+```
+
+```{r,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = "600px"}
+t1 <- gapminder_tbl %>% filter(name == "Table 1") %>% pull(table) %>% .[[1]]
+t2 <- gapminder_tbl %>% filter(name == "Table 2") %>% pull(table) %>% .[[1]]
+t3 <- gapminder_tbl %>% filter(name == "Table 3") %>% pull(table) %>% .[[1]]
+t4 <- gapminder_tbl %>% filter(name == "Table 4") %>% pull(table) %>% .[[1]]
+```
+
+The `+` operator places tables side-by-side (sharing headers)  
+```{r message=FALSE, warning=FALSE, echo = T}
+ex1 <- t1 + t2
+ex1 
+```
+
+The `/` operator places tables on top of one another (sharing headers)  
+```{r message=FALSE, warning=FALSE, echo = T}
+ex2 <- t1 / t3
+ex2 
+```
+
+The `*` operator "integrates" tables  
+```{r message=FALSE, warning=FALSE, echo = T}
+ex3 <- t1 * t3 * t4 *  t2
+ex3 
+```

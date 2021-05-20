@@ -1,0 +1,93 @@
+---
+title: "Tidy and untidy tables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Table components}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(mmtable2)
+```
+
+```{r include=FALSE}
+df <- 
+crossing(
+  HTL =c("HEADER TOP LEFT 1","HEADER TOP LEFT 2"),
+  HL = c("HEADER LEFT"), 
+  HT = c("HEADER TOP ",c("HEADER TOP  ")),
+  HLT =c("HEADER LEFT TOP 1","HEADER LEFT TOP 2")
+  ) %>% 
+  bind_rows(.,.) %>%  mutate(CELLS = "CELL") 
+
+```
+
+```{r}
+
+df %>% 
+  mmtable(table_data = CELLS) + 
+  header_top(HT) +
+  header_top_left(HTL) +
+  header_left(HL) +
+  header_left_top(HLT) +
+  header_format(HT,gt::cell_text(align = "center")) +
+  cells_format(T,gt::cell_text(align = "center")) 
+
+```
+
+
+```{r}
+
+df %>% gather(head,value) %>% group_by(head) %>%  mutate(row_no = row_number()) %>% 
+  filter(row_no < 8) %>% 
+  mutate(value = ifelse(row_no == 7,"...", value)) %>% 
+  mmtable(table_data = value) + header_top(head) +
+  header_format(head,gt::cell_text(align = "center")) +
+  cells_format(T,gt::cell_text(align = "center")) 
+
+```
+
+
+
+mmtable2 uses uses the following framework to constructing tables:
+
+```{r,out.width = "500px", echo = FALSE}
+knitr::include_graphics("../man/figures/table_components.png")
+```
+
+The data required to create an mmtable is similar to the dataframe used for the ggplot2 package.   
+
+This data frame has a:  
+
+*  *row* for each *cell* 
+*  *column* for each *header* 
+
+
+Here's and example of such a data frame
+
+```{r}
+student_df %>% print(n = 5)
+```
+
+And here's an example of an mmtable constructed with this data
+
+```{r,out.width = "100px"}
+student_df %>%
+  mmtable(table_data = value) +
+  header_top(student) +
+  header_top(grade) +
+  header_left(class) +
+  header_left_top(subject)
+```
+

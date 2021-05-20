@@ -1,5 +1,5 @@
 ---
-title: "Regression table (multiple merged column headers)"
+title: "Building a regression table"
 output: 
   rmarkdown::html_vignette
 vignette: >
