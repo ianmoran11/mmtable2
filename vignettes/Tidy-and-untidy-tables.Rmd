@@ -100,10 +100,10 @@ The coloring of the table above outlines the main components of an untidy table.
 
 Headers can further be classified according to their spatial relationship with the cells. 
 
-- **top headers** are directly above their cells
-- **left headers** are directly to the left of their cells
-- **top left headers** are above the body of the table and either above or above-and-to-the-left of their cells
-- **left top headers** are to the left of the body either left or left-and-above their cells
+- **top** headers are directly above their cells
+- **left** headers are directly to the left of their cells
+- **top left** headers are above the body of the table and either above or above-and-to-the-left of their cells
+- **left top** headers are to the left of the body either left or left-and-above their cells
 
 ## mmtable2's syntax
 
