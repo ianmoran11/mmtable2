@@ -33,7 +33,7 @@ style_list = list(cell_text(align = "left"))
 
 ## Components of tidy and untidy tables
 
-Let's start with the table below:
+Let's start with the untidy table below:
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 student_df %>%
@@ -44,7 +44,7 @@ student_df %>%
   header_left_top(subject)
 ```
 
-And the tidy data frame used to create that table: 
+and the tidy table used to create it: 
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 student_df %>% 
@@ -59,7 +59,7 @@ student_df %>%
   cells_format(T,gt::cell_text(align = "center"))
 ```
 
-mmtable2 provides a framework for mapping tidy tables to untidy tables --- mapping the second table to the first.  
+The mmtable2 package provides a framework for mapping tidy tables to untidy tables --- mapping the second table to the first.  
 
 
 To understand this mapping, lets take a more generalized representation of an untidy table.
@@ -93,7 +93,7 @@ df %>%
   table_format(locations = cells_body(columns =1:2, rows = 1:2) ,gt::cell_fill(color =pcolors[7])) # Stub
 ```
 
-The coloring of the table presents the main components of an untidy table. 
+The coloring of the table above outlines the main components of an untidy table. 
 
 - **cells** make up the body of the table; and
 - **headers** indicate what the cells' values represent.
@@ -101,15 +101,15 @@ The coloring of the table presents the main components of an untidy table.
 Headers can further be classified according to their spatial relationship with the cells. 
 
 - **top headers** are directly above their cells
-- **left header** are directly to the left of their cells
-- **top left** headers are above the body of the table and either above or above-and-to-the-left of their cells
-- **left top** headers are to the left of the body either left or left-and-up with respect to their cells
+- **left headers** are directly to the left of their cells
+- **top left headers** are above the body of the table and either above or above-and-to-the-left of their cells
+- **left top headers** are to the left of the body either left or left-and-above their cells
 
 ## mmtable2's syntax
 
-Now let't take a look at mmtable2's syntax for mapping tidy to untidy tables.  
+Now let's take a look at mmtable2's syntax for mapping tidy to untidy tables.  
 
-It takes a tidy table like this: 
+A table like this:
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 mmt <- 
@@ -129,7 +129,7 @@ df %>% select(CELLS, HT,HTL,HL,HLT) %>%
 mmt %>%  cols_width( everything() ~px(130))
 ```
 
-and maps it to the untidy table above with the following lines of code:
+is mapped to an untidy with the following lines of code:
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE, fig.align="center"}
 knitr::include_graphics("https://mmtable2.s3-ap-southeast-2.amazonaws.com/table_code.png")
@@ -138,18 +138,18 @@ knitr::include_graphics("https://mmtable2.s3-ap-southeast-2.amazonaws.com/table_
 These commands identify the untidy table's:
 
 - cells - `mmtable(table_data = CELLS)`
-- top header - `mmtable(table_data = CELLS)`
+- top header - `header_top_left(HT)`
 - top left header - `header_top_left(HTL)` 
 - left header - `header_left(HL)` 
 - left top header - `header_left_top(HLT)` 
  
 ## Other untidy table layouts
 
-Many untidy tables stray from the layout above (using each type of header once).
+Many untidy tables stray from the layout above.
 
-mmtable2 supports this. 
+mmtable2 supports a wide array of header layouts. 
 
-For example here's a version of the table above using only left* headers.
+For example, here's a version of the table above using only left* headers.
 
 ```{r message=FALSE, warning=FALSE}
 student_df %>%
