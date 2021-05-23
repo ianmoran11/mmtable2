@@ -4,7 +4,7 @@ output:
   rmarkdown::html_vignette:
     pandoc_args: ["--smart"]
 vignette: >
-  %\VignetteIndexEntry{Table components}
+  %\VignetteIndexEntry{Tidy and untidy tables}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -131,37 +131,8 @@ mmt %>%  cols_width( everything() ~px(130))
 
 and maps it to the untidy table above with the following lines of code:
 
-```{r message=FALSE, warning=FALSE, echo=FALSE}
-code_txt_df <- 
-tibble(txt = 
-  c(
-html("#>  df %>% "),
-html("#>    mmtable(table_data = CELLS) +  "),  
-html("#>      header_top(HT) +             "),  
-html("#>      header_top_left(HTL) +       "),  
-html("#>      header_left(HL) +            "),  
-html("#>      header_left_top(HLT)         ")
-))
-
-tbl <- 
-code_txt_df %>% 
-  mmtable(table_data = txt) 
-
-# tbl %>% tab_options(column_labels.hidden = T) %>%  gt::as_raw_html()
-paste0('<table style="font-family: -apple-system, BlinkMacSystemFont, "Segoe UI"", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", "Fira Sans", "Droid Sans", Arial, sans-serif; display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;">
-  
-  
-  <tbody style="border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
-    <tr><td style="padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;  background-color: ',pcolors[8],'; color: #000000;">df %&gt;% </td></tr>
-    <tr><td style="padding-top: 8px; padding-bottom: 8px; padding-left: 15px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; background-color: ',pcolors[5],'; color: #000000;">  mmtable(CELLS) +  </td></tr>
-    <tr><td style="padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; background-color: ',pcolors[1],'; color: #000000;">    header_top(HT) +             </td></tr>
-    <tr><td style="padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; background-color: ',pcolors[2],'; color: #000000;">    header_top_left(HTL) +       </td></tr>
-    <tr><td style="padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; background-color: ',pcolors[3],'; color: #000000;">    header_left(HL) +            </td></tr>
-    <tr><td style="padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left; background-color: ',pcolors[4],'; color: #000000;">    header_left_top(HLT)         </td></tr>
-  </tbody>
-  
-  
-</table>') %>% htmltools::HTML()
+```{r message=FALSE, warning=FALSE, echo=FALSE, fig.align="center"}
+knitr::include_graphics("https://mmtable2.s3-ap-southeast-2.amazonaws.com/table_code.png")
 ```
 
 These commands identify the untidy table's:

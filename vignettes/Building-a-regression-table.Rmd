@@ -3,7 +3,7 @@ title: "Building a regression table"
 output: 
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Regression table (multiple merged column headers)}
+  %\VignetteIndexEntry{Building a regression table}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
