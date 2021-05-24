@@ -37,7 +37,7 @@ Let's start with the untidy table below:
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 student_df %>%
-  mmtable(table_data = value) +
+  mmtable(cells = value) +
   header_top(student) +
   header_top_left(grade) +
   header_left(class) +
@@ -54,7 +54,7 @@ student_df %>%
   mutate(row_no = row_number()) %>% 
   filter(row_no < 6) %>% # print(n = 110)
   mutate(header_val = ifelse(row_number() == 5,"etc...",header_val)) %>% 
-  mmtable(table_data = header_val) + header_top(header) +
+  mmtable(cells = header_val) + header_top(header) +
   header_format(header,gt::cell_text(align = "center")) +
   cells_format(T,gt::cell_text(align = "center"))
 ```
@@ -78,7 +78,7 @@ crossing(
 
 ```{r echo=FALSE, message=FALSE, echo=FALSE}
 df %>% 
-  mmtable(table_data = CELLS) + 
+  mmtable(cells = CELLS) + 
   header_top(HT) +
   header_top_left(HTL) +
   header_left(HL) +
@@ -117,7 +117,7 @@ df %>% select(CELLS, HT,HTL,HL,HLT) %>%
   gather(head,value) %>% group_by(head) %>%  mutate(row_no = row_number()) %>%
   filter(row_no < 6) %>% 
   mutate(value = ifelse(row_no == 5,"...", value)) %>% 
-  mmtable(table_data = value) + header_top(head) +
+  mmtable(cells = value) + header_top(head) +
   header_format(head,gt::cell_text(align = "center")) +
   cells_format(T,gt::cell_text(align = "center")) +
   table_format(locations = cells_body(columns =1) ,gt::cell_fill(color =pcolors[5])) +
@@ -137,7 +137,7 @@ knitr::include_graphics("https://mmtable2.s3-ap-southeast-2.amazonaws.com/table_
 
 These commands identify the untidy table's:
 
-- cells - `mmtable(table_data = CELLS)`
+- cells - `mmtable(cells = CELLS)`
 - top header - `header_top_left(HT)`
 - top left header - `header_top_left(HTL)` 
 - left header - `header_left(HL)` 

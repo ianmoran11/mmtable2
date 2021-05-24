@@ -4,12 +4,12 @@
 \alias{mmtable}
 \title{Create an mmtable object}
 \usage{
-mmtable(data, table_data, table_name = NULL, use_default_formats = TRUE)
+mmtable(data, cells, table_name = NULL, use_default_formats = TRUE)
 }
 \arguments{
 \item{data}{a data frame}
 
-\item{table_data}{the name of the column whose values will form the data cells.}
+\item{cells}{the name of the column whose values will form the data cells.}
 
 \item{table_name}{the name of the table - used for labeling when joined with another table - randomly generated if not provided.}
 
@@ -32,7 +32,7 @@ gm_df <- gapminder_mm \%>\% dplyr::filter(var != "Life expectancy")
 
 gm_table <-
   gm_df \%>\%
-  mmtable(table_data = value) +
+  mmtable(cells = value) +
   header_top(year) +
   header_left(country) +
   header_top_left(var)  +

@@ -11,7 +11,7 @@ test_that("multiplication works", {
   create_table <- function(df,name){
 
     df %>%
-      mmtable(table_data = value,table_name = name) +
+      mmtable(cells = value,table_name = name) +
       header_top(year) +
       header_left(country) +
       header_top_left(var)  +

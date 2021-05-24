@@ -14,7 +14,7 @@
 #'
 #' gm_table <-
 #'   gm_df %>%
-#'   mmtable(table_data = value) +
+#'   mmtable(cells = value) +
 #'   header_top(year) +
 #'   header_left(country) +
 #'   header_top_left(var)  +
@@ -70,7 +70,7 @@ header_top <- function(variable){
 #'
 #' gm_table <-
 #'   gm_df %>%
-#'   mmtable(table_data = value) +
+#'   mmtable(cells = value) +
 #'   header_top(year) +
 #'   header_left(country) +
 #'   header_top_left(var)  +
@@ -119,7 +119,7 @@ header_top_left <- function(variable){
 #'
 #' gm_table <-
 #'   gm_df %>%
-#'   mmtable(table_data = value) +
+#'   mmtable(cells = value) +
 #'   header_top(year) +
 #'   header_left(country) +
 #'   header_top_left(var)  +
@@ -167,7 +167,7 @@ header_left <- function(variable){
 #'
 #' gm_table <-
 #'   gm_df %>%
-#'   mmtable(table_data = value) +
+#'   mmtable(cells = value) +
 #'   header_top(year) +
 #'   header_left(country) +
 #'   header_top_left(var)  +
@@ -215,7 +215,7 @@ header_left_top <- function(variable){
 #' gm_table_piped <-
 #'   gapminder_mm %>%
 #'   filter(var != "Life expectancy") %>%
-#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   mmtable(cells = value, use_defaul_formats = T) %>%
 #'   add_header_top(year) %>%
 #'   add_header_left(country) %>%
 #'   add_header_top_left(var)  %>%
@@ -252,7 +252,7 @@ add_header_top <- function(mmtable, ...){
 #' gm_table_piped <-
 #'   gapminder_mm %>%
 #'   filter(var != "Life expectancy") %>%
-#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   mmtable(cells = value, use_defaul_formats = T) %>%
 #'   add_header_top(year) %>%
 #'   add_header_left(country) %>%
 #'   add_header_top_left(var)  %>%
@@ -290,7 +290,7 @@ add_header_top_left <- function(mmtable, ...){
 #' gm_table_piped <-
 #'   gapminder_mm %>%
 #'   filter(var != "Life expectancy") %>%
-#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   mmtable(cells = value, use_defaul_formats = T) %>%
 #'   add_header_top(year) %>%
 #'   add_header_left(country) %>%
 #'   add_header_top_left(var)  %>%
@@ -328,7 +328,7 @@ add_header_left <- function(mmtable, ...){
 #' gm_table_piped <-
 #'   gapminder_mm %>%
 #'   filter(var != "Life expectancy") %>%
-#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   mmtable(cells = value, use_defaul_formats = T) %>%
 #'   add_header_top(year) %>%
 #'   add_header_left(country) %>%
 #'   add_header_top_left(var)  %>%

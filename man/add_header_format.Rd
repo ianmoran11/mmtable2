@@ -25,7 +25,7 @@ library(tidyverse)
 gm_table_piped <-
   gapminder_mm \%>\%
   filter(var != "Life expectancy") \%>\%
-  mmtable(table_data = value, use_defaul_formats = T) \%>\%
+  mmtable(cells = value, use_defaul_formats = T) \%>\%
   add_header_top(year) \%>\%
   add_header_left(country) \%>\%
   add_header_top_left(var)  \%>\%

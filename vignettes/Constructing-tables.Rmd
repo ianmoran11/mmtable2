@@ -45,7 +45,7 @@ style_list3 = list(cell_text(align = "left"))
 
 gm_table <- 
  gm_df %>% 
-  mmtable(table_data = value) +
+  mmtable(cells = value) +
   header_left(year) +
   header_top(country) +
   header_left_top(var)  +

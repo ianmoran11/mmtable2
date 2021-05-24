@@ -18,7 +18,7 @@
 #'
 #' gm_table <-
 #'   gm_df %>%
-#'   mmtable(table_data = value) +
+#'   mmtable(cells = value) +
 #'   header_top(year) +
 #'   header_left(country) +
 #'   header_top_left(var)  +
@@ -61,7 +61,7 @@ table_format <- function(locations, ...){
 #' gm_table_piped <-
 #'   gapminder_mm %>%
 #'   filter(var != "Life expectancy") %>%
-#'   mmtable(table_data = value, use_defaul_formats = T) %>%
+#'   mmtable(cells = value, use_defaul_formats = T) %>%
 #'   add_header_top(year) %>%
 #'   add_header_left(country) %>%
 #'   add_header_top_left(var)  %>%

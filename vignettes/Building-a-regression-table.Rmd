@@ -133,7 +133,7 @@ table_df_2
 We now produce a data frame that is ready for mmtable2. That is, a data frame with a row for each body cell and a column for each header.
 
 ```{r message=FALSE, warning=FALSE, echo = T}
-table_data <-
+cells <-
   bind_rows(
     get_model_data(sex_filter = "Female", specification_arg = "(II)", model = "LPM" ),
     get_model_data(sex_filter = "Female", specification_arg = "(I)", model = "LPM" ),
@@ -146,7 +146,7 @@ table_data <-
   ) %>% filter(term != "Intercept")  %>% 
   mutate(value = str_trim(value))
 
-glimpse(table_data)
+glimpse(cells)
 ```
 
 ### Table construction
@@ -154,8 +154,8 @@ glimpse(table_data)
 And here's the code to create the final table. Notice the use of `header_merged_cols()`. This ensures top_left headers are not constrained to a single cell. 
 
 ```{r message=FALSE, warning=FALSE, echo = T}
-table_data  %>%
-  mmtable(table_data =  value)  +
+cells  %>%
+  mmtable(cells =  value)  +
   header_left_top(var_level) +
   header_left_top(term) +
   header_left_top(stat_type) +

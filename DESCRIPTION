@@ -35,6 +35,9 @@ Suggests:
     rmarkdown,
     margins,
     tidyverse,
-    titanic
+    titanic,
+    RColorBrewer,
+    colorspace,
+    scales
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1

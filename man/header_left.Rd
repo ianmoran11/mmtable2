@@ -26,7 +26,7 @@ gm_df <- gapminder_mm \%>\% dplyr::filter(var != "Life expectancy")
 
 gm_table <-
   gm_df \%>\%
-  mmtable(table_data = value) +
+  mmtable(cells = value) +
   header_top(year) +
   header_left(country) +
   header_top_left(var)  +

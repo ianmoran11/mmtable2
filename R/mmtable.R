@@ -2,7 +2,7 @@
 #' Create an mmtable object
 #'
 #' @param data a data frame
-#' @param table_data the name of the column whose values will form the data cells.
+#' @param cells the name of the column whose values will form the data cells.
 #' @param table_name the name of the table - used for labeling when joined with another table - randomly generated if not provided.
 #' @param use_default_formats determines whether or note the table will have default formatting applied. Default value = TRUE.
 #' @return mmtable
@@ -24,7 +24,7 @@
 #'
 #' gm_table <-
 #'   gm_df %>%
-#'   mmtable(table_data = value) +
+#'   mmtable(cells = value) +
 #'   header_top(year) +
 #'   header_left(country) +
 #'   header_top_left(var)  +
@@ -34,14 +34,14 @@
 #'     style = style_list)
 #' }
 
-mmtable <- function(data,table_data, table_name = NULL, use_default_formats = TRUE){
+mmtable <- function(data,cells, table_name = NULL, use_default_formats = TRUE){
 
   # browser()
 
   if(is.null(table_name)){table_name <- paste0("Table ",sample(LETTERS,size = 5) %>% paste(collapse = "")) }
 
 
-  data <- data %>% mutate(.value = {{table_data}} %>% as.character())
+  data <- data %>% mutate(.value = {{cells}} %>% as.character())
 
   initial_format_list <-  list(list(header = list(), format_list = list()))
   initial_format_list_name <- paste0("format_",sample(LETTERS,size = 5) %>% paste(collapse = ""))
@@ -52,7 +52,7 @@ mmtable <- function(data,table_data, table_name = NULL, use_default_formats = TR
 
   col_header_df <- tibble::tibble(col_header_vars = c(NA),direction = c(NA))
   row_header_df <- tibble::tibble(row_header_vars = c(NA), direction = c(NA))
-  # data_vars <- substitute(table_data) %>% as.character()
+  # data_vars <- substitute(cells) %>% as.character()
   data_vars <- ".value"
   table_meta <- list(
     table_name = table_name

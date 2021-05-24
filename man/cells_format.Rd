@@ -22,7 +22,7 @@ Format table cells
 gm_table_formatted <-
   gapminder_mm \%>\%
   dplyr::filter(var != "Life expectancy") \%>\%
-  mmtable(table_data = value) +
+  mmtable(cells = value) +
   header_top(year) +
   header_left(country) +
   header_top_left(var)  +

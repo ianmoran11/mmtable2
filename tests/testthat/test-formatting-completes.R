@@ -5,7 +5,7 @@ test_that("multiplication works", {
  #  table <-
  #    gapminder_mm %>%
  #    # filter(var != "Life expectancy") %>%
- #    mmtable(table_data = value,use_defaul_formats = F) +
+ #    mmtable(cells = value,use_defaul_formats = F) +
  #    header_top(year) +
  #    header_left(country) +
  #    header_top_left(var)  +
