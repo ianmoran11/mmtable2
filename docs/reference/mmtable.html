@@ -160,7 +160,7 @@
     <p>Create an mmtable object</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mmtable</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>table_data</span>, table_name <span class='op'>=</span> <span class='cn'>NULL</span>, use_default_formats <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mmtable</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>cells</span>, table_name <span class='op'>=</span> <span class='cn'>NULL</span>, use_default_formats <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,7 +170,7 @@
       <td><p>a data frame</p></td>
     </tr>
     <tr>
-      <th>table_data</th>
+      <th>cells</th>
       <td><p>the name of the column whose values will form the data cells.</p></td>
     </tr>
     <tr>
@@ -198,7 +198,7 @@
 
 <span class='va'>gm_table</span> <span class='op'>&lt;-</span>
   <span class='va'>gm_df</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mmtable</span><span class='op'>(</span>table_data <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>mmtable</span><span class='op'>(</span>cells <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='header_top.html'>header_top</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='header_left.html'>header_left</a></span><span class='op'>(</span><span class='va'>country</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='header_top_left.html'>header_top_left</a></span><span class='op'>(</span><span class='va'>var</span><span class='op'>)</span>  <span class='op'>+</span>
