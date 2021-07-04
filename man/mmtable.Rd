@@ -4,7 +4,13 @@
 \alias{mmtable}
 \title{Create an mmtable object}
 \usage{
-mmtable(data, cells, table_name = NULL, use_default_formats = TRUE)
+mmtable(
+  data,
+  cells,
+  table_name = NULL,
+  use_default_formats = TRUE,
+  table_data = NULL
+)
 }
 \arguments{
 \item{data}{a data frame}
@@ -14,6 +20,8 @@ mmtable(data, cells, table_name = NULL, use_default_formats = TRUE)
 \item{table_name}{the name of the table - used for labeling when joined with another table - randomly generated if not provided.}
 
 \item{use_default_formats}{determines whether or note the table will have default formatting applied. Default value = TRUE.}
+
+\item{table_data}{deprecated. Use `cells` instead.}
 }
 \value{
 mmtable

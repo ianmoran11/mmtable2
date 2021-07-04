@@ -5,6 +5,7 @@
 #' @param cells the name of the column whose values will form the data cells.
 #' @param table_name the name of the table - used for labeling when joined with another table - randomly generated if not provided.
 #' @param use_default_formats determines whether or note the table will have default formatting applied. Default value = TRUE.
+#' @param table_data deprecated. Use `cells` instead.
 #' @return mmtable
 #' @export
 #' @importFrom magrittr %>%
@@ -34,9 +35,12 @@
 #'     style = style_list)
 #' }
 
-mmtable <- function(data,cells, table_name = NULL, use_default_formats = TRUE){
+mmtable <- function(data,cells, table_name = NULL, use_default_formats = TRUE,table_data = NULL){
 
   # browser()
+  if( "table_data" %in% names(as.list(match.call()))){
+    stop("\n\n*** Note: The `table_data` argument has been replaced with `cells`, ***")
+  }
 
   if(is.null(table_name)){table_name <- paste0("Table ",sample(LETTERS,size = 5) %>% paste(collapse = "")) }
 

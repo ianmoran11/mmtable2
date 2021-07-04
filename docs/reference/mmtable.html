@@ -160,7 +160,13 @@
     <p>Create an mmtable object</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mmtable</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>cells</span>, table_name <span class='op'>=</span> <span class='cn'>NULL</span>, use_default_formats <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mmtable</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  <span class='va'>cells</span>,
+  table_name <span class='op'>=</span> <span class='cn'>NULL</span>,
+  use_default_formats <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  table_data <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,6 +186,10 @@
     <tr>
       <th>use_default_formats</th>
       <td><p>determines whether or note the table will have default formatting applied. Default value = TRUE.</p></td>
+    </tr>
+    <tr>
+      <th>table_data</th>
+      <td><p>deprecated. Use `cells` instead.</p></td>
     </tr>
     </table>
 
