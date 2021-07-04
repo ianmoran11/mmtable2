@@ -7,7 +7,7 @@
 
 Create and combine tables with a ggplot2/patchwork syntax.
 
-See a short introduction in the [getting started vignette](https://ianmoran11.github.io/mmtable2/articles/getting-started.html).
+See a short introduction in the [getting started vignette](https://ianmoran11.github.io/mmtable2/articles/Some-minimal-examples.html).
 
 <img src="https://unpivotr.s3.amazonaws.com/01_intro_fast.gif" width="800px" />
 

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 Create and combine tables with a ggplot2/patchwork syntax.  
 
-See a short introduction in the [getting started vignette](https://ianmoran11.github.io/mmtable2/articles/getting-started.html).
+See a short introduction in the [getting started vignette](https://ianmoran11.github.io/mmtable2/articles/Some-minimal-examples.html).
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
 knitr::include_graphics("https://unpivotr.s3.amazonaws.com/01_intro_fast.gif")
