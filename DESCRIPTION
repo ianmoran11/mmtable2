@@ -23,7 +23,8 @@ Imports:
     xml2,
     rlang,
     forcats,
-    zoo
+    zoo,
+    qpdf
 URL: https://github.com/ianmoran11/mmtable2
 BugReports: https://github.com/ianmoran11/mmtable2/issues
 Suggests: 

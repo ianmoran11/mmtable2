@@ -12,3 +12,6 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^mmtable2\.Rcheck$
+^mmtable2.*\.tar\.gz$
+^mmtable2.*\.tgz$
