@@ -62,6 +62,13 @@ table_constructor <-
     )
 
     df <- apply_if(
+      func = sort_and_select_columns,
+      predicate = length(keep(col_header_vars,!is.na(col_header_vars))) >0,
+      data = df,row_header_vars = col_header_vars,col_header_vars = row_header_vars,data_vars = data_vars
+    )
+
+
+    df <- apply_if(
       func = spread_col_headers,
       predicate = length(keep(col_header_vars,!is.na(col_header_vars))) >0,
       data = df,row_header_vars = row_header_vars,col_header_vars = col_header_vars,data_vars = data_vars

@@ -14,8 +14,6 @@
   # browser()
 
 
-  # browser()
-
   if(is.null(mmtable2)){return(mmtable1)}
   if(is.null(mmtable1)){return(mmtable2)}
 
@@ -34,6 +32,36 @@
   table_format_2 <- attributes(mmtable2) %>% .[["_table_format"]]
 
   original_data <- bind_rows(original_data_2,original_data_1)
+
+  if("table_id_col" %in% names(original_data)){
+
+    original_data <-
+      original_data %>%
+      mutate(table_id_col =
+               forcats::fct_relevel(table_id_col,
+                                    unique(
+                                      c(levels(as.factor(original_data_1$table_id_col)),
+                                        levels(as.factor(original_data_2$table_id_col))
+                                        )
+                                      )))
+      }
+
+
+  if("table_id_row" %in% names(original_data)){
+
+    original_data <-
+      original_data %>%
+      mutate(table_id_row =
+               forcats::fct_relevel(table_id_row,
+                                    levels(as.factor(original_data_1$table_id_row)),
+                                    levels(as.factor(original_data_2$table_id_row)) ))
+  }
+
+
+
+
+
+
 
   col_header_df_1 <- headers_1$col_header_df %>% purrr::map_dfr(as.character)
   row_header_df_1 <- headers_1$row_header_df %>% purrr::map_dfr(as.character)

@@ -9,6 +9,8 @@
 
 spread_col_headers <- function(data, ...){
 
+  # browser()
+
   current_list <- list(...)
 
   with(current_list,

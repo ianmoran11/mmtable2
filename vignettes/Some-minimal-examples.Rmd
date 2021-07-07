@@ -90,6 +90,15 @@ The `+` operator places tables side-by-side (sharing headers)
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex1 <- t1 + t2
 ex1 
+
+ex1 + t3
+
+t3 + t2
+
+
+ex1 <- (t3 + t2) + t1
+ex1 
+
 ```
 
 The `/` operator places tables on top of one another (sharing headers)  
