@@ -44,7 +44,9 @@ gm_table <-
   header_left(year) +
   header_top(country) +
   header_left_top(var)  +
-  header_top_left(continent)
+  header_top_left(continent) + 
+  header_format(continent, scope = "headers", style = list(cell_fill(color="yellow"))) +
+  header_format(var, scope = "table", style = list(cell_fill(color = "grey"))) 
 
 gm_table 
 ```
@@ -89,14 +91,6 @@ t4 <- gapminder_tbl %>% filter(name == "Table 4") %>% pull(table) %>% .[[1]]
 The `+` operator places tables side-by-side (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex1 <- t1 + t2
-ex1 
-
-ex1 + t3
-
-t3 + t2
-
-
-ex1 <- (t3 + t2) + t1
 ex1 
 
 ```
