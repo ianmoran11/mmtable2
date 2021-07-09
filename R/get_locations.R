@@ -4,6 +4,8 @@
 #' @param header header from original data
 #' @param func the original formatting function applied
 #' @param cell_predicate predicate to determine locations
+#' @param scope string determining how widely formating will apply. Options
+#' include "cell", "headers" and "table"
 #' @return locations
 #' @export
 #' @importFrom magrittr %>%
