@@ -19,7 +19,11 @@ apply_format <- function(mmtable, format_list){
  }
 
  if(format_list$func == "header_format"){
- locations_list <- get_locations(mmtable = mmtable,header = format_list$header, func = format_list$func, scope =format_list$format_list$scope)
+
+ locations_list <- get_locations(mmtable = mmtable,
+                                 header = format_list$header,
+                                 func = format_list$func,
+                                 scope =ifelse(length(format_list$format_list$scope)==0, "cell",format_list$format_list$scope))
  }
 
   if(format_list$func == "table_format"){
