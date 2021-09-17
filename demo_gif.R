@@ -5,7 +5,20 @@ style_list <- list(
     cell_borders(sides = "top",color = "grey")
     )
 
- gm_df %>% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ gm_df %>%
   mmtable(cells = value) +
   header_top(year) +
   header_top_left(var)  +
