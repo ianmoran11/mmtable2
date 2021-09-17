@@ -8,6 +8,7 @@
 .DS_Store
 inst/doc
 /doc/
+/_libs/
 mmtable2.Rcheck/
 mmtable2*.tar.gz
 mmtable2*.tgz
