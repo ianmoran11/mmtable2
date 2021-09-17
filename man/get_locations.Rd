@@ -4,7 +4,13 @@
 \alias{get_locations}
 \title{Identify which locations are to be formatted.}
 \usage{
-get_locations(mmtable, header = NULL, func, cell_predicate = NULL)
+get_locations(
+  mmtable,
+  header = NULL,
+  func,
+  cell_predicate = NULL,
+  scope = "cell"
+)
 }
 \arguments{
 \item{mmtable}{an mmtable}
@@ -14,6 +20,9 @@ get_locations(mmtable, header = NULL, func, cell_predicate = NULL)
 \item{func}{the original formatting function applied}
 
 \item{cell_predicate}{predicate to determine locations}
+
+\item{scope}{string determining how widely formating will apply. Options
+include "cell", "headers" and "table"}
 }
 \value{
 locations

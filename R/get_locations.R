@@ -4,6 +4,8 @@
 #' @param header header from original data
 #' @param func the original formatting function applied
 #' @param cell_predicate predicate to determine locations
+#' @param scope string determining how widely formating will apply. Options
+#' include "cell", "headers" and "table"
 #' @return locations
 #' @export
 #' @importFrom magrittr %>%
@@ -17,7 +19,7 @@
 #' @importFrom purrr set_names
 #' @importFrom stringr str_detect
 
-get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
+get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL, scope = "cell"){
 
   # browser()
 
@@ -114,14 +116,38 @@ get_locations <- function(mmtable,header = NULL, func,cell_predicate = NULL){
 
 
    if(header %in% header_dfs$col_header_df$col_header_vars){
-     rows_to_modify <- header_dfs$col_header_df %>% dplyr::filter(col_header_vars == header) %>% pull(header_no)
-     cols_to_modify <- mmtable$`_data`[rows_to_modify,] %>% unlist %>% str_detect("[:alnum:]") %>% which()
+     if(scope == "table"){ rows_to_modify <- 1:nrow(mmtable$`_data`)}
+     if(scope == "headers"){ rows_to_modify <- 1:(max(header_dfs$col_header_df$header_no))}
+     if(scope == "cell"){  rows_to_modify <- header_dfs$col_header_df %>% dplyr::filter(col_header_vars == header) %>% pull(header_no)}
+
+     header_cols_with_content <- header_dfs$col_header_df %>% dplyr::filter(col_header_vars == header) %>% pull(header_no)
+     cols_to_modify <- mmtable$`_data`[header_cols_with_content,] %>% unlist %>% str_detect("[:alnum:]") %>% which()
+
+     cell_combinations <- crossing(cols_to_modify,rows_to_modify) %>% unique()
+
+     cols_to_modify <- cell_combinations$cols_to_modify
+     rows_to_modify <- cell_combinations$rows_to_modify
+
    }
 
    if(header %in% header_dfs$row_header_df$row_header_vars){
+     # browser()
 
-     cols_to_modify <- header_dfs$row_header_df %>% dplyr::filter(row_header_vars == header) %>% pull(header_no)
-     rows_to_modify <- mmtable$`_data`[,cols_to_modify] %>% unlist %>% str_detect("[:alnum:]") %>% which()
+     if(scope == "table"){ cols_to_modify <- 1:ncol(mmtable$`_data`)}
+     if(scope == "headers"){ cols_to_modify <- 1:(max(header_dfs$col_header_df$header_no))}
+     if(scope == "cell"){  cols_to_modify <- header_dfs$row_header_df %>% dplyr::filter(row_header_vars == header) %>% pull(header_no)}
+
+     header_rows_with_content <- header_dfs$row_header_df %>% dplyr::filter(row_header_vars == header) %>% pull(header_no)
+     rows_to_modify <- mmtable$`_data`[,header_rows_with_content] %>% unlist %>% str_detect("[:alnum:]") %>% which()
+
+     cell_combinations <- crossing(cols_to_modify,rows_to_modify) %>% unique()
+
+     cols_to_modify <- cell_combinations$cols_to_modify
+     rows_to_modify <- cell_combinations$rows_to_modify
+
+
+     # cols_to_modify <- header_dfs$row_header_df %>% dplyr::filter(row_header_vars == header) %>% pull(header_no)
+     # rows_to_modify <- mmtable$`_data`[,cols_to_modify] %>% unlist %>% str_detect("[:alnum:]") %>% which()
    }
 
    return_list <- map2(rows_to_modify, cols_to_modify, function(x,y) list(row = x, col = y))

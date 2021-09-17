@@ -168,11 +168,11 @@ cells  %>%
   header_format(header = "all_cols", 
                 style = list(cell_text(align = "center"))
                 ) +
-  table_format(
-    locations = cells_body(rows = c(1,9)),
+  header_format(stat_type,
+    scope = "table",
     style = list(
       cell_borders(sides = "top",
-      weight = px(2),
+      weight = px(4),
       color = "lightgrey"))
     ) +
   header_merged_cols() +

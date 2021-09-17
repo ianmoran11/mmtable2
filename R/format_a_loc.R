@@ -16,6 +16,11 @@ format_a_loc <- function(mmtable, loc,format_list){
 
   # print(loc)
 
+  if("scope" %in% names(format_list$format_list)){
+
+    format_list$format_list$scope <- NULL
+  }
+
   invoke_list <- list(data=mmtable,locations = cells_body(rows = loc[[1]], columns = loc[[2]])) %>% append(.,  format_list$format_list)
 
   table <- invoke(tab_style,.x =  invoke_list)
