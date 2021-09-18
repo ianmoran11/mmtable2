@@ -51,6 +51,6 @@ gm_table <-
   header_format(header = var, scope = "table", style = style_list) +
   header_format(continent,style_list3)
 
-gm_table 
+apply_formats(gm_table)
 ```
 
