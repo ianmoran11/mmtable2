@@ -47,10 +47,25 @@ let
       renv
       colorspace
       scales
+      ## textshaping
+      ## pkgdown
     ];
   };
 in mkShell {
-  buildInputs = with pkgs; [  pandoc vscodium git glibcLocales openssl which openssh curl wget ];
+  buildInputs = with pkgs; [
+    pandoc
+    vscodium
+    git
+    glibcLocales
+    openssl
+    which
+    openssh
+    curl
+    wget
+    harfbuzz
+    haskellPackages.freetype2
+    fribidi
+  ];
   inputsFrom = [ my-r-pkgs ];
   shellHook = ''
     mkdir -p "$(pwd)/_libs"
