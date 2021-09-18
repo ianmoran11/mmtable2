@@ -48,7 +48,7 @@ gm_table <-
   header_top_left(continent) + 
   header_format(var, scope = "table", style = style_list)
 
-gm_table 
+apply_formats(gm_table)
 ```
 
 ## Combining tables
@@ -91,20 +91,19 @@ t4 <- gapminder_tbl %>% filter(name == "Table 4") %>% pull(table) %>% .[[1]]
 The `+` operator places tables side-by-side (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex1 <- t1 + t2
-ex1 
-
+apply_formats(ex1)
 ```
 
 The `/` operator places tables on top of one another (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex2 <- t1 / t3
-ex2 
+apply_formats(ex2)
 ```
 
 The `*` operator "integrates" tables  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex3 <- t1 * t3 * t4 *  t2
-ex3 
+apply_formats(ex3)
 ```
 
 ## Formatting tables
@@ -128,7 +127,7 @@ gapminder_mm %>%
   header_format(continent, scope= "table", 
                 style = list(cell_borders(sides = "top",color = "grey"))) 
 
-gm_table_formatted
+apply_formats(gm_table_formatted)
 ```
 
 ### Merged header columns 
@@ -156,7 +155,7 @@ gm_table_merged <-
     style = style_list) +
   header_merged_cols()
 
- gm_table_merged
+ apply_formats(gm_table_merged)
 ```
 
 ### Alternative pipe syntax
@@ -178,6 +177,6 @@ gapminder_mm %>%
   add_header_format(continent, scope= "table", 
                 style = list(cell_borders(sides = "top",color = "grey"))) 
 
-gm_table_piped
+apply_formats(gm_table_piped)
 ```
 

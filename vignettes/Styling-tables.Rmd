@@ -46,7 +46,7 @@ gapminder_mm %>%
   header_format("all_rows", style = list(cell_text(weight = "bolder"))) +
   header_format(continent,scope = "table",style = list(cell_borders(sides = "top",color = "grey"))) 
 
-gm_table_formatted
+apply_formats(gm_table_formatted)
 ```
 
 ### Merged header columns 
@@ -69,7 +69,7 @@ gm_table_merged <-
   header_format(continent,style_list3 ) +
   header_merged_cols()
 
- gm_table_merged
+ apply_formats(gm_table_merged)
 ```
 
 ### Alternative pipe syntax
@@ -90,7 +90,7 @@ gapminder_mm %>%
   add_header_format("all_rows", style = list(cell_text(weight = "bolder"))) %>% 
   add_header_format(continent,scope = "table",style = style_list) 
 
-gm_table_piped
+apply_formats(gm_table_piped)
 ```
 
 
@@ -150,5 +150,5 @@ color_list <-
          }
        )
 
-append(list(table),color_list) %>% reduce(`+`)
+apply_formats(append(list(table),color_list) %>% reduce(`+`))
 ```
