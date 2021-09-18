@@ -67,9 +67,6 @@
     </li>
     <li class="divider">
     <li class="dropdown-header">Key concepts</li>
-    <li>
-      <a href="../articles/Tidy-and-untidy-tables.html">Tidy and untidy tables</a>
-    </li>
     <li class="divider">
     <li class="dropdown-header">Deep dives</li>
     <li>
@@ -106,7 +103,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Constructing-tables_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Constructing tables</h1>
@@ -119,7 +116,7 @@
 
     
     
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
@@ -133,11 +130,9 @@
 <p>You can add headers using data from a column in your data frame.</p>
 <p>Its placement will depend on your your choice of header_* functions.</p>
 <p>Header options include: top, top_left, left, and left_top.</p>
-<p>Here's an example.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">row_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span>
-<span class="va">col_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">7</span>,<span class="fl">9</span>,<span class="fl">11</span><span class="op">)</span><span class="op">)</span>
-<span class="va">style_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://gt.rstudio.com/reference/cell_borders.html">cell_borders</a></span><span class="op">(</span>sides <span class="op">=</span> <span class="st">"top"</span>,color <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span><span class="op">)</span>
+<p>Here’s an example.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">style_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://gt.rstudio.com/reference/cell_borders.html">cell_borders</a></span><span class="op">(</span>sides <span class="op">=</span> <span class="st">"top"</span>,color <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">style_list2</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://gt.rstudio.com/reference/cell_borders.html">cell_borders</a></span><span class="op">(</span>sides <span class="op">=</span> <span class="st">"left"</span>,color <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">gm_df</span> <span class="op">&lt;-</span> <span class="va">gapminder_mm</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">var</span> <span class="op">!=</span> <span class="st">"Life expectancy"</span><span class="op">)</span>
 <span class="va">style_list3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://gt.rstudio.com/reference/cell_text.html">cell_text</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span><span class="op">)</span>
@@ -149,682 +144,506 @@
   <span class="fu"><a href="../reference/header_top.html">header_top</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="../reference/header_left_top.html">header_left_top</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span>  <span class="op">+</span>
   <span class="fu"><a href="../reference/header_top_left.html">header_top_left</a></span><span class="op">(</span><span class="va">continent</span><span class="op">)</span>  <span class="op">+</span>
-  <span class="fu"><a href="../reference/table_format.html">table_format</a></span><span class="op">(</span>
-    locations <span class="op">=</span> <span class="va">row_list</span>,
-    style <span class="op">=</span> <span class="va">style_list</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="../reference/header_format.html">header_format</a></span><span class="op">(</span><span class="va">continent</span>,<span class="va">style_list3</span> <span class="op">)</span>
+  <span class="fu"><a href="../reference/header_format.html">header_format</a></span><span class="op">(</span>header <span class="op">=</span> <span class="va">var</span>, scope <span class="op">=</span> <span class="st">"table"</span>, style <span class="op">=</span> <span class="va">style_list</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/header_format.html">header_format</a></span><span class="op">(</span><span class="va">continent</span>,<span class="va">style_list3</span><span class="op">)</span>
 
 <span class="va">gm_table</span> </code></pre></div>
-<div id="apgrvhsgjz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="reswigzhgn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
-#apgrvhsgjz .gt_table {
-display: table;
-border-collapse: collapse;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
+
+#reswigzhgn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
+
+#reswigzhgn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
+
+#reswigzhgn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
 }
-#apgrvhsgjz .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 0;
-padding-bottom: 4px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
+
+#reswigzhgn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
 }
-#apgrvhsgjz .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
+
+#reswigzhgn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
+
+#reswigzhgn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
+
+#reswigzhgn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
 }
-#apgrvhsgjz .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
+
+#reswigzhgn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
 }
-#apgrvhsgjz .gt_column_spanner_outer:first-child {
-padding-left: 0;
+
+#reswigzhgn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
 }
-#apgrvhsgjz .gt_column_spanner_outer:last-child {
-padding-right: 0;
+
+#reswigzhgn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
 }
-#apgrvhsgjz .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
+
+#reswigzhgn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
 }
-#apgrvhsgjz .gt_group_heading {
-padding: 8px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
+
+#reswigzhgn .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
 }
-#apgrvhsgjz .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
+
+#reswigzhgn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
 }
-#apgrvhsgjz .gt_from_md > :first-child {
-margin-top: 0;
+
+#reswigzhgn .gt_from_md > :first-child {
+  margin-top: 0;
 }
-#apgrvhsgjz .gt_from_md > :last-child {
-margin-bottom: 0;
+
+#reswigzhgn .gt_from_md > :last-child {
+  margin-bottom: 0;
 }
-#apgrvhsgjz .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
+
+#reswigzhgn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
 }
-#apgrvhsgjz .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 12px;
+
+#reswigzhgn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
 }
-#apgrvhsgjz .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
+
+#reswigzhgn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-#apgrvhsgjz .gt_first_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
+
+#reswigzhgn .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
+
+#reswigzhgn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-#apgrvhsgjz .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
+
+#reswigzhgn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
+
+#reswigzhgn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
 }
-#apgrvhsgjz .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
+
+#reswigzhgn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
+
+#reswigzhgn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding: 4px;
+
+#reswigzhgn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
 }
-#apgrvhsgjz .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
+
+#reswigzhgn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
 }
-#apgrvhsgjz .gt_sourcenote {
-font-size: 90%;
-padding: 4px;
+
+#reswigzhgn .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
 }
-#apgrvhsgjz .gt_left {
-text-align: left;
+
+#reswigzhgn .gt_left {
+  text-align: left;
 }
-#apgrvhsgjz .gt_center {
-text-align: center;
+
+#reswigzhgn .gt_center {
+  text-align: center;
 }
-#apgrvhsgjz .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
+
+#reswigzhgn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
-#apgrvhsgjz .gt_font_normal {
-font-weight: normal;
+
+#reswigzhgn .gt_font_normal {
+  font-weight: normal;
 }
-#apgrvhsgjz .gt_font_bold {
-font-weight: bold;
+
+#reswigzhgn .gt_font_bold {
+  font-weight: bold;
 }
-#apgrvhsgjz .gt_font_italic {
-font-style: italic;
+
+#reswigzhgn .gt_font_italic {
+  font-style: italic;
 }
-#apgrvhsgjz .gt_super {
-font-size: 65%;
+
+#reswigzhgn .gt_super {
+  font-size: 65%;
 }
-#apgrvhsgjz .gt_footnote_marks {
-font-style: italic;
-font-weight: normal;
-font-size: 65%;
+
+#reswigzhgn .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
 }
 </style>
-<table class="table gt_table"><tbody class="gt_table_body">
+<table class="table gt_table">
+<thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">  </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">   </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">    </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">     </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">      </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">       </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">        </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">         </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">          </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">           </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">            </th>
+    </tr></thead>
+<tbody class="gt_table_body">
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: left; font-weight: bold;">
-Africa
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: left; font-weight: bold;">
-Americas
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: left; font-weight: bold;">
-Asia
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: left; font-weight: bold;">
-Europe
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: left; font-weight: bold;">
-Oceania
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Africa</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Americas</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Asia</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Europe</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Oceania</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Botswana
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Gabon
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Canada
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-United States
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Kuwait
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Singapore
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Ireland
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Norway
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-Australia
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; font-weight: bold;">
-New Zealand
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Botswana</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Gabon</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Canada</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">United States</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Kuwait</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Singapore</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Ireland</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Norway</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Australia</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">New Zealand</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-GDP
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-1992
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-8.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-13.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-26.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-32.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-34.9
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-24.8
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-17.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-34.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-23.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-18.4
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">GDP</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1992</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">8.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">13.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">26.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">32.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">34.9</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">24.8</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">17.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">34.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">23.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">18.4</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold;">
-1997
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-8.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-14.7
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-29.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-35.8
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-40.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-33.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-24.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-41.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-27.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-21.1
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1997</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">8.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">14.7</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">29.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">35.8</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">40.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">33.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">24.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">41.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">27.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">21.1</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold;">
-2002
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-11.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-12.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-33.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-39.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-35.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-36.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-34.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-44.7
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-30.7
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-23.2
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2002</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">11.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">12.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">33.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">39.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">35.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">36.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">34.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">44.7</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">30.7</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">23.2</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold;">
-2007
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-12.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-13.2
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-36.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-43.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-47.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-47.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-40.7
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-49.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-34.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-25.2
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2007</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">12.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">13.2</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">36.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">43.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">47.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">47.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">40.7</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">49.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">34.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">25.2</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-Population
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-1992
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-1.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-1.0
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-28.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-256.9
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-1.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-3.2
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-3.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-4.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-17.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right; border-top-width: 1px; border-top-style: solid; border-top-color: grey;">
-3.4
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Population</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1992</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.0</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">28.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">256.9</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.2</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">17.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.4</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold;">
-1997
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-30.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-272.9
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.8
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-3.8
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-3.7
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-18.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-3.7
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1997</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">30.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">272.9</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.8</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.8</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.7</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">18.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.7</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold;">
-2002
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.3
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-31.9
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-287.7
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-2.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.2
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-3.9
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-19.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-3.9
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2002</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">31.9</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">287.7</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.2</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.9</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">19.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.9</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; font-weight: bold;">
-2007
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-1.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-33.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-301.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-2.5
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.1
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.6
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-20.4
-</td>
-<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000; font-size: 12px; text-align: right;">
-4.1
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2007</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">33.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">301.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2.5</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.6</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">20.4</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">4.1</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 </div>
   </div>

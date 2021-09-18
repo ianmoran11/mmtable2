@@ -109,9 +109,6 @@
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Key concepts</li>
-    <li>
-      <a href="../articles/Tidy-and-untidy-tables.html">Tidy and untidy tables</a>
-    </li>
     <li class="divider"></li>
     <li class="dropdown-header">Deep dives</li>
     <li>
@@ -160,7 +157,13 @@
     <p>Identify which locations are to be formatted.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_locations</span><span class='op'>(</span><span class='va'>mmtable</span>, header <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>func</span>, cell_predicate <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_locations</span><span class='op'>(</span>
+  <span class='va'>mmtable</span>,
+  header <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>func</span>,
+  cell_predicate <span class='op'>=</span> <span class='cn'>NULL</span>,
+  scope <span class='op'>=</span> <span class='st'>"cell"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,6 +183,11 @@
     <tr>
       <th>cell_predicate</th>
       <td><p>predicate to determine locations</p></td>
+    </tr>
+    <tr>
+      <th>scope</th>
+      <td><p>string determining how widely formating will apply. Options
+include "cell", "headers" and "table"</p></td>
     </tr>
     </table>
 

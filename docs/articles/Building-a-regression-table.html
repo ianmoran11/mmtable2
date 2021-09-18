@@ -67,9 +67,6 @@
     </li>
     <li class="divider">
     <li class="dropdown-header">Key concepts</li>
-    <li>
-      <a href="../articles/Tidy-and-untidy-tables.html">Tidy and untidy tables</a>
-    </li>
     <li class="divider">
     <li class="dropdown-header">Deep dives</li>
     <li>
@@ -106,7 +103,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Building-a-regression-table_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Building a regression table</h1>
@@ -124,13 +121,13 @@
 <h2 class="hasAnchor">
 <a href="#modelling-titanic-survival" class="anchor"></a>Modelling titanic survival</h2>
 <p>Below is an example using the titanic data set to predict survival using logit/LPM, two specifications and separate models for males and females.</p>
-<p>The modeling and data preparation are not our primary concern here, but see the source rmd file of this vignette if you'd like to see the function completes these tasks.</p>
-<p></p>
+<p>The modeling and data preparation are not our primary concern here, but see the source rmd file of this vignette if you’d like to see the function completes these tasks.</p>
+
 <div id="data-preparation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data-preparation" class="anchor"></a>Data preparation</h3>
 <p>We now produce a data frame that is ready for mmtable2. That is, a data frame with a row for each body cell and a column for each header.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cells</span> <span class="op">&lt;-</span>
   <span class="fu">bind_rows</span><span class="op">(</span>
     <span class="fu">get_model_data</span><span class="op">(</span>sex_filter <span class="op">=</span> <span class="st">"Female"</span>, specification_arg <span class="op">=</span> <span class="st">"(II)"</span>, model <span class="op">=</span> <span class="st">"LPM"</span> <span class="op">)</span>,
@@ -159,8 +156,8 @@
 <div id="table-construction" class="section level3">
 <h3 class="hasAnchor">
 <a href="#table-construction" class="anchor"></a>Table construction</h3>
-<p>And here's the code to create the final table. Notice the use of <code><a href="../reference/header_merged_cols.html">header_merged_cols()</a></code>. This ensures top_left headers are not constrained to a single cell.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<p>And here’s the code to create the final table. Notice the use of <code><a href="../reference/header_merged_cols.html">header_merged_cols()</a></code>. This ensures top_left headers are not constrained to a single cell.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cells</span>  <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/mmtable.html">mmtable</a></span><span class="op">(</span>cells <span class="op">=</span>  <span class="va">value</span><span class="op">)</span>  <span class="op">+</span>
   <span class="fu"><a href="../reference/header_left_top.html">header_left_top</a></span><span class="op">(</span><span class="va">var_level</span><span class="op">)</span> <span class="op">+</span>
@@ -175,806 +172,588 @@
   <span class="fu"><a href="../reference/header_format.html">header_format</a></span><span class="op">(</span>header <span class="op">=</span> <span class="st">"all_cols"</span>, 
                 style <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu">cell_text</span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span><span class="op">)</span>
                 <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="../reference/table_format.html">table_format</a></span><span class="op">(</span>
-    locations <span class="op">=</span> <span class="fu">cells_body</span><span class="op">(</span>rows <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span>,
+  <span class="fu"><a href="../reference/header_format.html">header_format</a></span><span class="op">(</span><span class="va">stat_type</span>,
+    scope <span class="op">=</span> <span class="st">"table"</span>,
     style <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
       <span class="fu">cell_borders</span><span class="op">(</span>sides <span class="op">=</span> <span class="st">"top"</span>,
-      weight <span class="op">=</span> <span class="fu">px</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>,
+      weight <span class="op">=</span> <span class="fu">px</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>,
       color <span class="op">=</span> <span class="st">"lightgrey"</span><span class="op">)</span><span class="op">)</span>
     <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="../reference/header_merged_cols.html">header_merged_cols</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="cn">NULL</span></code></pre></div>
-<div id="qeuyhecotc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rnwtdiagma" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
-#qeuyhecotc .gt_table {
-display: table;
-border-collapse: collapse;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
+
+#rnwtdiagma .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
 }
-#qeuyhecotc .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
+
+#rnwtdiagma .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
 }
-#qeuyhecotc .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
+
+#rnwtdiagma .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
 }
-#qeuyhecotc .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 0;
-padding-bottom: 4px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
+
+#rnwtdiagma .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
 }
-#qeuyhecotc .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
+
+#rnwtdiagma .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
 }
-#qeuyhecotc .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
+
+#rnwtdiagma .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
 }
-#qeuyhecotc .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
+
+#rnwtdiagma .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
 }
-#qeuyhecotc .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
+
+#rnwtdiagma .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
 }
-#qeuyhecotc .gt_column_spanner_outer:first-child {
-padding-left: 0;
+
+#rnwtdiagma .gt_column_spanner_outer:first-child {
+  padding-left: 0;
 }
-#qeuyhecotc .gt_column_spanner_outer:last-child {
-padding-right: 0;
+
+#rnwtdiagma .gt_column_spanner_outer:last-child {
+  padding-right: 0;
 }
-#qeuyhecotc .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
+
+#rnwtdiagma .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
 }
-#qeuyhecotc .gt_group_heading {
-padding: 8px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
+
+#rnwtdiagma .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
 }
-#qeuyhecotc .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
+
+#rnwtdiagma .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
 }
-#qeuyhecotc .gt_from_md > :first-child {
-margin-top: 0;
+
+#rnwtdiagma .gt_from_md > :first-child {
+  margin-top: 0;
 }
-#qeuyhecotc .gt_from_md > :last-child {
-margin-bottom: 0;
+
+#rnwtdiagma .gt_from_md > :last-child {
+  margin-bottom: 0;
 }
-#qeuyhecotc .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
+
+#rnwtdiagma .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
 }
-#qeuyhecotc .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 12px;
+
+#rnwtdiagma .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
 }
-#qeuyhecotc .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
+
+#rnwtdiagma .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-#qeuyhecotc .gt_first_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
+
+#rnwtdiagma .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
 }
-#qeuyhecotc .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
+
+#rnwtdiagma .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-#qeuyhecotc .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
+
+#rnwtdiagma .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
 }
-#qeuyhecotc .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
+
+#rnwtdiagma .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
 }
-#qeuyhecotc .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
+
+#rnwtdiagma .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
 }
-#qeuyhecotc .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
+
+#rnwtdiagma .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
 }
-#qeuyhecotc .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding: 4px;
+
+#rnwtdiagma .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
 }
-#qeuyhecotc .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
+
+#rnwtdiagma .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
 }
-#qeuyhecotc .gt_sourcenote {
-font-size: 90%;
-padding: 4px;
+
+#rnwtdiagma .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
 }
-#qeuyhecotc .gt_left {
-text-align: left;
+
+#rnwtdiagma .gt_left {
+  text-align: left;
 }
-#qeuyhecotc .gt_center {
-text-align: center;
+
+#rnwtdiagma .gt_center {
+  text-align: center;
 }
-#qeuyhecotc .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
+
+#rnwtdiagma .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
-#qeuyhecotc .gt_font_normal {
-font-weight: normal;
+
+#rnwtdiagma .gt_font_normal {
+  font-weight: normal;
 }
-#qeuyhecotc .gt_font_bold {
-font-weight: bold;
+
+#rnwtdiagma .gt_font_bold {
+  font-weight: bold;
 }
-#qeuyhecotc .gt_font_italic {
-font-style: italic;
+
+#rnwtdiagma .gt_font_italic {
+  font-style: italic;
 }
-#qeuyhecotc .gt_super {
-font-size: 65%;
+
+#rnwtdiagma .gt_super {
+  font-size: 65%;
 }
-#qeuyhecotc .gt_footnote_marks {
-font-style: italic;
-font-weight: normal;
-font-size: 65%;
+
+#rnwtdiagma .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
 }
 </style>
 <table class="table gt_table">
-<thead class="gt_col_headings">
-<tr>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner"> </span>
-</th>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner">Female</span>
-</th>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner">Male</span>
-</th>
-</tr>
-<tr>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner"> </span>
-</th>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner">Logit</span>
-</th>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner">LPM</span>
-</th>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner">Logit</span>
-</th>
-<th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="font-size: 12px; text-align: center; font-weight: bold;">
-<span class="gt_column_spanner">LPM</span>
-</th>
-</tr>
-<tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(I)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(II)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(I)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(II)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(I)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(II)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(I)
-</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-size: 12px; text-align: center; font-weight: bold;">
-(II)
-</th>
-</tr>
-</thead>
+<thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">  </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">   </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">    </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">     </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">      </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">       </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">        </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">         </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">          </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">           </th>
+    </tr></thead>
 <tbody class="gt_table_body">
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-Marginal effects
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-Age
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-0.004
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
--0.003
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-0.004
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
--0.003
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
--0.003*
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
--0.007***
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
--0.003*
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
--0.007***
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Female</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Male</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.002)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.002)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.002)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.002)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.001)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.001)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.001)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.001)
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Logit</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">LPM</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Logit</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">LPM</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-Passenger class
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-1
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(I)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(II)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(I)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(II)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(I)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(II)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(I)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(II)</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Marginal effects</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Age</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.004</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.003</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.004</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.003</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.003*</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.007***</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.003*</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.007***</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-2
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.050
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.063
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.365***
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.320***
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.002)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.002)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.002)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.002)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.001)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.001)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.001)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.001)</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.036)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.058)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.063)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.056)
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Passenger class</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">1</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-3
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.545***
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.542***
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.384***
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--0.351***
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.055)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.057)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.057)
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-(0.049)
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">2</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.050</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.063</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.365***</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.320***</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-Model statistics
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-Observations
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-261
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-261
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-261
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-261
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-453
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-453
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-453
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left; border-top-width: 2px; border-top-style: solid; border-top-color: lightgrey;">
-453
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.036)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.058)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.063)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.056)</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-R2
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.01
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.31
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.01
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.12
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.545***</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.542***</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.384***</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-0.351***</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-Adjusted R2
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.01
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.30
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.01
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-0.11
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.055)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.057)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.057)</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">(0.049)</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-Log likelihood
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--143.59
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--102.62
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--148.42
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--101.90
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--226.61
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--202.93
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--228.85
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
--203.08
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Model statistics</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Observations</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"></td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">261</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">261</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">261</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">261</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">453</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">453</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">453</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">453</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-Akaike Inf. Crit.
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-291.18
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-213.24
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-302.85
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-213.79
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-457.22
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-413.87
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-463.70
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-416.16
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">R2</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.01</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.31</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.01</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.12</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; font-weight: bold;">
-F statistic
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-3.54
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-38.37
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px;">
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-6.55
-</td>
-<td class="gt_row gt_left" style="font-size: 12px; text-align: left;">
-20.47
-</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Adjusted R2</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.01</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.30</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.01</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">0.11</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Log likelihood</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-143.59</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-102.62</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-148.42</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-101.90</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-226.61</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-202.93</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-228.85</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">-203.08</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">Akaike Inf. Crit.</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">291.18</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">213.24</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">302.85</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">213.79</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">457.22</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">413.87</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">463.70</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">416.16</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">F statistic</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">3.54</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">38.37</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;"> </td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">6.55</td>
+<td class="gt_row gt_left" style="background-color: #FFFFFF; color: #000000;">20.47</td>
 </tr>
 </tbody>
 </table>
