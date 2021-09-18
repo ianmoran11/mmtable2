@@ -35,7 +35,6 @@
 
 
 
-
 gm_df <- gapminder_mm %>% filter(var != "Life expectancy")
 
 style_list <- list(

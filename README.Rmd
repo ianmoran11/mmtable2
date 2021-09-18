@@ -27,7 +27,7 @@ Create and combine tables with a ggplot2/patchwork syntax.
 See a short introduction in the [getting started vignette](https://ianmoran11.github.io/mmtable2/articles/Some-minimal-examples.html).
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE, out.width = "800px"}
-knitr::include_graphics("https://unpivotr.s3.amazonaws.com/01_intro_fast.gif")
+knitr::include_graphics("https://mmtable2.s3.ap-southeast-2.amazonaws.com/mmtable2-fast.gif")
 ```
 
 ## Installation
