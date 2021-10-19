@@ -133,8 +133,6 @@ apply_formats <- function(mmtable){
 
     # xml2::xml_remove(xml2::xml_find_first(table_html,"head"))
 
-
-
     html_text <-
       table_html %>%  as.character() %>%
       str_remove_all("\\[[0-9]+\\]") %>%

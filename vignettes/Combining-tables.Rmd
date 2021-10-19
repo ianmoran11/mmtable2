@@ -67,17 +67,17 @@ t4 <- gapminder_tbl %>% filter(name == "Table 4") %>% pull(table) %>% .[[1]]
 The `+` operator places tables side-by-side (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex1 <- t1 + t2
-apply_formats(ex1)
+print(ex1)
 ```
 
 The `/` operator places tables on top of one another (sharing headers)  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex2 <- t1 / t3
-apply_formats(ex2)
+print(ex2)
 ```
 
 The `*` operator "integrates" tables  
 ```{r message=FALSE, warning=FALSE, echo = T}
 ex3 <- t1 * t3 * t4 *  t2
-apply_formats(ex3)
+print(ex3)
 ```
