@@ -133,10 +133,18 @@ apply_formats <- function(mmtable){
 
     # xml2::xml_remove(xml2::xml_find_first(table_html,"head"))
 
+border_fix <- 
+"
+<style>
+table th {
+   border-style: none;
+}
+</style>
+"
+
     html_text <-
       table_html %>%  as.character() %>%
       str_remove_all("\\[[0-9]+\\]") %>%
-      str_replace_all('_spanner"></span>','_spanner">&nbsp;</span>') %>%
       str_split("\n") %>% .[[1]]  %>%  .[-c(1)] %>%
       keep(!str_detect(.,"^</html>")) %>%
       keep(!str_detect(.,"^</head>")) %>%
@@ -147,6 +155,7 @@ apply_formats <- function(mmtable){
       str_trim() %>% keep(nchar(.)>0) %>%
       paste(collapse = "\n") %>%
       keep(nchar(.)!= 0 ) %>%
+      paste0(border_fix,.) %>%
       htmltools::HTML()
 
   # htmltools::html_print(html_text)
@@ -204,6 +213,7 @@ apply_formats <- function(mmtable){
     as.character() %>%
     str_split("\n") %>% .[[1]] %>%
     str_trim() %>% keep(nchar(.)>0) %>% paste(collapse = "\n") %>%
+    str_replace_all("inset","none") %>%
     htmltools::HTML()
 
   attr(final_mmtable_return,"html") <- html_text
